@@ -1,0 +1,81 @@
+{
+  "replay_note": "Previously observed public rankings; correctness replay, not new quality or latency evidence",
+  "multi_domain": [
+    {
+      "source": "benchmark-phase9-cranfield-heldout.json",
+      "unique_queries": 150,
+      "identical_rankings": 450,
+      "backend_calls": 150,
+      "cache": {
+        "hits": 300,
+        "misses": 150,
+        "bypasses": 0,
+        "evictions": 0,
+        "entries": 150,
+        "serialized_bytes": 209042
+      }
+    },
+    {
+      "source": "benchmark-phase9-scifact-transfer.json",
+      "unique_queries": 300,
+      "identical_rankings": 900,
+      "backend_calls": 300,
+      "cache": {
+        "hits": 600,
+        "misses": 300,
+        "bypasses": 0,
+        "evictions": 0,
+        "entries": 300,
+        "serialized_bytes": 444396
+      }
+    },
+    {
+      "source": "phase10-results/benchmark-phase10-nfcorpus.json",
+      "unique_queries": 323,
+      "identical_rankings": 969,
+      "backend_calls": 323,
+      "cache": {
+        "hits": 646,
+        "misses": 323,
+        "bypasses": 0,
+        "evictions": 0,
+        "entries": 323,
+        "serialized_bytes": 485600
+      }
+    },
+    {
+      "source": "phase11-results/benchmark-phase11-arguana.json",
+      "unique_queries": 200,
+      "identical_rankings": 600,
+      "backend_calls": 200,
+      "cache": {
+        "hits": 400,
+        "misses": 200,
+        "bypasses": 0,
+        "evictions": 0,
+        "entries": 200,
+        "serialized_bytes": 403676
+      }
+    }
+  ],
+  "concurrent_serving": {
+    "documents": 10000,
+    "searches": 20000,
+    "workers": 8,
+    "elapsed_seconds": 1.5913583000656217,
+    "cache": {
+      "hits": 19900,
+      "misses": 100,
+      "bypasses": 0,
+      "evictions": 0,
+      "entries": 100,
+      "serialized_bytes": 167218
+    },
+    "retained_backend_telemetry": 201
+  },
+  "index_lifecycle": {
+    "cycles": 30,
+    "reader_preservation": true,
+    "final_live_documents": 2
+  }
+}

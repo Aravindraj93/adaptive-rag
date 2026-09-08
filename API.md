@@ -1,0 +1,44 @@
+# API contract for 0.11.x
+
+The supported import surface is `adaptive_rag.__all__`. Private names, benchmark
+helpers and source-layout paths are not a compatibility promise. Version 0.x remains
+experimental; breaking behavior changes require a minor release and a changelog.
+Patch releases should preserve public signatures and supported index schema.
+
+All retrievers implement `search(query: str | Query, *, top_k: int = 5)` returning
+ranked `SearchResult` objects. Concrete backends may additionally accept `where=`;
+wrappers expose only arguments documented on their own signatures. Chunk IDs must
+be unique within an index. Metadata used for persistence/filtering is JSON data.
+Objects are shallowly frozen; applications should not mutate nested metadata.
+
+`BM25Retriever.add(chunks)` builds in memory. `MMapBM25Retriever.build(path, chunks)`
+creates an immutable disk index and returns an open reader. Use disk readers as
+context managers or call `close()`. Segment managers append/delete/compact and keep
+old-reader snapshots valid when reader-aware cleanup is used. Use v0.8+ readers
+for cleanup; directly opened segment directories do not register leases.
+
+`DenseRetriever(embedder)` accepts a callable mapping a sequence of texts to the
+same number of finite nonzero vectors of one dimension. No model is selected or
+downloaded automatically. Approximate LSH results can differ from exact dense search.
+
+`ReciprocalRankFusionRetriever([lexical, dense])` fuses backend rankings. An explicit
+`AdaptiveFusionRetriever(fusion, policy=FusionPolicy(...))` may skip other backends;
+this can reduce relevance. `FusionPolicy()` selects always-fusion. `last_decision`
+and similar diagnostics are not thread-local.
+
+`CachedRetriever(backend, revision=callable, scope=string, max_entries=1024,
+max_bytes=16777216)` adds bounded exact reuse. The revision must change for every
+result-affecting state change and must not be recycled. `clear()` synchronizes cache
+invalidation; `info()` returns counters. Cache counters are lifetime totals; clear
+removes entries without resetting counts. Only strict JSON query metadata is keyed;
+unsupported values bypass reuse. The cache does not forward backend-specific `where=`.
+Use a configured filtering wrapper and revision that covers its filter settings.
+
+`TelemetryCollector(max_events=1024)` retains a bounded event ring; `dropped_events`
+counts overwritten events. `max_events=None` explicitly opts into unbounded history.
+Snapshots are thread-safe, but event attribute values are not recursively immutable.
+
+Persisted envelopes remain schema version 1. NaN/Infinity and duplicate JSON keys
+are now rejected; manifests are limited to 128 MiB by the common reader. Checksums
+are required by default. Range checks validate mapped offsets before use. Formats
+are local trusted artifacts, not a hostile-input security boundary.

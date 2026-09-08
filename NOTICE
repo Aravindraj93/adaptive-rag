@@ -1,0 +1,6 @@
+adaptive-rag
+Copyright 2026 Adaptive RAG contributors
+
+Distributed under the Apache License, Version 2.0.
+External evaluation datasets and pretrained model assets are not included in the
+runtime package. See THIRD_PARTY.md for evaluation-source attribution.

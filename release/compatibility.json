@@ -1,0 +1,605 @@
+{
+  "wheel": "adaptive_rag-0.11.0-py3-none-any.whl",
+  "wheel_sha256": "d97417c3718318628bd80cee343597ba1c0d32adb623234b6339dde5f4d3cdf5",
+  "platforms_not_executed": [
+    "Linux",
+    "macOS"
+  ],
+  "results": [
+    {
+      "python": "3.10.20",
+      "os": "Windows",
+      "passed": true,
+      "checks": [
+        {
+          "command": [
+            "../../work/release-runtimes/cpython-3.10.20-windows-x86_64-none/python.exe",
+            "-m",
+            "venv",
+            "<USER_HOME>\\Documents\\Codex\\2026-09-03\\referenced-chatgpt-conversation-this-is-an\\work\\release-venvs\\3.10.20"
+          ],
+          "exit_code": 0,
+          "stdout": "",
+          "stderr": ""
+        },
+        {
+          "command": [
+            "<USER_HOME>\\Documents\\Codex\\2026-09-03\\referenced-chatgpt-conversation-this-is-an\\work\\release-venvs\\3.10.20\\Scripts\\python.exe",
+            "-m",
+            "pip",
+            "install",
+            "--no-index",
+            "--no-deps",
+            "<USER_HOME>\\Documents\\Codex\\2026-09-03\\referenced-chatgpt-conversation-this-is-an\\outputs\\adaptive-rag\\dist\\adaptive_rag-0.11.0-py3-none-any.whl"
+          ],
+          "exit_code": 0,
+          "stdout": "Processing <USER_HOME>\\documents\\codex\\2026-09-03\\referenced-chatgpt-conversation-this-is-an\\outputs\\adaptive-rag\\dist\\adaptive_rag-0.11.0-py3-none-any.whl\nInstalling collected packages: adaptive-rag\nSuccessfully installed adaptive-rag-0.11.0\n",
+          "stderr": ""
+        },
+        {
+          "command": [
+            "<USER_HOME>\\Documents\\Codex\\2026-09-03\\referenced-chatgpt-conversation-this-is-an\\work\\release-venvs\\3.10.20\\Scripts\\python.exe",
+            "-I",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "tests",
+            "-q"
+          ],
+          "exit_code": 0,
+          "stdout": "",
+          "stderr": "----------------------------------------------------------------------\nRan 97 tests in 8.646s\n\nOK\n"
+        },
+        {
+          "command": [
+            "<USER_HOME>\\Documents\\Codex\\2026-09-03\\referenced-chatgpt-conversation-this-is-an\\work\\release-venvs\\3.10.20\\Scripts\\python.exe",
+            "-m",
+            "pip",
+            "check"
+          ],
+          "exit_code": 0,
+          "stdout": "No broken requirements found.\n",
+          "stderr": ""
+        },
+        {
+          "command": [
+            "<USER_HOME>\\Documents\\Codex\\2026-09-03\\referenced-chatgpt-conversation-this-is-an\\work\\release-venvs\\3.10.20\\Scripts\\python.exe",
+            "-I",
+            "-c",
+            "import adaptive_rag; assert adaptive_rag.__version__ == \"0.11.0\"; print(adaptive_rag.__file__)"
+          ],
+          "exit_code": 0,
+          "stdout": "<USER_HOME>\\Documents\\Codex\\2026-09-03\\referenced-chatgpt-conversation-this-is-an\\work\\release-venvs\\3.10.20\\lib\\site-packages\\adaptive_rag\\__init__.py\n",
+          "stderr": ""
+        },
+        {
+          "command": [
+            "<USER_HOME>\\Documents\\Codex\\2026-09-03\\referenced-chatgpt-conversation-this-is-an\\work\\release-venvs\\3.10.20\\Scripts\\python.exe",
+            "-I",
+            "examples\\adaptive_fusion.py"
+          ],
+          "exit_code": 0,
+          "stdout": "a Returns are accepted within thirty days.\nFusionDecision(route='fusion', confidence=0.6, features=(0.2, 1.0, 1.0), candidate_count=1, reused_primary=True)\n",
+          "stderr": ""
+        },
+        {
+          "command": [
+            "<USER_HOME>\\Documents\\Codex\\2026-09-03\\referenced-chatgpt-conversation-this-is-an\\work\\release-venvs\\3.10.20\\Scripts\\python.exe",
+            "-I",
+            "examples\\basic_search.py"
+          ],
+          "exit_code": 0,
+          "stdout": "CPU threads: 16\n1. returns (5.486): Products may be returned within thirty days.\n2. shipping (0.452): Standard shipping takes three to five business days.\n",
+          "stderr": ""
+        },
+        {
+          "command": [
+            "<USER_HOME>\\Documents\\Codex\\2026-09-03\\referenced-chatgpt-conversation-this-is-an\\work\\release-venvs\\3.10.20\\Scripts\\python.exe",
+            "-I",
+            "examples\\hybrid_search.py"
+          ],
+          "exit_code": 0,
+          "stdout": "1. returns: rrf:dense\n",
+          "stderr": ""
+        },
+        {
+          "command": [
+            "<USER_HOME>\\Documents\\Codex\\2026-09-03\\referenced-chatgpt-conversation-this-is-an\\work\\release-venvs\\3.10.20\\Scripts\\python.exe",
+            "-I",
+            "examples\\persistent_adaptive_search.py"
+          ],
+          "exit_code": 0,
+          "stdout": "1. returns: Products may be returned within thirty calendar days.\ndecision: confidence threshold met\n",
+          "stderr": ""
+        },
+        {
+          "command": [
+            "<USER_HOME>\\Documents\\Codex\\2026-09-03\\referenced-chatgpt-conversation-this-is-an\\work\\release-venvs\\3.10.20\\Scripts\\python.exe",
+            "-I",
+            "examples\\segmented_index.py"
+          ],
+          "exit_code": 0,
+          "stdout": "second\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "python": "3.11.9",
+      "os": "Windows",
+      "passed": true,
+      "checks": [
+        {
+          "command": [
+            "<USER_HOME>/AppData/Local/Programs/Python/Python311/python.exe",
+            "-m",
+            "venv",
+            "<USER_HOME>\\Documents\\Codex\\2026-09-03\\referenced-chatgpt-conversation-this-is-an\\work\\release-venvs\\3.11.9"
+          ],
+          "exit_code": 0,
+          "stdout": "",
+          "stderr": ""
+        },
+        {
+          "command": [
+            "<USER_HOME>\\Documents\\Codex\\2026-09-03\\referenced-chatgpt-conversation-this-is-an\\work\\release-venvs\\3.11.9\\Scripts\\python.exe",
+            "-m",
+            "pip",
+            "install",
+            "--no-index",
+            "--no-deps",
+            "<USER_HOME>\\Documents\\Codex\\2026-09-03\\referenced-chatgpt-conversation-this-is-an\\outputs\\adaptive-rag\\dist\\adaptive_rag-0.11.0-py3-none-any.whl"
+          ],
+          "exit_code": 0,
+          "stdout": "Processing <USER_HOME>\\documents\\codex\\2026-09-03\\referenced-chatgpt-conversation-this-is-an\\outputs\\adaptive-rag\\dist\\adaptive_rag-0.11.0-py3-none-any.whl\nInstalling collected packages: adaptive-rag\nSuccessfully installed adaptive-rag-0.11.0\n",
+          "stderr": ""
+        },
+        {
+          "command": [
+            "<USER_HOME>\\Documents\\Codex\\2026-09-03\\referenced-chatgpt-conversation-this-is-an\\work\\release-venvs\\3.11.9\\Scripts\\python.exe",
+            "-I",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "tests",
+            "-q"
+          ],
+          "exit_code": 0,
+          "stdout": "",
+          "stderr": "----------------------------------------------------------------------\nRan 97 tests in 9.358s\n\nOK\n"
+        },
+        {
+          "command": [
+            "<USER_HOME>\\Documents\\Codex\\2026-09-03\\referenced-chatgpt-conversation-this-is-an\\work\\release-venvs\\3.11.9\\Scripts\\python.exe",
+            "-m",
+            "pip",
+            "check"
+          ],
+          "exit_code": 0,
+          "stdout": "No broken requirements found.\n",
+          "stderr": ""
+        },
+        {
+          "command": [
+            "<USER_HOME>\\Documents\\Codex\\2026-09-03\\referenced-chatgpt-conversation-this-is-an\\work\\release-venvs\\3.11.9\\Scripts\\python.exe",
+            "-I",
+            "-c",
+            "import adaptive_rag; assert adaptive_rag.__version__ == \"0.11.0\"; print(adaptive_rag.__file__)"
+          ],
+          "exit_code": 0,
+          "stdout": "<USER_HOME>\\Documents\\Codex\\2026-09-03\\referenced-chatgpt-conversation-this-is-an\\work\\release-venvs\\3.11.9\\Lib\\site-packages\\adaptive_rag\\__init__.py\n",
+          "stderr": ""
+        },
+        {
+          "command": [
+            "<USER_HOME>\\Documents\\Codex\\2026-09-03\\referenced-chatgpt-conversation-this-is-an\\work\\release-venvs\\3.11.9\\Scripts\\python.exe",
+            "-I",
+            "examples\\adaptive_fusion.py"
+          ],
+          "exit_code": 0,
+          "stdout": "a Returns are accepted within thirty days.\nFusionDecision(route='fusion', confidence=0.6, features=(0.2, 1.0, 1.0), candidate_count=1, reused_primary=True)\n",
+          "stderr": ""
+        },
+        {
+          "command": [
+            "<USER_HOME>\\Documents\\Codex\\2026-09-03\\referenced-chatgpt-conversation-this-is-an\\work\\release-venvs\\3.11.9\\Scripts\\python.exe",
+            "-I",
+            "examples\\basic_search.py"
+          ],
+          "exit_code": 0,
+          "stdout": "CPU threads: 16\n1. returns (5.486): Products may be returned within thirty days.\n2. shipping (0.452): Standard shipping takes three to five business days.\n",
+          "stderr": ""
+        },
+        {
+          "command": [
+            "<USER_HOME>\\Documents\\Codex\\2026-09-03\\referenced-chatgpt-conversation-this-is-an\\work\\release-venvs\\3.11.9\\Scripts\\python.exe",
+            "-I",
+            "examples\\hybrid_search.py"
+          ],
+          "exit_code": 0,
+          "stdout": "1. returns: rrf:dense\n",
+          "stderr": ""
+        },
+        {
+          "command": [
+            "<USER_HOME>\\Documents\\Codex\\2026-09-03\\referenced-chatgpt-conversation-this-is-an\\work\\release-venvs\\3.11.9\\Scripts\\python.exe",
+            "-I",
+            "examples\\persistent_adaptive_search.py"
+          ],
+          "exit_code": 0,
+          "stdout": "1. returns: Products may be returned within thirty calendar days.\ndecision: confidence threshold met\n",
+          "stderr": ""
+        },
+        {
+          "command": [
+            "<USER_HOME>\\Documents\\Codex\\2026-09-03\\referenced-chatgpt-conversation-this-is-an\\work\\release-venvs\\3.11.9\\Scripts\\python.exe",
+            "-I",
+            "examples\\segmented_index.py"
+          ],
+          "exit_code": 0,
+          "stdout": "second\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "python": "3.12.13",
+      "os": "Windows",
+      "passed": true,
+      "checks": [
+        {
+          "command": [
+            "../../work/release-runtimes/cpython-3.12.13-windows-x86_64-none/python.exe",
+            "-m",
+            "venv",
+            "<USER_HOME>\\Documents\\Codex\\2026-09-03\\referenced-chatgpt-conversation-this-is-an\\work\\release-venvs\\3.12.13"
+          ],
+          "exit_code": 0,
+          "stdout": "",
+          "stderr": ""
+        },
+        {
+          "command": [
+            "<USER_HOME>\\Documents\\Codex\\2026-09-03\\referenced-chatgpt-conversation-this-is-an\\work\\release-venvs\\3.12.13\\Scripts\\python.exe",
+            "-m",
+            "pip",
+            "install",
+            "--no-index",
+            "--no-deps",
+            "<USER_HOME>\\Documents\\Codex\\2026-09-03\\referenced-chatgpt-conversation-this-is-an\\outputs\\adaptive-rag\\dist\\adaptive_rag-0.11.0-py3-none-any.whl"
+          ],
+          "exit_code": 0,
+          "stdout": "Processing <USER_HOME>\\documents\\codex\\2026-09-03\\referenced-chatgpt-conversation-this-is-an\\outputs\\adaptive-rag\\dist\\adaptive_rag-0.11.0-py3-none-any.whl\nInstalling collected packages: adaptive-rag\nSuccessfully installed adaptive-rag-0.11.0\n",
+          "stderr": ""
+        },
+        {
+          "command": [
+            "<USER_HOME>\\Documents\\Codex\\2026-09-03\\referenced-chatgpt-conversation-this-is-an\\work\\release-venvs\\3.12.13\\Scripts\\python.exe",
+            "-I",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "tests",
+            "-q"
+          ],
+          "exit_code": 0,
+          "stdout": "",
+          "stderr": "----------------------------------------------------------------------\nRan 97 tests in 9.291s\n\nOK\n"
+        },
+        {
+          "command": [
+            "<USER_HOME>\\Documents\\Codex\\2026-09-03\\referenced-chatgpt-conversation-this-is-an\\work\\release-venvs\\3.12.13\\Scripts\\python.exe",
+            "-m",
+            "pip",
+            "check"
+          ],
+          "exit_code": 0,
+          "stdout": "No broken requirements found.\n",
+          "stderr": ""
+        },
+        {
+          "command": [
+            "<USER_HOME>\\Documents\\Codex\\2026-09-03\\referenced-chatgpt-conversation-this-is-an\\work\\release-venvs\\3.12.13\\Scripts\\python.exe",
+            "-I",
+            "-c",
+            "import adaptive_rag; assert adaptive_rag.__version__ == \"0.11.0\"; print(adaptive_rag.__file__)"
+          ],
+          "exit_code": 0,
+          "stdout": "<USER_HOME>\\Documents\\Codex\\2026-09-03\\referenced-chatgpt-conversation-this-is-an\\work\\release-venvs\\3.12.13\\Lib\\site-packages\\adaptive_rag\\__init__.py\n",
+          "stderr": ""
+        },
+        {
+          "command": [
+            "<USER_HOME>\\Documents\\Codex\\2026-09-03\\referenced-chatgpt-conversation-this-is-an\\work\\release-venvs\\3.12.13\\Scripts\\python.exe",
+            "-I",
+            "examples\\adaptive_fusion.py"
+          ],
+          "exit_code": 0,
+          "stdout": "a Returns are accepted within thirty days.\nFusionDecision(route='fusion', confidence=0.6, features=(0.2, 1.0, 1.0), candidate_count=1, reused_primary=True)\n",
+          "stderr": ""
+        },
+        {
+          "command": [
+            "<USER_HOME>\\Documents\\Codex\\2026-09-03\\referenced-chatgpt-conversation-this-is-an\\work\\release-venvs\\3.12.13\\Scripts\\python.exe",
+            "-I",
+            "examples\\basic_search.py"
+          ],
+          "exit_code": 0,
+          "stdout": "CPU threads: 16\n1. returns (5.486): Products may be returned within thirty days.\n2. shipping (0.452): Standard shipping takes three to five business days.\n",
+          "stderr": ""
+        },
+        {
+          "command": [
+            "<USER_HOME>\\Documents\\Codex\\2026-09-03\\referenced-chatgpt-conversation-this-is-an\\work\\release-venvs\\3.12.13\\Scripts\\python.exe",
+            "-I",
+            "examples\\hybrid_search.py"
+          ],
+          "exit_code": 0,
+          "stdout": "1. returns: rrf:dense\n",
+          "stderr": ""
+        },
+        {
+          "command": [
+            "<USER_HOME>\\Documents\\Codex\\2026-09-03\\referenced-chatgpt-conversation-this-is-an\\work\\release-venvs\\3.12.13\\Scripts\\python.exe",
+            "-I",
+            "examples\\persistent_adaptive_search.py"
+          ],
+          "exit_code": 0,
+          "stdout": "1. returns: Products may be returned within thirty calendar days.\ndecision: confidence threshold met\n",
+          "stderr": ""
+        },
+        {
+          "command": [
+            "<USER_HOME>\\Documents\\Codex\\2026-09-03\\referenced-chatgpt-conversation-this-is-an\\work\\release-venvs\\3.12.13\\Scripts\\python.exe",
+            "-I",
+            "examples\\segmented_index.py"
+          ],
+          "exit_code": 0,
+          "stdout": "second\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "python": "3.13.14",
+      "os": "Windows",
+      "passed": true,
+      "checks": [
+        {
+          "command": [
+            "../../work/release-runtimes/cpython-3.13.14-windows-x86_64-none/python.exe",
+            "-m",
+            "venv",
+            "<USER_HOME>\\Documents\\Codex\\2026-09-03\\referenced-chatgpt-conversation-this-is-an\\work\\release-venvs\\3.13.14"
+          ],
+          "exit_code": 0,
+          "stdout": "",
+          "stderr": ""
+        },
+        {
+          "command": [
+            "<USER_HOME>\\Documents\\Codex\\2026-09-03\\referenced-chatgpt-conversation-this-is-an\\work\\release-venvs\\3.13.14\\Scripts\\python.exe",
+            "-m",
+            "pip",
+            "install",
+            "--no-index",
+            "--no-deps",
+            "<USER_HOME>\\Documents\\Codex\\2026-09-03\\referenced-chatgpt-conversation-this-is-an\\outputs\\adaptive-rag\\dist\\adaptive_rag-0.11.0-py3-none-any.whl"
+          ],
+          "exit_code": 0,
+          "stdout": "Processing .\\dist\\adaptive_rag-0.11.0-py3-none-any.whl\nInstalling collected packages: adaptive-rag\nSuccessfully installed adaptive-rag-0.11.0\n",
+          "stderr": ""
+        },
+        {
+          "command": [
+            "<USER_HOME>\\Documents\\Codex\\2026-09-03\\referenced-chatgpt-conversation-this-is-an\\work\\release-venvs\\3.13.14\\Scripts\\python.exe",
+            "-I",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "tests",
+            "-q"
+          ],
+          "exit_code": 0,
+          "stdout": "",
+          "stderr": "----------------------------------------------------------------------\nRan 97 tests in 7.605s\n\nOK\n"
+        },
+        {
+          "command": [
+            "<USER_HOME>\\Documents\\Codex\\2026-09-03\\referenced-chatgpt-conversation-this-is-an\\work\\release-venvs\\3.13.14\\Scripts\\python.exe",
+            "-m",
+            "pip",
+            "check"
+          ],
+          "exit_code": 0,
+          "stdout": "No broken requirements found.\n",
+          "stderr": ""
+        },
+        {
+          "command": [
+            "<USER_HOME>\\Documents\\Codex\\2026-09-03\\referenced-chatgpt-conversation-this-is-an\\work\\release-venvs\\3.13.14\\Scripts\\python.exe",
+            "-I",
+            "-c",
+            "import adaptive_rag; assert adaptive_rag.__version__ == \"0.11.0\"; print(adaptive_rag.__file__)"
+          ],
+          "exit_code": 0,
+          "stdout": "<USER_HOME>\\Documents\\Codex\\2026-09-03\\referenced-chatgpt-conversation-this-is-an\\work\\release-venvs\\3.13.14\\Lib\\site-packages\\adaptive_rag\\__init__.py\n",
+          "stderr": ""
+        },
+        {
+          "command": [
+            "<USER_HOME>\\Documents\\Codex\\2026-09-03\\referenced-chatgpt-conversation-this-is-an\\work\\release-venvs\\3.13.14\\Scripts\\python.exe",
+            "-I",
+            "examples\\adaptive_fusion.py"
+          ],
+          "exit_code": 0,
+          "stdout": "a Returns are accepted within thirty days.\nFusionDecision(route='fusion', confidence=0.6, features=(0.2, 1.0, 1.0), candidate_count=1, reused_primary=True)\n",
+          "stderr": ""
+        },
+        {
+          "command": [
+            "<USER_HOME>\\Documents\\Codex\\2026-09-03\\referenced-chatgpt-conversation-this-is-an\\work\\release-venvs\\3.13.14\\Scripts\\python.exe",
+            "-I",
+            "examples\\basic_search.py"
+          ],
+          "exit_code": 0,
+          "stdout": "CPU threads: 16\n1. returns (5.486): Products may be returned within thirty days.\n2. shipping (0.452): Standard shipping takes three to five business days.\n",
+          "stderr": ""
+        },
+        {
+          "command": [
+            "<USER_HOME>\\Documents\\Codex\\2026-09-03\\referenced-chatgpt-conversation-this-is-an\\work\\release-venvs\\3.13.14\\Scripts\\python.exe",
+            "-I",
+            "examples\\hybrid_search.py"
+          ],
+          "exit_code": 0,
+          "stdout": "1. returns: rrf:dense\n",
+          "stderr": ""
+        },
+        {
+          "command": [
+            "<USER_HOME>\\Documents\\Codex\\2026-09-03\\referenced-chatgpt-conversation-this-is-an\\work\\release-venvs\\3.13.14\\Scripts\\python.exe",
+            "-I",
+            "examples\\persistent_adaptive_search.py"
+          ],
+          "exit_code": 0,
+          "stdout": "1. returns: Products may be returned within thirty calendar days.\ndecision: confidence threshold met\n",
+          "stderr": ""
+        },
+        {
+          "command": [
+            "<USER_HOME>\\Documents\\Codex\\2026-09-03\\referenced-chatgpt-conversation-this-is-an\\work\\release-venvs\\3.13.14\\Scripts\\python.exe",
+            "-I",
+            "examples\\segmented_index.py"
+          ],
+          "exit_code": 0,
+          "stdout": "second\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "python": "3.14.0",
+      "os": "Windows",
+      "passed": true,
+      "checks": [
+        {
+          "command": [
+            "<USER_HOME>/AppData/Roaming/uv/python/cpython-3.14.0-windows-x86_64-none/python.exe",
+            "-m",
+            "venv",
+            "<USER_HOME>\\Documents\\Codex\\2026-09-03\\referenced-chatgpt-conversation-this-is-an\\work\\release-venvs\\3.14.0"
+          ],
+          "exit_code": 0,
+          "stdout": "",
+          "stderr": ""
+        },
+        {
+          "command": [
+            "<USER_HOME>\\Documents\\Codex\\2026-09-03\\referenced-chatgpt-conversation-this-is-an\\work\\release-venvs\\3.14.0\\Scripts\\python.exe",
+            "-m",
+            "pip",
+            "install",
+            "--no-index",
+            "--no-deps",
+            "<USER_HOME>\\Documents\\Codex\\2026-09-03\\referenced-chatgpt-conversation-this-is-an\\outputs\\adaptive-rag\\dist\\adaptive_rag-0.11.0-py3-none-any.whl"
+          ],
+          "exit_code": 0,
+          "stdout": "Processing <USER_HOME>\\documents\\codex\\2026-09-03\\referenced-chatgpt-conversation-this-is-an\\outputs\\adaptive-rag\\dist\\adaptive_rag-0.11.0-py3-none-any.whl\nInstalling collected packages: adaptive-rag\nSuccessfully installed adaptive-rag-0.11.0\n",
+          "stderr": ""
+        },
+        {
+          "command": [
+            "<USER_HOME>\\Documents\\Codex\\2026-09-03\\referenced-chatgpt-conversation-this-is-an\\work\\release-venvs\\3.14.0\\Scripts\\python.exe",
+            "-I",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "tests",
+            "-q"
+          ],
+          "exit_code": 0,
+          "stdout": "",
+          "stderr": "----------------------------------------------------------------------\nRan 97 tests in 8.424s\n\nOK\n"
+        },
+        {
+          "command": [
+            "<USER_HOME>\\Documents\\Codex\\2026-09-03\\referenced-chatgpt-conversation-this-is-an\\work\\release-venvs\\3.14.0\\Scripts\\python.exe",
+            "-m",
+            "pip",
+            "check"
+          ],
+          "exit_code": 0,
+          "stdout": "No broken requirements found.\n",
+          "stderr": ""
+        },
+        {
+          "command": [
+            "<USER_HOME>\\Documents\\Codex\\2026-09-03\\referenced-chatgpt-conversation-this-is-an\\work\\release-venvs\\3.14.0\\Scripts\\python.exe",
+            "-I",
+            "-c",
+            "import adaptive_rag; assert adaptive_rag.__version__ == \"0.11.0\"; print(adaptive_rag.__file__)"
+          ],
+          "exit_code": 0,
+          "stdout": "<USER_HOME>\\Documents\\Codex\\2026-09-03\\referenced-chatgpt-conversation-this-is-an\\work\\release-venvs\\3.14.0\\Lib\\site-packages\\adaptive_rag\\__init__.py\n",
+          "stderr": ""
+        },
+        {
+          "command": [
+            "<USER_HOME>\\Documents\\Codex\\2026-09-03\\referenced-chatgpt-conversation-this-is-an\\work\\release-venvs\\3.14.0\\Scripts\\python.exe",
+            "-I",
+            "examples\\adaptive_fusion.py"
+          ],
+          "exit_code": 0,
+          "stdout": "a Returns are accepted within thirty days.\nFusionDecision(route='fusion', confidence=0.6, features=(0.2, 1.0, 1.0), candidate_count=1, reused_primary=True)\n",
+          "stderr": ""
+        },
+        {
+          "command": [
+            "<USER_HOME>\\Documents\\Codex\\2026-09-03\\referenced-chatgpt-conversation-this-is-an\\work\\release-venvs\\3.14.0\\Scripts\\python.exe",
+            "-I",
+            "examples\\basic_search.py"
+          ],
+          "exit_code": 0,
+          "stdout": "CPU threads: 16\n1. returns (5.486): Products may be returned within thirty days.\n2. shipping (0.452): Standard shipping takes three to five business days.\n",
+          "stderr": ""
+        },
+        {
+          "command": [
+            "<USER_HOME>\\Documents\\Codex\\2026-09-03\\referenced-chatgpt-conversation-this-is-an\\work\\release-venvs\\3.14.0\\Scripts\\python.exe",
+            "-I",
+            "examples\\hybrid_search.py"
+          ],
+          "exit_code": 0,
+          "stdout": "1. returns: rrf:dense\n",
+          "stderr": ""
+        },
+        {
+          "command": [
+            "<USER_HOME>\\Documents\\Codex\\2026-09-03\\referenced-chatgpt-conversation-this-is-an\\work\\release-venvs\\3.14.0\\Scripts\\python.exe",
+            "-I",
+            "examples\\persistent_adaptive_search.py"
+          ],
+          "exit_code": 0,
+          "stdout": "1. returns: Products may be returned within thirty calendar days.\ndecision: confidence threshold met\n",
+          "stderr": ""
+        },
+        {
+          "command": [
+            "<USER_HOME>\\Documents\\Codex\\2026-09-03\\referenced-chatgpt-conversation-this-is-an\\work\\release-venvs\\3.14.0\\Scripts\\python.exe",
+            "-I",
+            "examples\\segmented_index.py"
+          ],
+          "exit_code": 0,
+          "stdout": "second\n",
+          "stderr": ""
+        }
+      ]
+    }
+  ]
+}

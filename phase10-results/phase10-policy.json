@@ -1,0 +1,4475 @@
+{
+  "protocol": "NFCorpus official dev only; fixed 315-policy grid plus always-fusion",
+  "development_ids": [
+    "PLAIN-1",
+    "PLAIN-1007",
+    "PLAIN-101",
+    "PLAIN-1017",
+    "PLAIN-1027",
+    "PLAIN-1038",
+    "PLAIN-1049",
+    "PLAIN-1065",
+    "PLAIN-1077",
+    "PLAIN-1087",
+    "PLAIN-1097",
+    "PLAIN-11",
+    "PLAIN-1108",
+    "PLAIN-111",
+    "PLAIN-1118",
+    "PLAIN-1129",
+    "PLAIN-1140",
+    "PLAIN-1150",
+    "PLAIN-1160",
+    "PLAIN-1171",
+    "PLAIN-1181",
+    "PLAIN-1192",
+    "PLAIN-1202",
+    "PLAIN-1213",
+    "PLAIN-122",
+    "PLAIN-1224",
+    "PLAIN-1235",
+    "PLAIN-1245",
+    "PLAIN-1261",
+    "PLAIN-1273",
+    "PLAIN-1287",
+    "PLAIN-1298",
+    "PLAIN-1308",
+    "PLAIN-1319",
+    "PLAIN-132",
+    "PLAIN-1330",
+    "PLAIN-1341",
+    "PLAIN-1352",
+    "PLAIN-1362",
+    "PLAIN-1373",
+    "PLAIN-1386",
+    "PLAIN-1397",
+    "PLAIN-1408",
+    "PLAIN-1418",
+    "PLAIN-142",
+    "PLAIN-1428",
+    "PLAIN-1440",
+    "PLAIN-1451",
+    "PLAIN-1462",
+    "PLAIN-1472",
+    "PLAIN-1484",
+    "PLAIN-1495",
+    "PLAIN-1505",
+    "PLAIN-1515",
+    "PLAIN-152",
+    "PLAIN-1526",
+    "PLAIN-1536",
+    "PLAIN-1546",
+    "PLAIN-1556",
+    "PLAIN-1567",
+    "PLAIN-1578",
+    "PLAIN-1589",
+    "PLAIN-1600",
+    "PLAIN-1610",
+    "PLAIN-1620",
+    "PLAIN-1634",
+    "PLAIN-164",
+    "PLAIN-1644",
+    "PLAIN-1655",
+    "PLAIN-1666",
+    "PLAIN-1678",
+    "PLAIN-1689",
+    "PLAIN-1699",
+    "PLAIN-1709",
+    "PLAIN-1720",
+    "PLAIN-174",
+    "PLAIN-1740",
+    "PLAIN-1750",
+    "PLAIN-1761",
+    "PLAIN-1771",
+    "PLAIN-1783",
+    "PLAIN-1793",
+    "PLAIN-1804",
+    "PLAIN-1816",
+    "PLAIN-1826",
+    "PLAIN-1836",
+    "PLAIN-1846",
+    "PLAIN-185",
+    "PLAIN-1856",
+    "PLAIN-1866",
+    "PLAIN-1876",
+    "PLAIN-1886",
+    "PLAIN-1896",
+    "PLAIN-1907",
+    "PLAIN-1918",
+    "PLAIN-1928",
+    "PLAIN-1939",
+    "PLAIN-1949",
+    "PLAIN-195",
+    "PLAIN-1961",
+    "PLAIN-1971",
+    "PLAIN-1982",
+    "PLAIN-1994",
+    "PLAIN-2007",
+    "PLAIN-2018",
+    "PLAIN-2029",
+    "PLAIN-2039",
+    "PLAIN-2050",
+    "PLAIN-206",
+    "PLAIN-2060",
+    "PLAIN-2070",
+    "PLAIN-2080",
+    "PLAIN-2091",
+    "PLAIN-2101",
+    "PLAIN-2112",
+    "PLAIN-2123",
+    "PLAIN-2133",
+    "PLAIN-2144",
+    "PLAIN-2155",
+    "PLAIN-216",
+    "PLAIN-2166",
+    "PLAIN-2176",
+    "PLAIN-2186",
+    "PLAIN-2196",
+    "PLAIN-22",
+    "PLAIN-2208",
+    "PLAIN-2219",
+    "PLAIN-2229",
+    "PLAIN-2239",
+    "PLAIN-2249",
+    "PLAIN-226",
+    "PLAIN-2260",
+    "PLAIN-2270",
+    "PLAIN-2280",
+    "PLAIN-2290",
+    "PLAIN-2300",
+    "PLAIN-2310",
+    "PLAIN-2320",
+    "PLAIN-2331",
+    "PLAIN-2342",
+    "PLAIN-2353",
+    "PLAIN-2363",
+    "PLAIN-237",
+    "PLAIN-2374",
+    "PLAIN-2385",
+    "PLAIN-2395",
+    "PLAIN-2407",
+    "PLAIN-2429",
+    "PLAIN-2439",
+    "PLAIN-2449",
+    "PLAIN-2459",
+    "PLAIN-2469",
+    "PLAIN-247",
+    "PLAIN-2479",
+    "PLAIN-2489",
+    "PLAIN-2499",
+    "PLAIN-2509",
+    "PLAIN-2519",
+    "PLAIN-2529",
+    "PLAIN-2539",
+    "PLAIN-2549",
+    "PLAIN-2559",
+    "PLAIN-2569",
+    "PLAIN-2579",
+    "PLAIN-258",
+    "PLAIN-2589",
+    "PLAIN-2599",
+    "PLAIN-2609",
+    "PLAIN-2619",
+    "PLAIN-2629",
+    "PLAIN-2639",
+    "PLAIN-2649",
+    "PLAIN-2659",
+    "PLAIN-2669",
+    "PLAIN-2679",
+    "PLAIN-2689",
+    "PLAIN-269",
+    "PLAIN-2699",
+    "PLAIN-2709",
+    "PLAIN-2719",
+    "PLAIN-2729",
+    "PLAIN-2739",
+    "PLAIN-2749",
+    "PLAIN-2759",
+    "PLAIN-2769",
+    "PLAIN-2779",
+    "PLAIN-2789",
+    "PLAIN-279",
+    "PLAIN-2799",
+    "PLAIN-2809",
+    "PLAIN-2819",
+    "PLAIN-2829",
+    "PLAIN-2839",
+    "PLAIN-2849",
+    "PLAIN-2859",
+    "PLAIN-2869",
+    "PLAIN-2879",
+    "PLAIN-2889",
+    "PLAIN-2899",
+    "PLAIN-290",
+    "PLAIN-2909",
+    "PLAIN-2919",
+    "PLAIN-2929",
+    "PLAIN-2939",
+    "PLAIN-2949",
+    "PLAIN-2959",
+    "PLAIN-2969",
+    "PLAIN-2979",
+    "PLAIN-2990",
+    "PLAIN-3000",
+    "PLAIN-3013",
+    "PLAIN-3025",
+    "PLAIN-3036",
+    "PLAIN-304",
+    "PLAIN-3052",
+    "PLAIN-3062",
+    "PLAIN-3073",
+    "PLAIN-3084",
+    "PLAIN-3096",
+    "PLAIN-3114",
+    "PLAIN-3130",
+    "PLAIN-3140",
+    "PLAIN-3150",
+    "PLAIN-3160",
+    "PLAIN-3170",
+    "PLAIN-3180",
+    "PLAIN-319",
+    "PLAIN-3190",
+    "PLAIN-32",
+    "PLAIN-3200",
+    "PLAIN-3210",
+    "PLAIN-3220",
+    "PLAIN-3230",
+    "PLAIN-3240",
+    "PLAIN-3250",
+    "PLAIN-3260",
+    "PLAIN-3270",
+    "PLAIN-3280",
+    "PLAIN-3291",
+    "PLAIN-3301",
+    "PLAIN-331",
+    "PLAIN-3311",
+    "PLAIN-3321",
+    "PLAIN-3331",
+    "PLAIN-3341",
+    "PLAIN-3351",
+    "PLAIN-3361",
+    "PLAIN-3371",
+    "PLAIN-3381",
+    "PLAIN-3391",
+    "PLAIN-3401",
+    "PLAIN-3411",
+    "PLAIN-3421",
+    "PLAIN-343",
+    "PLAIN-3431",
+    "PLAIN-3441",
+    "PLAIN-3451",
+    "PLAIN-3461",
+    "PLAIN-3471",
+    "PLAIN-357",
+    "PLAIN-370",
+    "PLAIN-382",
+    "PLAIN-394",
+    "PLAIN-406",
+    "PLAIN-417",
+    "PLAIN-428",
+    "PLAIN-43",
+    "PLAIN-440",
+    "PLAIN-456",
+    "PLAIN-467",
+    "PLAIN-477",
+    "PLAIN-487",
+    "PLAIN-498",
+    "PLAIN-508",
+    "PLAIN-519",
+    "PLAIN-530",
+    "PLAIN-540",
+    "PLAIN-55",
+    "PLAIN-550",
+    "PLAIN-560",
+    "PLAIN-570",
+    "PLAIN-582",
+    "PLAIN-592",
+    "PLAIN-602",
+    "PLAIN-612",
+    "PLAIN-622",
+    "PLAIN-633",
+    "PLAIN-644",
+    "PLAIN-656",
+    "PLAIN-67",
+    "PLAIN-670",
+    "PLAIN-680",
+    "PLAIN-690",
+    "PLAIN-700",
+    "PLAIN-710",
+    "PLAIN-720",
+    "PLAIN-730",
+    "PLAIN-740",
+    "PLAIN-750",
+    "PLAIN-760",
+    "PLAIN-77",
+    "PLAIN-770",
+    "PLAIN-781",
+    "PLAIN-791",
+    "PLAIN-805",
+    "PLAIN-816",
+    "PLAIN-826",
+    "PLAIN-837",
+    "PLAIN-848",
+    "PLAIN-859",
+    "PLAIN-871",
+    "PLAIN-881",
+    "PLAIN-891",
+    "PLAIN-90",
+    "PLAIN-901",
+    "PLAIN-912",
+    "PLAIN-923",
+    "PLAIN-933",
+    "PLAIN-945",
+    "PLAIN-955",
+    "PLAIN-965",
+    "PLAIN-976",
+    "PLAIN-986",
+    "PLAIN-996"
+  ],
+  "provenance": {
+    "model": "sentence-transformers/all-MiniLM-L6-v2",
+    "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+    "files": {
+      "model.onnx": {
+        "url": "https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/onnx/model.onnx",
+        "sha256": "6fd5d72fe4589f189f8ebc006442dbb529bb7ce38f8082112682524616046452"
+      },
+      "tokenizer.json": {
+        "url": "https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/tokenizer.json",
+        "sha256": "be50c3628f2bf5bb5e3a7f17b1f74611b2561a3a27eeab05e5aa30f411572037"
+      },
+      "cran.tar.gz": {
+        "url": "https://ir.dcs.gla.ac.uk/resources/test_collections/cran/cran.tar.gz",
+        "sha256": "8c48a8412e4a7e6e0dd5af99c959f8d75fdf88135602adc1a56aa22770652d64"
+      }
+    },
+    "nfcorpus": {
+      "sha256": "efe5be03f8c5b86a5870102d0599d227c8c6e2484328e68c6522560385671b0b",
+      "url": "https://public.ukp.informatik.tu-darmstadt.de/thakur/BEIR/datasets/nfcorpus.zip"
+    }
+  },
+  "selected": {
+    "threshold": 0.6,
+    "weights": [
+      0.75,
+      0.0,
+      0.25
+    ],
+    "ms": 39.999691666000416,
+    "acceptance": 0.5617283950617284,
+    "feasible": true,
+    "recall": 0.13531205733338308,
+    "ndcg": 0.3128692230875984
+  },
+  "tolerance": 0.01,
+  "candidates": [
+    {
+      "threshold": null,
+      "weights": [
+        0.75,
+        0.25,
+        0
+      ],
+      "ms": 80.98014907905672,
+      "acceptance": 0,
+      "feasible": true,
+      "recall": 0.14311771520540859,
+      "ndcg": 0.32207382067594
+    },
+    {
+      "threshold": 0.0,
+      "weights": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "ms": 11.547070991155909,
+      "acceptance": 0.9351851851851852,
+      "feasible": false,
+      "recall": 0.12711384770210157,
+      "ndcg": 0.29837415081322555
+    },
+    {
+      "threshold": 0.05,
+      "weights": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "ms": 57.2821228401333,
+      "acceptance": 0.33024691358024694,
+      "feasible": false,
+      "recall": 0.12897281137870334,
+      "ndcg": 0.3098936779541484
+    },
+    {
+      "threshold": 0.1,
+      "weights": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "ms": 72.19005154264677,
+      "acceptance": 0.12962962962962962,
+      "feasible": false,
+      "recall": 0.13144831464711912,
+      "ndcg": 0.3130999465218839
+    },
+    {
+      "threshold": 0.15,
+      "weights": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "ms": 75.74687345689277,
+      "acceptance": 0.08024691358024691,
+      "feasible": true,
+      "recall": 0.1338972588784708,
+      "ndcg": 0.3143681473710997
+    },
+    {
+      "threshold": 0.2,
+      "weights": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "ms": 77.54515648250364,
+      "acceptance": 0.05555555555555555,
+      "feasible": true,
+      "recall": 0.13678259370825008,
+      "ndcg": 0.31646953984658
+    },
+    {
+      "threshold": 0.25,
+      "weights": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "ms": 78.22055030933201,
+      "acceptance": 0.046296296296296294,
+      "feasible": true,
+      "recall": 0.13722351081583384,
+      "ndcg": 0.3168405624835703
+    },
+    {
+      "threshold": 0.3,
+      "weights": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "ms": 78.22055030933201,
+      "acceptance": 0.046296296296296294,
+      "feasible": true,
+      "recall": 0.13722351081583384,
+      "ndcg": 0.3168405624835703
+    },
+    {
+      "threshold": 0.35,
+      "weights": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "ms": 78.4770191365416,
+      "acceptance": 0.043209876543209874,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 0.4,
+      "weights": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "ms": 78.4770191365416,
+      "acceptance": 0.043209876543209874,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 0.45,
+      "weights": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "ms": 78.4770191365416,
+      "acceptance": 0.043209876543209874,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 0.5,
+      "weights": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "ms": 78.4770191365416,
+      "acceptance": 0.043209876543209874,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 0.55,
+      "weights": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "ms": 78.4770191365416,
+      "acceptance": 0.043209876543209874,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 0.6,
+      "weights": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "ms": 78.4770191365416,
+      "acceptance": 0.043209876543209874,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 0.65,
+      "weights": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "ms": 78.4770191365416,
+      "acceptance": 0.043209876543209874,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 0.7,
+      "weights": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "ms": 78.4770191365416,
+      "acceptance": 0.043209876543209874,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 0.75,
+      "weights": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "ms": 78.4770191365416,
+      "acceptance": 0.043209876543209874,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 0.8,
+      "weights": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "ms": 78.4770191365416,
+      "acceptance": 0.043209876543209874,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 0.85,
+      "weights": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "ms": 78.4770191365416,
+      "acceptance": 0.043209876543209874,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 0.9,
+      "weights": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "ms": 78.4770191365416,
+      "acceptance": 0.043209876543209874,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 0.95,
+      "weights": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "ms": 78.4770191365416,
+      "acceptance": 0.043209876543209874,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 1.0,
+      "weights": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "ms": 78.4770191365416,
+      "acceptance": 0.043209876543209874,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 0.0,
+      "weights": [
+        0.0,
+        0.25,
+        0.75
+      ],
+      "ms": 11.547070991155909,
+      "acceptance": 0.9351851851851852,
+      "feasible": false,
+      "recall": 0.12711384770210157,
+      "ndcg": 0.29837415081322555
+    },
+    {
+      "threshold": 0.05,
+      "weights": [
+        0.0,
+        0.25,
+        0.75
+      ],
+      "ms": 48.211605865134636,
+      "acceptance": 0.44753086419753085,
+      "feasible": false,
+      "recall": 0.12775524693921836,
+      "ndcg": 0.3043500270020126
+    },
+    {
+      "threshold": 0.1,
+      "weights": [
+        0.0,
+        0.25,
+        0.75
+      ],
+      "ms": 66.30424166494912,
+      "acceptance": 0.20987654320987653,
+      "feasible": false,
+      "recall": 0.13011159533805244,
+      "ndcg": 0.31075333741896327
+    },
+    {
+      "threshold": 0.15,
+      "weights": [
+        0.0,
+        0.25,
+        0.75
+      ],
+      "ms": 72.85715617386073,
+      "acceptance": 0.12037037037037036,
+      "feasible": false,
+      "recall": 0.13155398405188415,
+      "ndcg": 0.3122196791184827
+    },
+    {
+      "threshold": 0.2,
+      "weights": [
+        0.0,
+        0.25,
+        0.75
+      ],
+      "ms": 76.40357839552985,
+      "acceptance": 0.07098765432098765,
+      "feasible": true,
+      "recall": 0.13383295846694815,
+      "ndcg": 0.3133971854463069
+    },
+    {
+      "threshold": 0.25,
+      "weights": [
+        0.0,
+        0.25,
+        0.75
+      ],
+      "ms": 77.09553580368973,
+      "acceptance": 0.06172839506172839,
+      "feasible": true,
+      "recall": 0.13672647698546667,
+      "ndcg": 0.31636211939141196
+    },
+    {
+      "threshold": 0.3,
+      "weights": [
+        0.0,
+        0.25,
+        0.75
+      ],
+      "ms": 77.76754753186977,
+      "acceptance": 0.05246913580246913,
+      "feasible": true,
+      "recall": 0.13722351081583384,
+      "ndcg": 0.31683491883718296
+    },
+    {
+      "threshold": 0.35,
+      "weights": [
+        0.0,
+        0.25,
+        0.75
+      ],
+      "ms": 78.22055030933201,
+      "acceptance": 0.046296296296296294,
+      "feasible": true,
+      "recall": 0.13722351081583384,
+      "ndcg": 0.3168405624835703
+    },
+    {
+      "threshold": 0.4,
+      "weights": [
+        0.0,
+        0.25,
+        0.75
+      ],
+      "ms": 78.4770191365416,
+      "acceptance": 0.043209876543209874,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 0.45,
+      "weights": [
+        0.0,
+        0.25,
+        0.75
+      ],
+      "ms": 78.4770191365416,
+      "acceptance": 0.043209876543209874,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 0.5,
+      "weights": [
+        0.0,
+        0.25,
+        0.75
+      ],
+      "ms": 78.4770191365416,
+      "acceptance": 0.043209876543209874,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 0.55,
+      "weights": [
+        0.0,
+        0.25,
+        0.75
+      ],
+      "ms": 78.4770191365416,
+      "acceptance": 0.043209876543209874,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 0.6,
+      "weights": [
+        0.0,
+        0.25,
+        0.75
+      ],
+      "ms": 78.4770191365416,
+      "acceptance": 0.043209876543209874,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 0.65,
+      "weights": [
+        0.0,
+        0.25,
+        0.75
+      ],
+      "ms": 78.4770191365416,
+      "acceptance": 0.043209876543209874,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 0.7,
+      "weights": [
+        0.0,
+        0.25,
+        0.75
+      ],
+      "ms": 78.4770191365416,
+      "acceptance": 0.043209876543209874,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 0.75,
+      "weights": [
+        0.0,
+        0.25,
+        0.75
+      ],
+      "ms": 78.4770191365416,
+      "acceptance": 0.043209876543209874,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 0.8,
+      "weights": [
+        0.0,
+        0.25,
+        0.75
+      ],
+      "ms": 78.4770191365416,
+      "acceptance": 0.043209876543209874,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 0.85,
+      "weights": [
+        0.0,
+        0.25,
+        0.75
+      ],
+      "ms": 78.4770191365416,
+      "acceptance": 0.043209876543209874,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 0.9,
+      "weights": [
+        0.0,
+        0.25,
+        0.75
+      ],
+      "ms": 78.4770191365416,
+      "acceptance": 0.043209876543209874,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 0.95,
+      "weights": [
+        0.0,
+        0.25,
+        0.75
+      ],
+      "ms": 78.4770191365416,
+      "acceptance": 0.043209876543209874,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 1.0,
+      "weights": [
+        0.0,
+        0.25,
+        0.75
+      ],
+      "ms": 78.4770191365416,
+      "acceptance": 0.043209876543209874,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 0.0,
+      "weights": [
+        0.0,
+        0.5,
+        0.5
+      ],
+      "ms": 11.547070991155909,
+      "acceptance": 0.9351851851851852,
+      "feasible": false,
+      "recall": 0.12711384770210157,
+      "ndcg": 0.29837415081322555
+    },
+    {
+      "threshold": 0.05,
+      "weights": [
+        0.0,
+        0.5,
+        0.5
+      ],
+      "ms": 44.22433179282917,
+      "acceptance": 0.5,
+      "feasible": false,
+      "recall": 0.1269904094402292,
+      "ndcg": 0.30297324475893156
+    },
+    {
+      "threshold": 0.1,
+      "weights": [
+        0.0,
+        0.5,
+        0.5
+      ],
+      "ms": 60.90155895080785,
+      "acceptance": 0.2808641975308642,
+      "feasible": false,
+      "recall": 0.13023083498876692,
+      "ndcg": 0.3079206507806584
+    },
+    {
+      "threshold": 0.15,
+      "weights": [
+        0.0,
+        0.5,
+        0.5
+      ],
+      "ms": 68.49582469016083,
+      "acceptance": 0.17901234567901234,
+      "feasible": false,
+      "recall": 0.1309708826556731,
+      "ndcg": 0.31037322626653835
+    },
+    {
+      "threshold": 0.2,
+      "weights": [
+        0.0,
+        0.5,
+        0.5
+      ],
+      "ms": 73.06842314852632,
+      "acceptance": 0.11728395061728394,
+      "feasible": false,
+      "recall": 0.13259301948245397,
+      "ndcg": 0.31271589919950554
+    },
+    {
+      "threshold": 0.25,
+      "weights": [
+        0.0,
+        0.5,
+        0.5
+      ],
+      "ms": 75.76103981607307,
+      "acceptance": 0.08024691358024691,
+      "feasible": true,
+      "recall": 0.13460456340521976,
+      "ndcg": 0.3150939427850274
+    },
+    {
+      "threshold": 0.3,
+      "weights": [
+        0.0,
+        0.5,
+        0.5
+      ],
+      "ms": 76.86395432230913,
+      "acceptance": 0.06481481481481481,
+      "feasible": true,
+      "recall": 0.13614777328176295,
+      "ndcg": 0.3152298834443499
+    },
+    {
+      "threshold": 0.35,
+      "weights": [
+        0.0,
+        0.5,
+        0.5
+      ],
+      "ms": 77.53257407522243,
+      "acceptance": 0.05555555555555555,
+      "feasible": true,
+      "recall": 0.13722351081583384,
+      "ndcg": 0.31692385883941915
+    },
+    {
+      "threshold": 0.4,
+      "weights": [
+        0.0,
+        0.5,
+        0.5
+      ],
+      "ms": 77.75834166763902,
+      "acceptance": 0.05246913580246913,
+      "feasible": true,
+      "recall": 0.13722351081583384,
+      "ndcg": 0.31692385883941915
+    },
+    {
+      "threshold": 0.45,
+      "weights": [
+        0.0,
+        0.5,
+        0.5
+      ],
+      "ms": 78.4770191365416,
+      "acceptance": 0.043209876543209874,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 0.5,
+      "weights": [
+        0.0,
+        0.5,
+        0.5
+      ],
+      "ms": 78.4770191365416,
+      "acceptance": 0.043209876543209874,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 0.55,
+      "weights": [
+        0.0,
+        0.5,
+        0.5
+      ],
+      "ms": 78.4770191365416,
+      "acceptance": 0.043209876543209874,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 0.6,
+      "weights": [
+        0.0,
+        0.5,
+        0.5
+      ],
+      "ms": 78.4770191365416,
+      "acceptance": 0.043209876543209874,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 0.65,
+      "weights": [
+        0.0,
+        0.5,
+        0.5
+      ],
+      "ms": 78.4770191365416,
+      "acceptance": 0.043209876543209874,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 0.7,
+      "weights": [
+        0.0,
+        0.5,
+        0.5
+      ],
+      "ms": 78.4770191365416,
+      "acceptance": 0.043209876543209874,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 0.75,
+      "weights": [
+        0.0,
+        0.5,
+        0.5
+      ],
+      "ms": 78.4770191365416,
+      "acceptance": 0.043209876543209874,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 0.8,
+      "weights": [
+        0.0,
+        0.5,
+        0.5
+      ],
+      "ms": 78.4770191365416,
+      "acceptance": 0.043209876543209874,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 0.85,
+      "weights": [
+        0.0,
+        0.5,
+        0.5
+      ],
+      "ms": 78.4770191365416,
+      "acceptance": 0.043209876543209874,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 0.9,
+      "weights": [
+        0.0,
+        0.5,
+        0.5
+      ],
+      "ms": 78.4770191365416,
+      "acceptance": 0.043209876543209874,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 0.95,
+      "weights": [
+        0.0,
+        0.5,
+        0.5
+      ],
+      "ms": 78.4770191365416,
+      "acceptance": 0.043209876543209874,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 1.0,
+      "weights": [
+        0.0,
+        0.5,
+        0.5
+      ],
+      "ms": 78.4770191365416,
+      "acceptance": 0.043209876543209874,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 0.0,
+      "weights": [
+        0.0,
+        0.75,
+        0.25
+      ],
+      "ms": 11.547070991155909,
+      "acceptance": 0.9351851851851852,
+      "feasible": false,
+      "recall": 0.12711384770210157,
+      "ndcg": 0.29837415081322555
+    },
+    {
+      "threshold": 0.05,
+      "weights": [
+        0.0,
+        0.75,
+        0.25
+      ],
+      "ms": 42.387846299665576,
+      "acceptance": 0.5246913580246914,
+      "feasible": false,
+      "recall": 0.12573650649969098,
+      "ndcg": 0.3004218028693798
+    },
+    {
+      "threshold": 0.1,
+      "weights": [
+        0.0,
+        0.75,
+        0.25
+      ],
+      "ms": 55.32495432280372,
+      "acceptance": 0.3549382716049383,
+      "feasible": false,
+      "recall": 0.12872421303101517,
+      "ndcg": 0.30654783194241697
+    },
+    {
+      "threshold": 0.15,
+      "weights": [
+        0.0,
+        0.75,
+        0.25
+      ],
+      "ms": 64.83381358047166,
+      "acceptance": 0.22839506172839505,
+      "feasible": false,
+      "recall": 0.13098320886398696,
+      "ndcg": 0.30874861204914517
+    },
+    {
+      "threshold": 0.2,
+      "weights": [
+        0.0,
+        0.75,
+        0.25
+      ],
+      "ms": 69.37977345588467,
+      "acceptance": 0.16666666666666666,
+      "feasible": false,
+      "recall": 0.13121779623592,
+      "ndcg": 0.3109371223588258
+    },
+    {
+      "threshold": 0.25,
+      "weights": [
+        0.0,
+        0.75,
+        0.25
+      ],
+      "ms": 72.8622583340405,
+      "acceptance": 0.12037037037037036,
+      "feasible": false,
+      "recall": 0.13228437750714533,
+      "ndcg": 0.3121896335882589
+    },
+    {
+      "threshold": 0.3,
+      "weights": [
+        0.0,
+        0.75,
+        0.25
+      ],
+      "ms": 75.10780123562587,
+      "acceptance": 0.08950617283950617,
+      "feasible": true,
+      "recall": 0.13418347047766688,
+      "ndcg": 0.3143162235179068
+    },
+    {
+      "threshold": 0.35,
+      "weights": [
+        0.0,
+        0.75,
+        0.25
+      ],
+      "ms": 77.08634537167525,
+      "acceptance": 0.06172839506172839,
+      "feasible": true,
+      "recall": 0.13658869038934673,
+      "ndcg": 0.31559526243495284
+    },
+    {
+      "threshold": 0.4,
+      "weights": [
+        0.0,
+        0.75,
+        0.25
+      ],
+      "ms": 77.08634537167525,
+      "acceptance": 0.06172839506172839,
+      "feasible": true,
+      "recall": 0.13658869038934673,
+      "ndcg": 0.31559526243495284
+    },
+    {
+      "threshold": 0.45,
+      "weights": [
+        0.0,
+        0.75,
+        0.25
+      ],
+      "ms": 77.30099259384184,
+      "acceptance": 0.05864197530864197,
+      "feasible": true,
+      "recall": 0.13664480711213012,
+      "ndcg": 0.31579162289235696
+    },
+    {
+      "threshold": 0.5,
+      "weights": [
+        0.0,
+        0.75,
+        0.25
+      ],
+      "ms": 78.0148104948486,
+      "acceptance": 0.04938271604938271,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3177388839090876
+    },
+    {
+      "threshold": 0.55,
+      "weights": [
+        0.0,
+        0.75,
+        0.25
+      ],
+      "ms": 78.4770191365416,
+      "acceptance": 0.043209876543209874,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 0.6,
+      "weights": [
+        0.0,
+        0.75,
+        0.25
+      ],
+      "ms": 78.4770191365416,
+      "acceptance": 0.043209876543209874,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 0.65,
+      "weights": [
+        0.0,
+        0.75,
+        0.25
+      ],
+      "ms": 78.4770191365416,
+      "acceptance": 0.043209876543209874,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 0.7,
+      "weights": [
+        0.0,
+        0.75,
+        0.25
+      ],
+      "ms": 78.4770191365416,
+      "acceptance": 0.043209876543209874,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 0.75,
+      "weights": [
+        0.0,
+        0.75,
+        0.25
+      ],
+      "ms": 78.4770191365416,
+      "acceptance": 0.043209876543209874,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 0.8,
+      "weights": [
+        0.0,
+        0.75,
+        0.25
+      ],
+      "ms": 78.4770191365416,
+      "acceptance": 0.043209876543209874,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 0.85,
+      "weights": [
+        0.0,
+        0.75,
+        0.25
+      ],
+      "ms": 78.4770191365416,
+      "acceptance": 0.043209876543209874,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 0.9,
+      "weights": [
+        0.0,
+        0.75,
+        0.25
+      ],
+      "ms": 78.4770191365416,
+      "acceptance": 0.043209876543209874,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 0.95,
+      "weights": [
+        0.0,
+        0.75,
+        0.25
+      ],
+      "ms": 78.4770191365416,
+      "acceptance": 0.043209876543209874,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 1.0,
+      "weights": [
+        0.0,
+        0.75,
+        0.25
+      ],
+      "ms": 78.4770191365416,
+      "acceptance": 0.043209876543209874,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 0.0,
+      "weights": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "ms": 11.547070991155909,
+      "acceptance": 0.9351851851851852,
+      "feasible": false,
+      "recall": 0.12711384770210157,
+      "ndcg": 0.29837415081322555
+    },
+    {
+      "threshold": 0.05,
+      "weights": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "ms": 40.523637040161795,
+      "acceptance": 0.5493827160493827,
+      "feasible": false,
+      "recall": 0.1253295271914018,
+      "ndcg": 0.29843907822327426
+    },
+    {
+      "threshold": 0.1,
+      "weights": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "ms": 52.359124385452844,
+      "acceptance": 0.3888888888888889,
+      "feasible": false,
+      "recall": 0.12817605929658696,
+      "ndcg": 0.3056002351577721
+    },
+    {
+      "threshold": 0.15,
+      "weights": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "ms": 61.66696635917128,
+      "acceptance": 0.2716049382716049,
+      "feasible": false,
+      "recall": 0.1313878560962176,
+      "ndcg": 0.3086220530091629
+    },
+    {
+      "threshold": 0.2,
+      "weights": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "ms": 66.64820462910826,
+      "acceptance": 0.2037037037037037,
+      "feasible": false,
+      "recall": 0.13082493092793127,
+      "ndcg": 0.3096704527898957
+    },
+    {
+      "threshold": 0.25,
+      "weights": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "ms": 70.28243950507776,
+      "acceptance": 0.15432098765432098,
+      "feasible": false,
+      "recall": 0.13129495672974717,
+      "ndcg": 0.310068653352538
+    },
+    {
+      "threshold": 0.3,
+      "weights": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "ms": 73.28792438370947,
+      "acceptance": 0.11419753086419752,
+      "feasible": false,
+      "recall": 0.13305598244541694,
+      "ndcg": 0.3135409476654847
+    },
+    {
+      "threshold": 0.35,
+      "weights": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "ms": 74.64491142129617,
+      "acceptance": 0.09567901234567901,
+      "feasible": true,
+      "recall": 0.13418347047766688,
+      "ndcg": 0.3147832625161021
+    },
+    {
+      "threshold": 0.4,
+      "weights": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "ms": 75.79619012468345,
+      "acceptance": 0.08024691358024691,
+      "feasible": true,
+      "recall": 0.13616759746179385,
+      "ndcg": 0.3154136942145878
+    },
+    {
+      "threshold": 0.45,
+      "weights": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "ms": 77.08634537167525,
+      "acceptance": 0.06172839506172839,
+      "feasible": true,
+      "recall": 0.13658869038934673,
+      "ndcg": 0.31559526243495284
+    },
+    {
+      "threshold": 0.5,
+      "weights": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "ms": 77.30099259384184,
+      "acceptance": 0.05864197530864197,
+      "feasible": true,
+      "recall": 0.13664480711213012,
+      "ndcg": 0.31579162289235696
+    },
+    {
+      "threshold": 0.55,
+      "weights": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "ms": 77.78322901346802,
+      "acceptance": 0.05246913580246913,
+      "feasible": true,
+      "recall": 0.13818801698867333,
+      "ndcg": 0.3166066479620255
+    },
+    {
+      "threshold": 0.6,
+      "weights": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "ms": 78.0148104948486,
+      "acceptance": 0.04938271604938271,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3177388839090876
+    },
+    {
+      "threshold": 0.65,
+      "weights": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "ms": 78.24978395149594,
+      "acceptance": 0.046296296296296294,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176499439068515
+    },
+    {
+      "threshold": 0.7,
+      "weights": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "ms": 78.4770191365416,
+      "acceptance": 0.043209876543209874,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 0.75,
+      "weights": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "ms": 78.4770191365416,
+      "acceptance": 0.043209876543209874,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 0.8,
+      "weights": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "ms": 78.4770191365416,
+      "acceptance": 0.043209876543209874,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 0.85,
+      "weights": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "ms": 78.4770191365416,
+      "acceptance": 0.043209876543209874,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 0.9,
+      "weights": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "ms": 78.4770191365416,
+      "acceptance": 0.043209876543209874,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 0.95,
+      "weights": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "ms": 78.4770191365416,
+      "acceptance": 0.043209876543209874,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 1.0,
+      "weights": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "ms": 78.4770191365416,
+      "acceptance": 0.043209876543209874,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 0.0,
+      "weights": [
+        0.25,
+        0.0,
+        0.75
+      ],
+      "ms": 11.547070991155909,
+      "acceptance": 0.9351851851851852,
+      "feasible": false,
+      "recall": 0.12711384770210157,
+      "ndcg": 0.29837415081322555
+    },
+    {
+      "threshold": 0.05,
+      "weights": [
+        0.25,
+        0.0,
+        0.75
+      ],
+      "ms": 11.547070991155909,
+      "acceptance": 0.9351851851851852,
+      "feasible": false,
+      "recall": 0.12711384770210157,
+      "ndcg": 0.29837415081322555
+    },
+    {
+      "threshold": 0.1,
+      "weights": [
+        0.25,
+        0.0,
+        0.75
+      ],
+      "ms": 12.951144756732026,
+      "acceptance": 0.9166666666666666,
+      "feasible": false,
+      "recall": 0.12817756022414742,
+      "ndcg": 0.2997180699610565
+    },
+    {
+      "threshold": 0.15,
+      "weights": [
+        0.25,
+        0.0,
+        0.75
+      ],
+      "ms": 20.047874383938808,
+      "acceptance": 0.8240740740740741,
+      "feasible": false,
+      "recall": 0.12792513673019382,
+      "ndcg": 0.3008715024476248
+    },
+    {
+      "threshold": 0.2,
+      "weights": [
+        0.25,
+        0.0,
+        0.75
+      ],
+      "ms": 31.892304010488047,
+      "acceptance": 0.6728395061728395,
+      "feasible": false,
+      "recall": 0.13115296412134517,
+      "ndcg": 0.3074979322419844
+    },
+    {
+      "threshold": 0.25,
+      "weights": [
+        0.25,
+        0.0,
+        0.75
+      ],
+      "ms": 43.66016481359156,
+      "acceptance": 0.5123456790123457,
+      "feasible": true,
+      "recall": 0.1334276853892641,
+      "ndcg": 0.3140705673055939
+    },
+    {
+      "threshold": 0.3,
+      "weights": [
+        0.25,
+        0.0,
+        0.75
+      ],
+      "ms": 67.30369475302228,
+      "acceptance": 0.19444444444444445,
+      "feasible": true,
+      "recall": 0.13370350417978275,
+      "ndcg": 0.3183726603053699
+    },
+    {
+      "threshold": 0.35,
+      "weights": [
+        0.25,
+        0.0,
+        0.75
+      ],
+      "ms": 75.98334969162228,
+      "acceptance": 0.07716049382716049,
+      "feasible": true,
+      "recall": 0.13441166217065184,
+      "ndcg": 0.31458772044950245
+    },
+    {
+      "threshold": 0.4,
+      "weights": [
+        0.25,
+        0.0,
+        0.75
+      ],
+      "ms": 77.54515648250364,
+      "acceptance": 0.05555555555555555,
+      "feasible": true,
+      "recall": 0.13678259370825008,
+      "ndcg": 0.31646953984658
+    },
+    {
+      "threshold": 0.45,
+      "weights": [
+        0.25,
+        0.0,
+        0.75
+      ],
+      "ms": 78.22055030933201,
+      "acceptance": 0.046296296296296294,
+      "feasible": true,
+      "recall": 0.13722351081583384,
+      "ndcg": 0.3168405624835703
+    },
+    {
+      "threshold": 0.5,
+      "weights": [
+        0.25,
+        0.0,
+        0.75
+      ],
+      "ms": 78.22055030933201,
+      "acceptance": 0.046296296296296294,
+      "feasible": true,
+      "recall": 0.13722351081583384,
+      "ndcg": 0.3168405624835703
+    },
+    {
+      "threshold": 0.55,
+      "weights": [
+        0.25,
+        0.0,
+        0.75
+      ],
+      "ms": 78.4770191365416,
+      "acceptance": 0.043209876543209874,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 0.6,
+      "weights": [
+        0.25,
+        0.0,
+        0.75
+      ],
+      "ms": 78.4770191365416,
+      "acceptance": 0.043209876543209874,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 0.65,
+      "weights": [
+        0.25,
+        0.0,
+        0.75
+      ],
+      "ms": 78.4770191365416,
+      "acceptance": 0.043209876543209874,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 0.7,
+      "weights": [
+        0.25,
+        0.0,
+        0.75
+      ],
+      "ms": 78.4770191365416,
+      "acceptance": 0.043209876543209874,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 0.75,
+      "weights": [
+        0.25,
+        0.0,
+        0.75
+      ],
+      "ms": 78.4770191365416,
+      "acceptance": 0.043209876543209874,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 0.8,
+      "weights": [
+        0.25,
+        0.0,
+        0.75
+      ],
+      "ms": 78.4770191365416,
+      "acceptance": 0.043209876543209874,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 0.85,
+      "weights": [
+        0.25,
+        0.0,
+        0.75
+      ],
+      "ms": 78.4770191365416,
+      "acceptance": 0.043209876543209874,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 0.9,
+      "weights": [
+        0.25,
+        0.0,
+        0.75
+      ],
+      "ms": 78.92763271660509,
+      "acceptance": 0.037037037037037035,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 0.95,
+      "weights": [
+        0.25,
+        0.0,
+        0.75
+      ],
+      "ms": 78.92763271660509,
+      "acceptance": 0.037037037037037035,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 1.0,
+      "weights": [
+        0.25,
+        0.0,
+        0.75
+      ],
+      "ms": 78.92763271660509,
+      "acceptance": 0.037037037037037035,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 0.0,
+      "weights": [
+        0.25,
+        0.25,
+        0.5
+      ],
+      "ms": 11.547070991155909,
+      "acceptance": 0.9351851851851852,
+      "feasible": false,
+      "recall": 0.12711384770210157,
+      "ndcg": 0.29837415081322555
+    },
+    {
+      "threshold": 0.05,
+      "weights": [
+        0.25,
+        0.25,
+        0.5
+      ],
+      "ms": 11.547070991155909,
+      "acceptance": 0.9351851851851852,
+      "feasible": false,
+      "recall": 0.12711384770210157,
+      "ndcg": 0.29837415081322555
+    },
+    {
+      "threshold": 0.1,
+      "weights": [
+        0.25,
+        0.25,
+        0.5
+      ],
+      "ms": 12.429182102219604,
+      "acceptance": 0.9228395061728395,
+      "feasible": false,
+      "recall": 0.1275988565204437,
+      "ndcg": 0.29878252641535175
+    },
+    {
+      "threshold": 0.15,
+      "weights": [
+        0.25,
+        0.25,
+        0.5
+      ],
+      "ms": 18.571983641990816,
+      "acceptance": 0.8425925925925926,
+      "feasible": false,
+      "recall": 0.12789138628794663,
+      "ndcg": 0.30074996966850054
+    },
+    {
+      "threshold": 0.2,
+      "weights": [
+        0.25,
+        0.25,
+        0.5
+      ],
+      "ms": 29.113613579272766,
+      "acceptance": 0.7098765432098766,
+      "feasible": false,
+      "recall": 0.13078462197349763,
+      "ndcg": 0.3060443753335868
+    },
+    {
+      "threshold": 0.25,
+      "weights": [
+        0.25,
+        0.25,
+        0.5
+      ],
+      "ms": 39.8607879588208,
+      "acceptance": 0.5648148148148148,
+      "feasible": false,
+      "recall": 0.13235629601524282,
+      "ndcg": 0.3108763319202231
+    },
+    {
+      "threshold": 0.3,
+      "weights": [
+        0.25,
+        0.25,
+        0.5
+      ],
+      "ms": 62.876003087975405,
+      "acceptance": 0.25617283950617287,
+      "feasible": false,
+      "recall": 0.13192138030111183,
+      "ndcg": 0.312133885951688
+    },
+    {
+      "threshold": 0.35,
+      "weights": [
+        0.25,
+        0.25,
+        0.5
+      ],
+      "ms": 72.6195904332857,
+      "acceptance": 0.12345679012345678,
+      "feasible": true,
+      "recall": 0.1332941539929585,
+      "ndcg": 0.31387718508604634
+    },
+    {
+      "threshold": 0.4,
+      "weights": [
+        0.25,
+        0.25,
+        0.5
+      ],
+      "ms": 75.76003549462415,
+      "acceptance": 0.08024691358024691,
+      "feasible": true,
+      "recall": 0.13383295846694815,
+      "ndcg": 0.3139933364930625
+    },
+    {
+      "threshold": 0.45,
+      "weights": [
+        0.25,
+        0.25,
+        0.5
+      ],
+      "ms": 76.86395432230913,
+      "acceptance": 0.06481481481481481,
+      "feasible": true,
+      "recall": 0.13614777328176295,
+      "ndcg": 0.3152298834443499
+    },
+    {
+      "threshold": 0.5,
+      "weights": [
+        0.25,
+        0.25,
+        0.5
+      ],
+      "ms": 77.76754753186977,
+      "acceptance": 0.05246913580246913,
+      "feasible": true,
+      "recall": 0.13722351081583384,
+      "ndcg": 0.31683491883718296
+    },
+    {
+      "threshold": 0.55,
+      "weights": [
+        0.25,
+        0.25,
+        0.5
+      ],
+      "ms": 78.4770191365416,
+      "acceptance": 0.043209876543209874,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 0.6,
+      "weights": [
+        0.25,
+        0.25,
+        0.5
+      ],
+      "ms": 78.4770191365416,
+      "acceptance": 0.043209876543209874,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 0.65,
+      "weights": [
+        0.25,
+        0.25,
+        0.5
+      ],
+      "ms": 78.4770191365416,
+      "acceptance": 0.043209876543209874,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 0.7,
+      "weights": [
+        0.25,
+        0.25,
+        0.5
+      ],
+      "ms": 78.4770191365416,
+      "acceptance": 0.043209876543209874,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 0.75,
+      "weights": [
+        0.25,
+        0.25,
+        0.5
+      ],
+      "ms": 78.4770191365416,
+      "acceptance": 0.043209876543209874,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 0.8,
+      "weights": [
+        0.25,
+        0.25,
+        0.5
+      ],
+      "ms": 78.4770191365416,
+      "acceptance": 0.043209876543209874,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 0.85,
+      "weights": [
+        0.25,
+        0.25,
+        0.5
+      ],
+      "ms": 78.4770191365416,
+      "acceptance": 0.043209876543209874,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 0.9,
+      "weights": [
+        0.25,
+        0.25,
+        0.5
+      ],
+      "ms": 78.92763271660509,
+      "acceptance": 0.037037037037037035,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 0.95,
+      "weights": [
+        0.25,
+        0.25,
+        0.5
+      ],
+      "ms": 78.92763271660509,
+      "acceptance": 0.037037037037037035,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 1.0,
+      "weights": [
+        0.25,
+        0.25,
+        0.5
+      ],
+      "ms": 78.92763271660509,
+      "acceptance": 0.037037037037037035,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 0.0,
+      "weights": [
+        0.25,
+        0.5,
+        0.25
+      ],
+      "ms": 11.547070991155909,
+      "acceptance": 0.9351851851851852,
+      "feasible": false,
+      "recall": 0.12711384770210157,
+      "ndcg": 0.29837415081322555
+    },
+    {
+      "threshold": 0.05,
+      "weights": [
+        0.25,
+        0.5,
+        0.25
+      ],
+      "ms": 11.547070991155909,
+      "acceptance": 0.9351851851851852,
+      "feasible": false,
+      "recall": 0.12711384770210157,
+      "ndcg": 0.29837415081322555
+    },
+    {
+      "threshold": 0.1,
+      "weights": [
+        0.25,
+        0.5,
+        0.25
+      ],
+      "ms": 12.197838274813774,
+      "acceptance": 0.9259259259259259,
+      "feasible": false,
+      "recall": 0.12708445322826264,
+      "ndcg": 0.2987015884450904
+    },
+    {
+      "threshold": 0.15,
+      "weights": [
+        0.25,
+        0.5,
+        0.25
+      ],
+      "ms": 17.475681173195486,
+      "acceptance": 0.8549382716049383,
+      "feasible": false,
+      "recall": 0.12802272329871628,
+      "ndcg": 0.30116404233418576
+    },
+    {
+      "threshold": 0.2,
+      "weights": [
+        0.25,
+        0.5,
+        0.25
+      ],
+      "ms": 25.977855863015133,
+      "acceptance": 0.7469135802469136,
+      "feasible": false,
+      "recall": 0.13069944480498716,
+      "ndcg": 0.3037803180993526
+    },
+    {
+      "threshold": 0.25,
+      "weights": [
+        0.25,
+        0.5,
+        0.25
+      ],
+      "ms": 37.06090030530583,
+      "acceptance": 0.6018518518518519,
+      "feasible": false,
+      "recall": 0.13115831192334892,
+      "ndcg": 0.3086592483353552
+    },
+    {
+      "threshold": 0.3,
+      "weights": [
+        0.25,
+        0.5,
+        0.25
+      ],
+      "ms": 59.33127531071803,
+      "acceptance": 0.3055555555555556,
+      "feasible": false,
+      "recall": 0.13042055996547317,
+      "ndcg": 0.3090274557948639
+    },
+    {
+      "threshold": 0.35,
+      "weights": [
+        0.25,
+        0.5,
+        0.25
+      ],
+      "ms": 68.58202067985671,
+      "acceptance": 0.17901234567901234,
+      "feasible": false,
+      "recall": 0.13237759902934157,
+      "ndcg": 0.31191101463644855
+    },
+    {
+      "threshold": 0.4,
+      "weights": [
+        0.25,
+        0.5,
+        0.25
+      ],
+      "ms": 73.5274280879911,
+      "acceptance": 0.1111111111111111,
+      "feasible": false,
+      "recall": 0.133062672511477,
+      "ndcg": 0.312884059275303
+    },
+    {
+      "threshold": 0.45,
+      "weights": [
+        0.25,
+        0.5,
+        0.25
+      ],
+      "ms": 75.96017500201677,
+      "acceptance": 0.07716049382716049,
+      "feasible": true,
+      "recall": 0.13460456340521976,
+      "ndcg": 0.3155609817832227
+    },
+    {
+      "threshold": 0.5,
+      "weights": [
+        0.25,
+        0.5,
+        0.25
+      ],
+      "ms": 77.08634537167525,
+      "acceptance": 0.06172839506172839,
+      "feasible": true,
+      "recall": 0.13658869038934673,
+      "ndcg": 0.31559526243495284
+    },
+    {
+      "threshold": 0.55,
+      "weights": [
+        0.25,
+        0.5,
+        0.25
+      ],
+      "ms": 77.30099259384184,
+      "acceptance": 0.05864197530864197,
+      "feasible": true,
+      "recall": 0.13664480711213012,
+      "ndcg": 0.31579162289235696
+    },
+    {
+      "threshold": 0.6,
+      "weights": [
+        0.25,
+        0.5,
+        0.25
+      ],
+      "ms": 78.0148104948486,
+      "acceptance": 0.04938271604938271,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3177388839090876
+    },
+    {
+      "threshold": 0.65,
+      "weights": [
+        0.25,
+        0.5,
+        0.25
+      ],
+      "ms": 78.4770191365416,
+      "acceptance": 0.043209876543209874,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 0.7,
+      "weights": [
+        0.25,
+        0.5,
+        0.25
+      ],
+      "ms": 78.4770191365416,
+      "acceptance": 0.043209876543209874,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 0.75,
+      "weights": [
+        0.25,
+        0.5,
+        0.25
+      ],
+      "ms": 78.4770191365416,
+      "acceptance": 0.043209876543209874,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 0.8,
+      "weights": [
+        0.25,
+        0.5,
+        0.25
+      ],
+      "ms": 78.4770191365416,
+      "acceptance": 0.043209876543209874,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 0.85,
+      "weights": [
+        0.25,
+        0.5,
+        0.25
+      ],
+      "ms": 78.4770191365416,
+      "acceptance": 0.043209876543209874,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 0.9,
+      "weights": [
+        0.25,
+        0.5,
+        0.25
+      ],
+      "ms": 78.92763271660509,
+      "acceptance": 0.037037037037037035,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 0.95,
+      "weights": [
+        0.25,
+        0.5,
+        0.25
+      ],
+      "ms": 78.92763271660509,
+      "acceptance": 0.037037037037037035,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 1.0,
+      "weights": [
+        0.25,
+        0.5,
+        0.25
+      ],
+      "ms": 78.92763271660509,
+      "acceptance": 0.037037037037037035,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 0.0,
+      "weights": [
+        0.25,
+        0.75,
+        0.0
+      ],
+      "ms": 11.547070991155909,
+      "acceptance": 0.9351851851851852,
+      "feasible": false,
+      "recall": 0.12711384770210157,
+      "ndcg": 0.29837415081322555
+    },
+    {
+      "threshold": 0.05,
+      "weights": [
+        0.25,
+        0.75,
+        0.0
+      ],
+      "ms": 11.547070991155909,
+      "acceptance": 0.9351851851851852,
+      "feasible": false,
+      "recall": 0.12711384770210157,
+      "ndcg": 0.29837415081322555
+    },
+    {
+      "threshold": 0.1,
+      "weights": [
+        0.25,
+        0.75,
+        0.0
+      ],
+      "ms": 12.197838274813774,
+      "acceptance": 0.9259259259259259,
+      "feasible": false,
+      "recall": 0.12708445322826264,
+      "ndcg": 0.2987015884450904
+    },
+    {
+      "threshold": 0.15,
+      "weights": [
+        0.25,
+        0.75,
+        0.0
+      ],
+      "ms": 16.81356512464261,
+      "acceptance": 0.8641975308641975,
+      "feasible": false,
+      "recall": 0.12802272329871628,
+      "ndcg": 0.30116404233418576
+    },
+    {
+      "threshold": 0.2,
+      "weights": [
+        0.25,
+        0.75,
+        0.0
+      ],
+      "ms": 24.933569134718933,
+      "acceptance": 0.7592592592592593,
+      "feasible": false,
+      "recall": 0.12953040989412218,
+      "ndcg": 0.3036717916681612
+    },
+    {
+      "threshold": 0.25,
+      "weights": [
+        0.25,
+        0.75,
+        0.0
+      ],
+      "ms": 34.290998763789965,
+      "acceptance": 0.6388888888888888,
+      "feasible": false,
+      "recall": 0.1300618643184246,
+      "ndcg": 0.30725576045563263
+    },
+    {
+      "threshold": 0.3,
+      "weights": [
+        0.25,
+        0.75,
+        0.0
+      ],
+      "ms": 57.22143117447648,
+      "acceptance": 0.3333333333333333,
+      "feasible": false,
+      "recall": 0.12999903974944352,
+      "ndcg": 0.30812593874315025
+    },
+    {
+      "threshold": 0.35,
+      "weights": [
+        0.25,
+        0.75,
+        0.0
+      ],
+      "ms": 63.79001851791493,
+      "acceptance": 0.24382716049382716,
+      "feasible": false,
+      "recall": 0.1312980714638997,
+      "ndcg": 0.3093631462182258
+    },
+    {
+      "threshold": 0.4,
+      "weights": [
+        0.25,
+        0.75,
+        0.0
+      ],
+      "ms": 69.280744444027,
+      "acceptance": 0.1697530864197531,
+      "feasible": false,
+      "recall": 0.13245287755990465,
+      "ndcg": 0.31268725463702357
+    },
+    {
+      "threshold": 0.45,
+      "weights": [
+        0.25,
+        0.75,
+        0.0
+      ],
+      "ms": 73.32123827295561,
+      "acceptance": 0.11419753086419752,
+      "feasible": false,
+      "recall": 0.13298451511204484,
+      "ndcg": 0.31230316843915723
+    },
+    {
+      "threshold": 0.5,
+      "weights": [
+        0.25,
+        0.75,
+        0.0
+      ],
+      "ms": 75.52059660708808,
+      "acceptance": 0.08333333333333333,
+      "feasible": true,
+      "recall": 0.13460456340521976,
+      "ndcg": 0.315219852396961
+    },
+    {
+      "threshold": 0.55,
+      "weights": [
+        0.25,
+        0.75,
+        0.0
+      ],
+      "ms": 76.66539043377809,
+      "acceptance": 0.06790123456790123,
+      "feasible": true,
+      "recall": 0.13658869038934673,
+      "ndcg": 0.3161914134817084
+    },
+    {
+      "threshold": 0.6,
+      "weights": [
+        0.25,
+        0.75,
+        0.0
+      ],
+      "ms": 77.08634537167525,
+      "acceptance": 0.06172839506172839,
+      "feasible": true,
+      "recall": 0.13658869038934673,
+      "ndcg": 0.31559526243495284
+    },
+    {
+      "threshold": 0.65,
+      "weights": [
+        0.25,
+        0.75,
+        0.0
+      ],
+      "ms": 77.78322901346802,
+      "acceptance": 0.05246913580246913,
+      "feasible": true,
+      "recall": 0.13818801698867333,
+      "ndcg": 0.3166066479620255
+    },
+    {
+      "threshold": 0.7,
+      "weights": [
+        0.25,
+        0.75,
+        0.0
+      ],
+      "ms": 78.0148104948486,
+      "acceptance": 0.04938271604938271,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3177388839090876
+    },
+    {
+      "threshold": 0.75,
+      "weights": [
+        0.25,
+        0.75,
+        0.0
+      ],
+      "ms": 78.4770191365416,
+      "acceptance": 0.043209876543209874,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 0.8,
+      "weights": [
+        0.25,
+        0.75,
+        0.0
+      ],
+      "ms": 78.4770191365416,
+      "acceptance": 0.043209876543209874,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 0.85,
+      "weights": [
+        0.25,
+        0.75,
+        0.0
+      ],
+      "ms": 78.4770191365416,
+      "acceptance": 0.043209876543209874,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 0.9,
+      "weights": [
+        0.25,
+        0.75,
+        0.0
+      ],
+      "ms": 78.92763271660509,
+      "acceptance": 0.037037037037037035,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 0.95,
+      "weights": [
+        0.25,
+        0.75,
+        0.0
+      ],
+      "ms": 78.92763271660509,
+      "acceptance": 0.037037037037037035,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 1.0,
+      "weights": [
+        0.25,
+        0.75,
+        0.0
+      ],
+      "ms": 78.92763271660509,
+      "acceptance": 0.037037037037037035,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 0.0,
+      "weights": [
+        0.5,
+        0.0,
+        0.5
+      ],
+      "ms": 11.547070991155909,
+      "acceptance": 0.9351851851851852,
+      "feasible": false,
+      "recall": 0.12711384770210157,
+      "ndcg": 0.29837415081322555
+    },
+    {
+      "threshold": 0.05,
+      "weights": [
+        0.5,
+        0.0,
+        0.5
+      ],
+      "ms": 11.547070991155909,
+      "acceptance": 0.9351851851851852,
+      "feasible": false,
+      "recall": 0.12711384770210157,
+      "ndcg": 0.29837415081322555
+    },
+    {
+      "threshold": 0.1,
+      "weights": [
+        0.5,
+        0.0,
+        0.5
+      ],
+      "ms": 11.7577392008604,
+      "acceptance": 0.9320987654320988,
+      "feasible": false,
+      "recall": 0.12718733388669884,
+      "ndcg": 0.29888970008543875
+    },
+    {
+      "threshold": 0.15,
+      "weights": [
+        0.5,
+        0.0,
+        0.5
+      ],
+      "ms": 12.721854015569674,
+      "acceptance": 0.9197530864197531,
+      "feasible": false,
+      "recall": 0.1275988565204437,
+      "ndcg": 0.29878252641535175
+    },
+    {
+      "threshold": 0.2,
+      "weights": [
+        0.5,
+        0.0,
+        0.5
+      ],
+      "ms": 14.310174694940171,
+      "acceptance": 0.8981481481481481,
+      "feasible": false,
+      "recall": 0.12886343128038882,
+      "ndcg": 0.30105872022654656
+    },
+    {
+      "threshold": 0.25,
+      "weights": [
+        0.5,
+        0.0,
+        0.5
+      ],
+      "ms": 17.938133643905598,
+      "acceptance": 0.8518518518518519,
+      "feasible": false,
+      "recall": 0.12826016623267936,
+      "ndcg": 0.3007772995322683
+    },
+    {
+      "threshold": 0.3,
+      "weights": [
+        0.5,
+        0.0,
+        0.5
+      ],
+      "ms": 23.80555925997158,
+      "acceptance": 0.7746913580246914,
+      "feasible": false,
+      "recall": 0.1294641863986761,
+      "ndcg": 0.30434166800495943
+    },
+    {
+      "threshold": 0.35,
+      "weights": [
+        0.5,
+        0.0,
+        0.5
+      ],
+      "ms": 31.22908333143978,
+      "acceptance": 0.6820987654320988,
+      "feasible": false,
+      "recall": 0.13137941982353524,
+      "ndcg": 0.30837464252418173
+    },
+    {
+      "threshold": 0.4,
+      "weights": [
+        0.5,
+        0.0,
+        0.5
+      ],
+      "ms": 38.89112036968409,
+      "acceptance": 0.5771604938271605,
+      "feasible": false,
+      "recall": 0.13287716820258752,
+      "ndcg": 0.31098783485463055
+    },
+    {
+      "threshold": 0.45,
+      "weights": [
+        0.5,
+        0.0,
+        0.5
+      ],
+      "ms": 44.54789999843702,
+      "acceptance": 0.5,
+      "feasible": true,
+      "recall": 0.1351045065105297,
+      "ndcg": 0.3153995583098537
+    },
+    {
+      "threshold": 0.5,
+      "weights": [
+        0.5,
+        0.0,
+        0.5
+      ],
+      "ms": 45.234237961402094,
+      "acceptance": 0.49074074074074076,
+      "feasible": true,
+      "recall": 0.1351045065105297,
+      "ndcg": 0.31534915696201754
+    },
+    {
+      "threshold": 0.55,
+      "weights": [
+        0.5,
+        0.0,
+        0.5
+      ],
+      "ms": 73.32952777757367,
+      "acceptance": 0.11419753086419752,
+      "feasible": true,
+      "recall": 0.13312513576838472,
+      "ndcg": 0.31437853617830747
+    },
+    {
+      "threshold": 0.6,
+      "weights": [
+        0.5,
+        0.0,
+        0.5
+      ],
+      "ms": 77.54515648250364,
+      "acceptance": 0.05555555555555555,
+      "feasible": true,
+      "recall": 0.13678259370825008,
+      "ndcg": 0.31646953984658
+    },
+    {
+      "threshold": 0.65,
+      "weights": [
+        0.5,
+        0.0,
+        0.5
+      ],
+      "ms": 78.22055030933201,
+      "acceptance": 0.046296296296296294,
+      "feasible": true,
+      "recall": 0.13722351081583384,
+      "ndcg": 0.3168405624835703
+    },
+    {
+      "threshold": 0.7,
+      "weights": [
+        0.5,
+        0.0,
+        0.5
+      ],
+      "ms": 78.4770191365416,
+      "acceptance": 0.043209876543209874,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 0.75,
+      "weights": [
+        0.5,
+        0.0,
+        0.5
+      ],
+      "ms": 78.4770191365416,
+      "acceptance": 0.043209876543209874,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 0.8,
+      "weights": [
+        0.5,
+        0.0,
+        0.5
+      ],
+      "ms": 78.92763271660509,
+      "acceptance": 0.037037037037037035,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 0.85,
+      "weights": [
+        0.5,
+        0.0,
+        0.5
+      ],
+      "ms": 78.92763271660509,
+      "acceptance": 0.037037037037037035,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 0.9,
+      "weights": [
+        0.5,
+        0.0,
+        0.5
+      ],
+      "ms": 78.92763271660509,
+      "acceptance": 0.037037037037037035,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 0.95,
+      "weights": [
+        0.5,
+        0.0,
+        0.5
+      ],
+      "ms": 78.92763271660509,
+      "acceptance": 0.037037037037037035,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 1.0,
+      "weights": [
+        0.5,
+        0.0,
+        0.5
+      ],
+      "ms": 78.92763271660509,
+      "acceptance": 0.037037037037037035,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 0.0,
+      "weights": [
+        0.5,
+        0.25,
+        0.25
+      ],
+      "ms": 11.547070991155909,
+      "acceptance": 0.9351851851851852,
+      "feasible": false,
+      "recall": 0.12711384770210157,
+      "ndcg": 0.29837415081322555
+    },
+    {
+      "threshold": 0.05,
+      "weights": [
+        0.5,
+        0.25,
+        0.25
+      ],
+      "ms": 11.547070991155909,
+      "acceptance": 0.9351851851851852,
+      "feasible": false,
+      "recall": 0.12711384770210157,
+      "ndcg": 0.29837415081322555
+    },
+    {
+      "threshold": 0.1,
+      "weights": [
+        0.5,
+        0.25,
+        0.25
+      ],
+      "ms": 11.7577392008604,
+      "acceptance": 0.9320987654320988,
+      "feasible": false,
+      "recall": 0.12718733388669884,
+      "ndcg": 0.29888970008543875
+    },
+    {
+      "threshold": 0.15,
+      "weights": [
+        0.5,
+        0.25,
+        0.25
+      ],
+      "ms": 12.429182102219604,
+      "acceptance": 0.9228395061728395,
+      "feasible": false,
+      "recall": 0.1275988565204437,
+      "ndcg": 0.29878252641535175
+    },
+    {
+      "threshold": 0.2,
+      "weights": [
+        0.5,
+        0.25,
+        0.25
+      ],
+      "ms": 13.613568212877222,
+      "acceptance": 0.9074074074074074,
+      "feasible": false,
+      "recall": 0.12886343128038882,
+      "ndcg": 0.30043418769120883
+    },
+    {
+      "threshold": 0.25,
+      "weights": [
+        0.5,
+        0.25,
+        0.25
+      ],
+      "ms": 16.94191203892438,
+      "acceptance": 0.8641975308641975,
+      "feasible": false,
+      "recall": 0.12764288228206208,
+      "ndcg": 0.3004747091438999
+    },
+    {
+      "threshold": 0.3,
+      "weights": [
+        0.5,
+        0.25,
+        0.25
+      ],
+      "ms": 22.225037037486924,
+      "acceptance": 0.7962962962962963,
+      "feasible": false,
+      "recall": 0.1289897482853491,
+      "ndcg": 0.30357360264465394
+    },
+    {
+      "threshold": 0.35,
+      "weights": [
+        0.5,
+        0.25,
+        0.25
+      ],
+      "ms": 29.886030553937832,
+      "acceptance": 0.7006172839506173,
+      "feasible": false,
+      "recall": 0.130945034821249,
+      "ndcg": 0.3078194482235753
+    },
+    {
+      "threshold": 0.4,
+      "weights": [
+        0.5,
+        0.25,
+        0.25
+      ],
+      "ms": 35.970162961741245,
+      "acceptance": 0.6172839506172839,
+      "feasible": false,
+      "recall": 0.13213753712580867,
+      "ndcg": 0.3091516289084402
+    },
+    {
+      "threshold": 0.45,
+      "weights": [
+        0.5,
+        0.25,
+        0.25
+      ],
+      "ms": 41.85846419487562,
+      "acceptance": 0.5370370370370371,
+      "feasible": true,
+      "recall": 0.13357750279200514,
+      "ndcg": 0.31229128548898427
+    },
+    {
+      "threshold": 0.5,
+      "weights": [
+        0.5,
+        0.25,
+        0.25
+      ],
+      "ms": 44.55811820886914,
+      "acceptance": 0.5,
+      "feasible": true,
+      "recall": 0.1351045065105297,
+      "ndcg": 0.31534915696201754
+    },
+    {
+      "threshold": 0.55,
+      "weights": [
+        0.5,
+        0.25,
+        0.25
+      ],
+      "ms": 68.48151975506802,
+      "acceptance": 0.17901234567901234,
+      "feasible": true,
+      "recall": 0.13325834261153688,
+      "ndcg": 0.3134144984564319
+    },
+    {
+      "threshold": 0.6,
+      "weights": [
+        0.5,
+        0.25,
+        0.25
+      ],
+      "ms": 75.08146635940827,
+      "acceptance": 0.08950617283950617,
+      "feasible": true,
+      "recall": 0.13383295846694815,
+      "ndcg": 0.31386853831973516
+    },
+    {
+      "threshold": 0.65,
+      "weights": [
+        0.5,
+        0.25,
+        0.25
+      ],
+      "ms": 76.86395432230913,
+      "acceptance": 0.06481481481481481,
+      "feasible": true,
+      "recall": 0.13614777328176295,
+      "ndcg": 0.3152298834443499
+    },
+    {
+      "threshold": 0.7,
+      "weights": [
+        0.5,
+        0.25,
+        0.25
+      ],
+      "ms": 77.75834166763902,
+      "acceptance": 0.05246913580246913,
+      "feasible": true,
+      "recall": 0.13722351081583384,
+      "ndcg": 0.31692385883941915
+    },
+    {
+      "threshold": 0.75,
+      "weights": [
+        0.5,
+        0.25,
+        0.25
+      ],
+      "ms": 78.4770191365416,
+      "acceptance": 0.043209876543209874,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 0.8,
+      "weights": [
+        0.5,
+        0.25,
+        0.25
+      ],
+      "ms": 78.92763271660509,
+      "acceptance": 0.037037037037037035,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 0.85,
+      "weights": [
+        0.5,
+        0.25,
+        0.25
+      ],
+      "ms": 78.92763271660509,
+      "acceptance": 0.037037037037037035,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 0.9,
+      "weights": [
+        0.5,
+        0.25,
+        0.25
+      ],
+      "ms": 78.92763271660509,
+      "acceptance": 0.037037037037037035,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 0.95,
+      "weights": [
+        0.5,
+        0.25,
+        0.25
+      ],
+      "ms": 78.92763271660509,
+      "acceptance": 0.037037037037037035,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 1.0,
+      "weights": [
+        0.5,
+        0.25,
+        0.25
+      ],
+      "ms": 78.92763271660509,
+      "acceptance": 0.037037037037037035,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 0.0,
+      "weights": [
+        0.5,
+        0.5,
+        0.0
+      ],
+      "ms": 11.547070991155909,
+      "acceptance": 0.9351851851851852,
+      "feasible": false,
+      "recall": 0.12711384770210157,
+      "ndcg": 0.29837415081322555
+    },
+    {
+      "threshold": 0.05,
+      "weights": [
+        0.5,
+        0.5,
+        0.0
+      ],
+      "ms": 11.547070991155909,
+      "acceptance": 0.9351851851851852,
+      "feasible": false,
+      "recall": 0.12711384770210157,
+      "ndcg": 0.29837415081322555
+    },
+    {
+      "threshold": 0.1,
+      "weights": [
+        0.5,
+        0.5,
+        0.0
+      ],
+      "ms": 11.7577392008604,
+      "acceptance": 0.9320987654320988,
+      "feasible": false,
+      "recall": 0.12718733388669884,
+      "ndcg": 0.29888970008543875
+    },
+    {
+      "threshold": 0.15,
+      "weights": [
+        0.5,
+        0.5,
+        0.0
+      ],
+      "ms": 12.197838274813774,
+      "acceptance": 0.9259259259259259,
+      "feasible": false,
+      "recall": 0.12708445322826264,
+      "ndcg": 0.2987015884450904
+    },
+    {
+      "threshold": 0.2,
+      "weights": [
+        0.5,
+        0.5,
+        0.0
+      ],
+      "ms": 13.15378703976073,
+      "acceptance": 0.9135802469135802,
+      "feasible": false,
+      "recall": 0.12828472757668513,
+      "ndcg": 0.29949864414550403
+    },
+    {
+      "threshold": 0.25,
+      "weights": [
+        0.5,
+        0.5,
+        0.0
+      ],
+      "ms": 16.093657100515692,
+      "acceptance": 0.8734567901234568,
+      "feasible": false,
+      "recall": 0.12764288228206208,
+      "ndcg": 0.30031904946617416
+    },
+    {
+      "threshold": 0.3,
+      "weights": [
+        0.5,
+        0.5,
+        0.0
+      ],
+      "ms": 20.40759197588619,
+      "acceptance": 0.8179012345679012,
+      "feasible": false,
+      "recall": 0.12913971330459517,
+      "ndcg": 0.3028815080662466
+    },
+    {
+      "threshold": 0.35,
+      "weights": [
+        0.5,
+        0.5,
+        0.0
+      ],
+      "ms": 28.416135184535825,
+      "acceptance": 0.7191358024691358,
+      "feasible": false,
+      "recall": 0.13062634403744192,
+      "ndcg": 0.3061321229254609
+    },
+    {
+      "threshold": 0.4,
+      "weights": [
+        0.5,
+        0.5,
+        0.0
+      ],
+      "ms": 34.18507592330031,
+      "acceptance": 0.6419753086419753,
+      "feasible": false,
+      "recall": 0.13171046365896216,
+      "ndcg": 0.3084660902310141
+    },
+    {
+      "threshold": 0.45,
+      "weights": [
+        0.5,
+        0.5,
+        0.0
+      ],
+      "ms": 40.286440120573026,
+      "acceptance": 0.558641975308642,
+      "feasible": false,
+      "recall": 0.13263687962915977,
+      "ndcg": 0.3113958829843279
+    },
+    {
+      "threshold": 0.5,
+      "weights": [
+        0.5,
+        0.5,
+        0.0
+      ],
+      "ms": 42.563391973000066,
+      "acceptance": 0.5277777777777778,
+      "feasible": true,
+      "recall": 0.13344702000569578,
+      "ndcg": 0.3132691698412473
+    },
+    {
+      "threshold": 0.55,
+      "weights": [
+        0.5,
+        0.5,
+        0.0
+      ],
+      "ms": 64.44511944744276,
+      "acceptance": 0.2345679012345679,
+      "feasible": true,
+      "recall": 0.13317601652252548,
+      "ndcg": 0.3134760297741116
+    },
+    {
+      "threshold": 0.6,
+      "weights": [
+        0.5,
+        0.5,
+        0.0
+      ],
+      "ms": 71.53083672991345,
+      "acceptance": 0.1388888888888889,
+      "feasible": true,
+      "recall": 0.13369281654439882,
+      "ndcg": 0.3140551084823492
+    },
+    {
+      "threshold": 0.65,
+      "weights": [
+        0.5,
+        0.5,
+        0.0
+      ],
+      "ms": 75.53261512585766,
+      "acceptance": 0.08333333333333333,
+      "feasible": true,
+      "recall": 0.1342959214299111,
+      "ndcg": 0.3146935867857143
+    },
+    {
+      "threshold": 0.7,
+      "weights": [
+        0.5,
+        0.5,
+        0.0
+      ],
+      "ms": 76.66539043377809,
+      "acceptance": 0.06790123456790123,
+      "feasible": true,
+      "recall": 0.13658869038934673,
+      "ndcg": 0.3161914134817084
+    },
+    {
+      "threshold": 0.75,
+      "weights": [
+        0.5,
+        0.5,
+        0.0
+      ],
+      "ms": 77.30099259384184,
+      "acceptance": 0.05864197530864197,
+      "feasible": true,
+      "recall": 0.13664480711213012,
+      "ndcg": 0.31579162289235696
+    },
+    {
+      "threshold": 0.8,
+      "weights": [
+        0.5,
+        0.5,
+        0.0
+      ],
+      "ms": 78.4654240749121,
+      "acceptance": 0.043209876543209874,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3177388839090876
+    },
+    {
+      "threshold": 0.85,
+      "weights": [
+        0.5,
+        0.5,
+        0.0
+      ],
+      "ms": 78.92763271660509,
+      "acceptance": 0.037037037037037035,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 0.9,
+      "weights": [
+        0.5,
+        0.5,
+        0.0
+      ],
+      "ms": 78.92763271660509,
+      "acceptance": 0.037037037037037035,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 0.95,
+      "weights": [
+        0.5,
+        0.5,
+        0.0
+      ],
+      "ms": 78.92763271660509,
+      "acceptance": 0.037037037037037035,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 1.0,
+      "weights": [
+        0.5,
+        0.5,
+        0.0
+      ],
+      "ms": 78.92763271660509,
+      "acceptance": 0.037037037037037035,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 0.0,
+      "weights": [
+        0.75,
+        0.0,
+        0.25
+      ],
+      "ms": 11.547070991155909,
+      "acceptance": 0.9351851851851852,
+      "feasible": false,
+      "recall": 0.12711384770210157,
+      "ndcg": 0.29837415081322555
+    },
+    {
+      "threshold": 0.05,
+      "weights": [
+        0.75,
+        0.0,
+        0.25
+      ],
+      "ms": 11.547070991155909,
+      "acceptance": 0.9351851851851852,
+      "feasible": false,
+      "recall": 0.12711384770210157,
+      "ndcg": 0.29837415081322555
+    },
+    {
+      "threshold": 0.1,
+      "weights": [
+        0.75,
+        0.0,
+        0.25
+      ],
+      "ms": 11.547070991155909,
+      "acceptance": 0.9351851851851852,
+      "feasible": false,
+      "recall": 0.12711384770210157,
+      "ndcg": 0.29837415081322555
+    },
+    {
+      "threshold": 0.15,
+      "weights": [
+        0.75,
+        0.0,
+        0.25
+      ],
+      "ms": 12.050411114210469,
+      "acceptance": 0.9290123456790124,
+      "feasible": false,
+      "recall": 0.12718733388669884,
+      "ndcg": 0.29888970008543875
+    },
+    {
+      "threshold": 0.2,
+      "weights": [
+        0.75,
+        0.0,
+        0.25
+      ],
+      "ms": 12.721854015569674,
+      "acceptance": 0.9197530864197531,
+      "feasible": false,
+      "recall": 0.1275988565204437,
+      "ndcg": 0.29878252641535175
+    },
+    {
+      "threshold": 0.25,
+      "weights": [
+        0.75,
+        0.0,
+        0.25
+      ],
+      "ms": 12.952344447523815,
+      "acceptance": 0.9166666666666666,
+      "feasible": false,
+      "recall": 0.1275988565204437,
+      "ndcg": 0.29878252641535175
+    },
+    {
+      "threshold": 0.3,
+      "weights": [
+        0.75,
+        0.0,
+        0.25
+      ],
+      "ms": 14.310174694940171,
+      "acceptance": 0.8981481481481481,
+      "feasible": false,
+      "recall": 0.12886343128038882,
+      "ndcg": 0.30105872022654656
+    },
+    {
+      "threshold": 0.35,
+      "weights": [
+        0.75,
+        0.0,
+        0.25
+      ],
+      "ms": 17.71492561911819,
+      "acceptance": 0.8549382716049383,
+      "feasible": false,
+      "recall": 0.12826016623267936,
+      "ndcg": 0.3007772995322683
+    },
+    {
+      "threshold": 0.4,
+      "weights": [
+        0.75,
+        0.0,
+        0.25
+      ],
+      "ms": 22.634269135722455,
+      "acceptance": 0.7901234567901234,
+      "feasible": false,
+      "recall": 0.12868984527268015,
+      "ndcg": 0.3030948780898202
+    },
+    {
+      "threshold": 0.45,
+      "weights": [
+        0.75,
+        0.0,
+        0.25
+      ],
+      "ms": 24.97812530980158,
+      "acceptance": 0.7623456790123457,
+      "feasible": false,
+      "recall": 0.13005036689441732,
+      "ndcg": 0.30497850195508214
+    },
+    {
+      "threshold": 0.5,
+      "weights": [
+        0.75,
+        0.0,
+        0.25
+      ],
+      "ms": 29.59767777622206,
+      "acceptance": 0.7037037037037037,
+      "feasible": false,
+      "recall": 0.13116282896366951,
+      "ndcg": 0.30808866263694884
+    },
+    {
+      "threshold": 0.55,
+      "weights": [
+        0.75,
+        0.0,
+        0.25
+      ],
+      "ms": 35.68557962950572,
+      "acceptance": 0.6203703703703703,
+      "feasible": false,
+      "recall": 0.13335028291377346,
+      "ndcg": 0.3105453819964691
+    },
+    {
+      "threshold": 0.6,
+      "weights": [
+        0.75,
+        0.0,
+        0.25
+      ],
+      "ms": 39.999691666000416,
+      "acceptance": 0.5617283950617284,
+      "feasible": true,
+      "recall": 0.13531205733338308,
+      "ndcg": 0.3128692230875984
+    },
+    {
+      "threshold": 0.65,
+      "weights": [
+        0.75,
+        0.0,
+        0.25
+      ],
+      "ms": 45.0058682084394,
+      "acceptance": 0.49382716049382713,
+      "feasible": true,
+      "recall": 0.13502922797996658,
+      "ndcg": 0.3150095091745205
+    },
+    {
+      "threshold": 0.7,
+      "weights": [
+        0.75,
+        0.0,
+        0.25
+      ],
+      "ms": 45.684851541465584,
+      "acceptance": 0.4845679012345679,
+      "feasible": true,
+      "recall": 0.1351045065105297,
+      "ndcg": 0.31534915696201754
+    },
+    {
+      "threshold": 0.75,
+      "weights": [
+        0.75,
+        0.0,
+        0.25
+      ],
+      "ms": 45.684851541465584,
+      "acceptance": 0.4845679012345679,
+      "feasible": true,
+      "recall": 0.1351045065105297,
+      "ndcg": 0.31534915696201754
+    },
+    {
+      "threshold": 0.8,
+      "weights": [
+        0.75,
+        0.0,
+        0.25
+      ],
+      "ms": 77.99577006256713,
+      "acceptance": 0.04938271604938271,
+      "feasible": true,
+      "recall": 0.13678259370825008,
+      "ndcg": 0.31646953984658
+    },
+    {
+      "threshold": 0.85,
+      "weights": [
+        0.75,
+        0.0,
+        0.25
+      ],
+      "ms": 78.92763271660509,
+      "acceptance": 0.037037037037037035,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 0.9,
+      "weights": [
+        0.75,
+        0.0,
+        0.25
+      ],
+      "ms": 78.92763271660509,
+      "acceptance": 0.037037037037037035,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 0.95,
+      "weights": [
+        0.75,
+        0.0,
+        0.25
+      ],
+      "ms": 78.92763271660509,
+      "acceptance": 0.037037037037037035,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 1.0,
+      "weights": [
+        0.75,
+        0.0,
+        0.25
+      ],
+      "ms": 78.92763271660509,
+      "acceptance": 0.037037037037037035,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 0.0,
+      "weights": [
+        0.75,
+        0.25,
+        0.0
+      ],
+      "ms": 11.547070991155909,
+      "acceptance": 0.9351851851851852,
+      "feasible": false,
+      "recall": 0.12711384770210157,
+      "ndcg": 0.29837415081322555
+    },
+    {
+      "threshold": 0.05,
+      "weights": [
+        0.75,
+        0.25,
+        0.0
+      ],
+      "ms": 11.547070991155909,
+      "acceptance": 0.9351851851851852,
+      "feasible": false,
+      "recall": 0.12711384770210157,
+      "ndcg": 0.29837415081322555
+    },
+    {
+      "threshold": 0.1,
+      "weights": [
+        0.75,
+        0.25,
+        0.0
+      ],
+      "ms": 11.547070991155909,
+      "acceptance": 0.9351851851851852,
+      "feasible": false,
+      "recall": 0.12711384770210157,
+      "ndcg": 0.29837415081322555
+    },
+    {
+      "threshold": 0.15,
+      "weights": [
+        0.75,
+        0.25,
+        0.0
+      ],
+      "ms": 11.7577392008604,
+      "acceptance": 0.9320987654320988,
+      "feasible": false,
+      "recall": 0.12718733388669884,
+      "ndcg": 0.29888970008543875
+    },
+    {
+      "threshold": 0.2,
+      "weights": [
+        0.75,
+        0.25,
+        0.0
+      ],
+      "ms": 12.721854015569674,
+      "acceptance": 0.9197530864197531,
+      "feasible": false,
+      "recall": 0.1275988565204437,
+      "ndcg": 0.29878252641535175
+    },
+    {
+      "threshold": 0.25,
+      "weights": [
+        0.75,
+        0.25,
+        0.0
+      ],
+      "ms": 12.721854015569674,
+      "acceptance": 0.9197530864197531,
+      "feasible": false,
+      "recall": 0.1275988565204437,
+      "ndcg": 0.29878252641535175
+    },
+    {
+      "threshold": 0.3,
+      "weights": [
+        0.75,
+        0.25,
+        0.0
+      ],
+      "ms": 14.066846299640558,
+      "acceptance": 0.9012345679012346,
+      "feasible": false,
+      "recall": 0.12886343128038882,
+      "ndcg": 0.30090306054882077
+    },
+    {
+      "threshold": 0.35,
+      "weights": [
+        0.75,
+        0.25,
+        0.0
+      ],
+      "ms": 16.699084569412616,
+      "acceptance": 0.8672839506172839,
+      "feasible": false,
+      "recall": 0.12764288228206208,
+      "ndcg": 0.3004747091438999
+    },
+    {
+      "threshold": 0.4,
+      "weights": [
+        0.75,
+        0.25,
+        0.0
+      ],
+      "ms": 20.50112623485656,
+      "acceptance": 0.8179012345679012,
+      "feasible": false,
+      "recall": 0.12900837629382553,
+      "ndcg": 0.3026230950782871
+    },
+    {
+      "threshold": 0.45,
+      "weights": [
+        0.75,
+        0.25,
+        0.0
+      ],
+      "ms": 23.579470679612346,
+      "acceptance": 0.7777777777777778,
+      "feasible": false,
+      "recall": 0.1294641863986761,
+      "ndcg": 0.30434166800495943
+    },
+    {
+      "threshold": 0.5,
+      "weights": [
+        0.75,
+        0.25,
+        0.0
+      ],
+      "ms": 28.923591356695756,
+      "acceptance": 0.7129629629629629,
+      "feasible": false,
+      "recall": 0.1307284439613833,
+      "ndcg": 0.30783402184603587
+    },
+    {
+      "threshold": 0.55,
+      "weights": [
+        0.75,
+        0.25,
+        0.0
+      ],
+      "ms": 33.6984783938488,
+      "acceptance": 0.6481481481481481,
+      "feasible": false,
+      "recall": 0.1319982987775516,
+      "ndcg": 0.30833120390528107
+    },
+    {
+      "threshold": 0.6,
+      "weights": [
+        0.75,
+        0.25,
+        0.0
+      ],
+      "ms": 39.09696450523089,
+      "acceptance": 0.5740740740740741,
+      "feasible": false,
+      "recall": 0.13403421494841242,
+      "ndcg": 0.3108890760747261
+    },
+    {
+      "threshold": 0.65,
+      "weights": [
+        0.75,
+        0.25,
+        0.0
+      ],
+      "ms": 44.12159629462195,
+      "acceptance": 0.5061728395061729,
+      "feasible": true,
+      "recall": 0.1348553451769758,
+      "ndcg": 0.31459875438265394
+    },
+    {
+      "threshold": 0.7,
+      "weights": [
+        0.75,
+        0.25,
+        0.0
+      ],
+      "ms": 45.008731788932636,
+      "acceptance": 0.49382716049382713,
+      "feasible": true,
+      "recall": 0.1351045065105297,
+      "ndcg": 0.31534915696201754
+    },
+    {
+      "threshold": 0.75,
+      "weights": [
+        0.75,
+        0.25,
+        0.0
+      ],
+      "ms": 45.684851541465584,
+      "acceptance": 0.4845679012345679,
+      "feasible": true,
+      "recall": 0.1351045065105297,
+      "ndcg": 0.31534915696201754
+    },
+    {
+      "threshold": 0.8,
+      "weights": [
+        0.75,
+        0.25,
+        0.0
+      ],
+      "ms": 72.19963364323233,
+      "acceptance": 0.12962962962962962,
+      "feasible": true,
+      "recall": 0.13369281654439882,
+      "ndcg": 0.3140551084823492
+    },
+    {
+      "threshold": 0.85,
+      "weights": [
+        0.75,
+        0.25,
+        0.0
+      ],
+      "ms": 77.11600401384158,
+      "acceptance": 0.06172839506172839,
+      "feasible": true,
+      "recall": 0.13658869038934673,
+      "ndcg": 0.3161914134817084
+    },
+    {
+      "threshold": 0.9,
+      "weights": [
+        0.75,
+        0.25,
+        0.0
+      ],
+      "ms": 78.4654240749121,
+      "acceptance": 0.043209876543209874,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3177388839090876
+    },
+    {
+      "threshold": 0.95,
+      "weights": [
+        0.75,
+        0.25,
+        0.0
+      ],
+      "ms": 78.92763271660509,
+      "acceptance": 0.037037037037037035,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 1.0,
+      "weights": [
+        0.75,
+        0.25,
+        0.0
+      ],
+      "ms": 78.92763271660509,
+      "acceptance": 0.037037037037037035,
+      "feasible": true,
+      "recall": 0.13876672069237703,
+      "ndcg": 0.3176555875532388
+    },
+    {
+      "threshold": 0.0,
+      "weights": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "ms": 11.547070991155909,
+      "acceptance": 0.9351851851851852,
+      "feasible": false,
+      "recall": 0.12711384770210157,
+      "ndcg": 0.29837415081322555
+    },
+    {
+      "threshold": 0.05,
+      "weights": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "ms": 11.547070991155909,
+      "acceptance": 0.9351851851851852,
+      "feasible": false,
+      "recall": 0.12711384770210157,
+      "ndcg": 0.29837415081322555
+    },
+    {
+      "threshold": 0.1,
+      "weights": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "ms": 11.547070991155909,
+      "acceptance": 0.9351851851851852,
+      "feasible": false,
+      "recall": 0.12711384770210157,
+      "ndcg": 0.29837415081322555
+    },
+    {
+      "threshold": 0.15,
+      "weights": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "ms": 11.547070991155909,
+      "acceptance": 0.9351851851851852,
+      "feasible": false,
+      "recall": 0.12711384770210157,
+      "ndcg": 0.29837415081322555
+    },
+    {
+      "threshold": 0.2,
+      "weights": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "ms": 12.050411114210469,
+      "acceptance": 0.9290123456790124,
+      "feasible": false,
+      "recall": 0.12718733388669884,
+      "ndcg": 0.29888970008543875
+    },
+    {
+      "threshold": 0.25,
+      "weights": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "ms": 12.281754941616299,
+      "acceptance": 0.9259259259259259,
+      "feasible": false,
+      "recall": 0.12770173717887995,
+      "ndcg": 0.29897063805570007
+    },
+    {
+      "threshold": 0.3,
+      "weights": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "ms": 12.721854015569674,
+      "acceptance": 0.9197530864197531,
+      "feasible": false,
+      "recall": 0.1275988565204437,
+      "ndcg": 0.29878252641535175
+    },
+    {
+      "threshold": 0.35,
+      "weights": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "ms": 13.84844383035131,
+      "acceptance": 0.904320987654321,
+      "feasible": false,
+      "recall": 0.12828472757668513,
+      "ndcg": 0.30012317668084176
+    },
+    {
+      "threshold": 0.4,
+      "weights": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "ms": 14.310174694940171,
+      "acceptance": 0.8981481481481481,
+      "feasible": false,
+      "recall": 0.12886343128038882,
+      "ndcg": 0.30105872022654656
+    },
+    {
+      "threshold": 0.45,
+      "weights": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "ms": 17.71492561911819,
+      "acceptance": 0.8549382716049383,
+      "feasible": false,
+      "recall": 0.12826016623267936,
+      "ndcg": 0.3007772995322683
+    },
+    {
+      "threshold": 0.5,
+      "weights": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "ms": 17.938133643905598,
+      "acceptance": 0.8518518518518519,
+      "feasible": false,
+      "recall": 0.12826016623267936,
+      "ndcg": 0.3007772995322683
+    },
+    {
+      "threshold": 0.55,
+      "weights": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "ms": 23.084882715785945,
+      "acceptance": 0.7839506172839507,
+      "feasible": false,
+      "recall": 0.12868984527268015,
+      "ndcg": 0.3030948780898202
+    },
+    {
+      "threshold": 0.6,
+      "weights": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "ms": 25.42873888986507,
+      "acceptance": 0.7561728395061729,
+      "feasible": false,
+      "recall": 0.13005036689441732,
+      "ndcg": 0.30497850195508214
+    },
+    {
+      "threshold": 0.65,
+      "weights": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "ms": 30.04829135628555,
+      "acceptance": 0.6975308641975309,
+      "feasible": false,
+      "recall": 0.13116282896366951,
+      "ndcg": 0.30808866263694884
+    },
+    {
+      "threshold": 0.7,
+      "weights": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "ms": 35.02681666559735,
+      "acceptance": 0.6296296296296297,
+      "feasible": false,
+      "recall": 0.13291481969140362,
+      "ndcg": 0.3089605307945634
+    },
+    {
+      "threshold": 0.75,
+      "weights": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "ms": 36.59886604945325,
+      "acceptance": 0.6080246913580247,
+      "feasible": false,
+      "recall": 0.1332872947555472,
+      "ndcg": 0.3099925542273086
+    },
+    {
+      "threshold": 0.8,
+      "weights": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "ms": 40.67870678975143,
+      "acceptance": 0.5524691358024691,
+      "feasible": true,
+      "recall": 0.13531205733338308,
+      "ndcg": 0.3128188217397623
+    },
+    {
+      "threshold": 0.85,
+      "weights": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "ms": 44.78020154235793,
+      "acceptance": 0.49691358024691357,
+      "feasible": true,
+      "recall": 0.13502922797996658,
+      "ndcg": 0.3145774453676571
+    },
+    {
+      "threshold": 0.9,
+      "weights": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "ms": 45.468437961837346,
+      "acceptance": 0.4876543209876543,
+      "feasible": true,
+      "recall": 0.1351045065105297,
+      "ndcg": 0.31534915696201754
+    },
+    {
+      "threshold": 0.95,
+      "weights": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "ms": 45.684851541465584,
+      "acceptance": 0.4845679012345679,
+      "feasible": true,
+      "recall": 0.1351045065105297,
+      "ndcg": 0.31534915696201754
+    },
+    {
+      "threshold": 1.0,
+      "weights": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "ms": 45.684851541465584,
+      "acceptance": 0.4845679012345679,
+      "feasible": true,
+      "recall": 0.1351045065105297,
+      "ndcg": 0.31534915696201754
+    }
+  ]
+}

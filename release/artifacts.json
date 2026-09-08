@@ -1,0 +1,26 @@
+{
+  "version": "0.11.0",
+  "runtime_source_parity": true,
+  "full_official_license": true,
+  "required_runtime_dependencies": [],
+  "metadata_validation": "twine check --strict passed",
+  "clean_install_python_versions": [
+    "3.10.20",
+    "3.11.9",
+    "3.12.13",
+    "3.13.14",
+    "3.14.0"
+  ],
+  "artifacts": [
+    {
+      "file": "adaptive_rag-0.11.0-py3-none-any.whl",
+      "bytes": 58832,
+      "sha256": "d97417c3718318628bd80cee343597ba1c0d32adb623234b6339dde5f4d3cdf5"
+    },
+    {
+      "file": "adaptive_rag-0.11.0.tar.gz",
+      "bytes": 576548,
+      "sha256": "aff471e43b83be4c4998f2b46666515d5feb1083960148b47e8efe43bee8d700"
+    }
+  ]
+}

@@ -1,0 +1,1253 @@
+{
+  "protocol": "20 previously observed NFCorpus queries, five repetitions, alternating mode order; full 3633-document corpus; warm model, live uncached query embeddings on misses",
+  "exact_result_matches": 100,
+  "queries_per_mode": 100,
+  "unique_queries": 20,
+  "summary": {
+    "fusion": {
+      "mean_ms": 87.38656199537218,
+      "embedding_calls": 100
+    },
+    "cached": {
+      "mean_ms": 17.302722982130945,
+      "embedding_calls": 20
+    }
+  },
+  "cache": {
+    "hits": 80,
+    "misses": 20,
+    "bypasses": 0,
+    "evictions": 0,
+    "entries": 20,
+    "serialized_bytes": 325434
+  },
+  "observations": {
+    "fusion": [
+      {
+        "query_id": "PLAIN-1008",
+        "repetition": 0,
+        "ms": 76.3928999658674,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-1018",
+        "repetition": 0,
+        "ms": 76.93170011043549,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-102",
+        "repetition": 0,
+        "ms": 103.0421000905335,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-1028",
+        "repetition": 0,
+        "ms": 83.1969000864774,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-1039",
+        "repetition": 0,
+        "ms": 88.2920001167804,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-1050",
+        "repetition": 0,
+        "ms": 80.42710018344223,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-1066",
+        "repetition": 0,
+        "ms": 76.22370007447898,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-1088",
+        "repetition": 0,
+        "ms": 79.78720008395612,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-1098",
+        "repetition": 0,
+        "ms": 78.58299999497831,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-1109",
+        "repetition": 0,
+        "ms": 122.7227000053972,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-1119",
+        "repetition": 0,
+        "ms": 89.43550009280443,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-112",
+        "repetition": 0,
+        "ms": 100.4042997956276,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-1130",
+        "repetition": 0,
+        "ms": 81.38859993778169,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-1141",
+        "repetition": 0,
+        "ms": 95.37240001372993,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-1151",
+        "repetition": 0,
+        "ms": 75.32109995372593,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-1161",
+        "repetition": 0,
+        "ms": 76.29050011746585,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-1172",
+        "repetition": 0,
+        "ms": 80.75830014422536,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-1183",
+        "repetition": 0,
+        "ms": 82.93089992366731,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-1193",
+        "repetition": 0,
+        "ms": 79.28900001570582,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-12",
+        "repetition": 0,
+        "ms": 98.42239995487034,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-1008",
+        "repetition": 1,
+        "ms": 82.79509982094169,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-1018",
+        "repetition": 1,
+        "ms": 81.09440002590418,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-102",
+        "repetition": 1,
+        "ms": 95.01719987019897,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-1028",
+        "repetition": 1,
+        "ms": 91.67500003241003,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-1039",
+        "repetition": 1,
+        "ms": 147.74870011024177,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-1050",
+        "repetition": 1,
+        "ms": 80.00880014151335,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-1066",
+        "repetition": 1,
+        "ms": 81.43000002019107,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-1088",
+        "repetition": 1,
+        "ms": 78.56339984573424,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-1098",
+        "repetition": 1,
+        "ms": 72.15990009717643,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-1109",
+        "repetition": 1,
+        "ms": 99.52260018326342,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-1119",
+        "repetition": 1,
+        "ms": 93.43590005300939,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-112",
+        "repetition": 1,
+        "ms": 99.3083999492228,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-1130",
+        "repetition": 1,
+        "ms": 80.95639990642667,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-1141",
+        "repetition": 1,
+        "ms": 87.77790004387498,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-1151",
+        "repetition": 1,
+        "ms": 81.20599994435906,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-1161",
+        "repetition": 1,
+        "ms": 81.01639989763498,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-1172",
+        "repetition": 1,
+        "ms": 84.65399988926947,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-1183",
+        "repetition": 1,
+        "ms": 85.48699994571507,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-1193",
+        "repetition": 1,
+        "ms": 79.49570007622242,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-12",
+        "repetition": 1,
+        "ms": 95.74259980581701,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-1008",
+        "repetition": 2,
+        "ms": 81.7851999308914,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-1018",
+        "repetition": 2,
+        "ms": 120.69150013849139,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-102",
+        "repetition": 2,
+        "ms": 100.66140000708401,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-1028",
+        "repetition": 2,
+        "ms": 82.153300056234,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-1039",
+        "repetition": 2,
+        "ms": 84.21680005267262,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-1050",
+        "repetition": 2,
+        "ms": 75.75980015099049,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-1066",
+        "repetition": 2,
+        "ms": 80.506999976933,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-1088",
+        "repetition": 2,
+        "ms": 82.26620010100305,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-1098",
+        "repetition": 2,
+        "ms": 81.70840004459023,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-1109",
+        "repetition": 2,
+        "ms": 76.91079983487725,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-1119",
+        "repetition": 2,
+        "ms": 79.65239998884499,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-112",
+        "repetition": 2,
+        "ms": 93.22419995442033,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-1130",
+        "repetition": 2,
+        "ms": 91.13240009173751,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-1141",
+        "repetition": 2,
+        "ms": 94.11820000968874,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-1151",
+        "repetition": 2,
+        "ms": 87.3697001952678,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-1161",
+        "repetition": 2,
+        "ms": 79.8894998151809,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-1172",
+        "repetition": 2,
+        "ms": 81.20010001584888,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-1183",
+        "repetition": 2,
+        "ms": 87.8722001798451,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-1193",
+        "repetition": 2,
+        "ms": 92.10559981875122,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-12",
+        "repetition": 2,
+        "ms": 115.47690001316369,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-1008",
+        "repetition": 3,
+        "ms": 83.52290000766516,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-1018",
+        "repetition": 3,
+        "ms": 84.83040006831288,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-102",
+        "repetition": 3,
+        "ms": 94.0231999848038,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-1028",
+        "repetition": 3,
+        "ms": 123.35720006376505,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-1039",
+        "repetition": 3,
+        "ms": 83.37939996272326,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-1050",
+        "repetition": 3,
+        "ms": 79.3879998382181,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-1066",
+        "repetition": 3,
+        "ms": 84.12559982389212,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-1088",
+        "repetition": 3,
+        "ms": 76.0395999532193,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-1098",
+        "repetition": 3,
+        "ms": 86.47169987671077,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-1109",
+        "repetition": 3,
+        "ms": 87.05309987999499,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-1119",
+        "repetition": 3,
+        "ms": 79.1253000497818,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-112",
+        "repetition": 3,
+        "ms": 96.36240010149777,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-1130",
+        "repetition": 3,
+        "ms": 77.30030012317002,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-1141",
+        "repetition": 3,
+        "ms": 112.20679990947247,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-1151",
+        "repetition": 3,
+        "ms": 82.9286000225693,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-1161",
+        "repetition": 3,
+        "ms": 82.61030004359782,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-1172",
+        "repetition": 3,
+        "ms": 79.61419993080199,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-1183",
+        "repetition": 3,
+        "ms": 79.16279998607934,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-1193",
+        "repetition": 3,
+        "ms": 80.02230012789369,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-12",
+        "repetition": 3,
+        "ms": 100.63230013474822,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-1008",
+        "repetition": 4,
+        "ms": 86.93960006348789,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-1018",
+        "repetition": 4,
+        "ms": 86.44519979134202,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-102",
+        "repetition": 4,
+        "ms": 96.07170009985566,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-1028",
+        "repetition": 4,
+        "ms": 77.89149996824563,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-1039",
+        "repetition": 4,
+        "ms": 84.58359981887043,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-1050",
+        "repetition": 4,
+        "ms": 86.33019984699786,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-1066",
+        "repetition": 4,
+        "ms": 119.27919997833669,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-1088",
+        "repetition": 4,
+        "ms": 79.74429987370968,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-1098",
+        "repetition": 4,
+        "ms": 78.60090001486242,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-1109",
+        "repetition": 4,
+        "ms": 83.57200003229082,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-1119",
+        "repetition": 4,
+        "ms": 74.52240004204214,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-112",
+        "repetition": 4,
+        "ms": 100.27910000644624,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-1130",
+        "repetition": 4,
+        "ms": 78.0629999935627,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-1141",
+        "repetition": 4,
+        "ms": 86.06739994138479,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-1151",
+        "repetition": 4,
+        "ms": 75.16709994524717,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-1161",
+        "repetition": 4,
+        "ms": 78.54729983955622,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-1172",
+        "repetition": 4,
+        "ms": 80.55469999089837,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-1183",
+        "repetition": 4,
+        "ms": 82.28349988348782,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-1193",
+        "repetition": 4,
+        "ms": 81.96759992279112,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-12",
+        "repetition": 4,
+        "ms": 96.58019989728928,
+        "embedding_calls": 1
+      }
+    ],
+    "cached": [
+      {
+        "query_id": "PLAIN-1008",
+        "repetition": 0,
+        "ms": 82.16900005936623,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-1018",
+        "repetition": 0,
+        "ms": 77.086899895221,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-102",
+        "repetition": 0,
+        "ms": 96.41090012155473,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-1028",
+        "repetition": 0,
+        "ms": 81.40980009920895,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-1039",
+        "repetition": 0,
+        "ms": 85.05390002392232,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-1050",
+        "repetition": 0,
+        "ms": 82.41269993595779,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-1066",
+        "repetition": 0,
+        "ms": 80.03630000166595,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-1088",
+        "repetition": 0,
+        "ms": 78.93379987217486,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-1098",
+        "repetition": 0,
+        "ms": 76.25079993158579,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-1109",
+        "repetition": 0,
+        "ms": 96.77119995467365,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-1119",
+        "repetition": 0,
+        "ms": 84.5483997836709,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-112",
+        "repetition": 0,
+        "ms": 93.41310011222959,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-1130",
+        "repetition": 0,
+        "ms": 80.39349992759526,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-1141",
+        "repetition": 0,
+        "ms": 91.04220010340214,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-1151",
+        "repetition": 0,
+        "ms": 77.2108999080956,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-1161",
+        "repetition": 0,
+        "ms": 75.41789999231696,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-1172",
+        "repetition": 0,
+        "ms": 80.30610019341111,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-1183",
+        "repetition": 0,
+        "ms": 79.91659990511835,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-1193",
+        "repetition": 0,
+        "ms": 81.18729991838336,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-12",
+        "repetition": 0,
+        "ms": 144.6622998919338,
+        "embedding_calls": 1
+      },
+      {
+        "query_id": "PLAIN-1008",
+        "repetition": 1,
+        "ms": 0.08770008571445942,
+        "embedding_calls": 0
+      },
+      {
+        "query_id": "PLAIN-1018",
+        "repetition": 1,
+        "ms": 0.044899992644786835,
+        "embedding_calls": 0
+      },
+      {
+        "query_id": "PLAIN-102",
+        "repetition": 1,
+        "ms": 0.07849978283047676,
+        "embedding_calls": 0
+      },
+      {
+        "query_id": "PLAIN-1028",
+        "repetition": 1,
+        "ms": 0.04029995761811733,
+        "embedding_calls": 0
+      },
+      {
+        "query_id": "PLAIN-1039",
+        "repetition": 1,
+        "ms": 0.12310012243688107,
+        "embedding_calls": 0
+      },
+      {
+        "query_id": "PLAIN-1050",
+        "repetition": 1,
+        "ms": 0.0608998816460371,
+        "embedding_calls": 0
+      },
+      {
+        "query_id": "PLAIN-1066",
+        "repetition": 1,
+        "ms": 0.08059991523623466,
+        "embedding_calls": 0
+      },
+      {
+        "query_id": "PLAIN-1088",
+        "repetition": 1,
+        "ms": 0.03939983434975147,
+        "embedding_calls": 0
+      },
+      {
+        "query_id": "PLAIN-1098",
+        "repetition": 1,
+        "ms": 0.08110003545880318,
+        "embedding_calls": 0
+      },
+      {
+        "query_id": "PLAIN-1109",
+        "repetition": 1,
+        "ms": 0.043899985030293465,
+        "embedding_calls": 0
+      },
+      {
+        "query_id": "PLAIN-1119",
+        "repetition": 1,
+        "ms": 0.0800001434981823,
+        "embedding_calls": 0
+      },
+      {
+        "query_id": "PLAIN-112",
+        "repetition": 1,
+        "ms": 0.040499959141016006,
+        "embedding_calls": 0
+      },
+      {
+        "query_id": "PLAIN-1130",
+        "repetition": 1,
+        "ms": 0.09039998985826969,
+        "embedding_calls": 0
+      },
+      {
+        "query_id": "PLAIN-1141",
+        "repetition": 1,
+        "ms": 0.04100007936358452,
+        "embedding_calls": 0
+      },
+      {
+        "query_id": "PLAIN-1151",
+        "repetition": 1,
+        "ms": 0.10240008123219013,
+        "embedding_calls": 0
+      },
+      {
+        "query_id": "PLAIN-1161",
+        "repetition": 1,
+        "ms": 0.04460010677576065,
+        "embedding_calls": 0
+      },
+      {
+        "query_id": "PLAIN-1172",
+        "repetition": 1,
+        "ms": 0.0846001785248518,
+        "embedding_calls": 0
+      },
+      {
+        "query_id": "PLAIN-1183",
+        "repetition": 1,
+        "ms": 0.04019984044134617,
+        "embedding_calls": 0
+      },
+      {
+        "query_id": "PLAIN-1193",
+        "repetition": 1,
+        "ms": 0.09859981946647167,
+        "embedding_calls": 0
+      },
+      {
+        "query_id": "PLAIN-12",
+        "repetition": 1,
+        "ms": 0.04469999112188816,
+        "embedding_calls": 0
+      },
+      {
+        "query_id": "PLAIN-1008",
+        "repetition": 2,
+        "ms": 0.07690000347793102,
+        "embedding_calls": 0
+      },
+      {
+        "query_id": "PLAIN-1018",
+        "repetition": 2,
+        "ms": 0.0966999214142561,
+        "embedding_calls": 0
+      },
+      {
+        "query_id": "PLAIN-102",
+        "repetition": 2,
+        "ms": 0.06280001252889633,
+        "embedding_calls": 0
+      },
+      {
+        "query_id": "PLAIN-1028",
+        "repetition": 2,
+        "ms": 0.11610006913542747,
+        "embedding_calls": 0
+      },
+      {
+        "query_id": "PLAIN-1039",
+        "repetition": 2,
+        "ms": 0.09240000508725643,
+        "embedding_calls": 0
+      },
+      {
+        "query_id": "PLAIN-1050",
+        "repetition": 2,
+        "ms": 0.08549983613193035,
+        "embedding_calls": 0
+      },
+      {
+        "query_id": "PLAIN-1066",
+        "repetition": 2,
+        "ms": 0.04060007631778717,
+        "embedding_calls": 0
+      },
+      {
+        "query_id": "PLAIN-1088",
+        "repetition": 2,
+        "ms": 0.08579995483160019,
+        "embedding_calls": 0
+      },
+      {
+        "query_id": "PLAIN-1098",
+        "repetition": 2,
+        "ms": 0.04059984348714352,
+        "embedding_calls": 0
+      },
+      {
+        "query_id": "PLAIN-1109",
+        "repetition": 2,
+        "ms": 0.08140015415847301,
+        "embedding_calls": 0
+      },
+      {
+        "query_id": "PLAIN-1119",
+        "repetition": 2,
+        "ms": 0.04079984501004219,
+        "embedding_calls": 0
+      },
+      {
+        "query_id": "PLAIN-112",
+        "repetition": 2,
+        "ms": 0.085099833086133,
+        "embedding_calls": 0
+      },
+      {
+        "query_id": "PLAIN-1130",
+        "repetition": 2,
+        "ms": 0.04650000482797623,
+        "embedding_calls": 0
+      },
+      {
+        "query_id": "PLAIN-1141",
+        "repetition": 2,
+        "ms": 0.11300016194581985,
+        "embedding_calls": 0
+      },
+      {
+        "query_id": "PLAIN-1151",
+        "repetition": 2,
+        "ms": 0.05530007183551788,
+        "embedding_calls": 0
+      },
+      {
+        "query_id": "PLAIN-1161",
+        "repetition": 2,
+        "ms": 0.08140015415847301,
+        "embedding_calls": 0
+      },
+      {
+        "query_id": "PLAIN-1172",
+        "repetition": 2,
+        "ms": 0.04039984196424484,
+        "embedding_calls": 0
+      },
+      {
+        "query_id": "PLAIN-1183",
+        "repetition": 2,
+        "ms": 0.10480009950697422,
+        "embedding_calls": 0
+      },
+      {
+        "query_id": "PLAIN-1193",
+        "repetition": 2,
+        "ms": 0.060900114476680756,
+        "embedding_calls": 0
+      },
+      {
+        "query_id": "PLAIN-12",
+        "repetition": 2,
+        "ms": 0.08370005525648594,
+        "embedding_calls": 0
+      },
+      {
+        "query_id": "PLAIN-1008",
+        "repetition": 3,
+        "ms": 0.08290004916489124,
+        "embedding_calls": 0
+      },
+      {
+        "query_id": "PLAIN-1018",
+        "repetition": 3,
+        "ms": 0.04239985719323158,
+        "embedding_calls": 0
+      },
+      {
+        "query_id": "PLAIN-102",
+        "repetition": 3,
+        "ms": 0.08709984831511974,
+        "embedding_calls": 0
+      },
+      {
+        "query_id": "PLAIN-1028",
+        "repetition": 3,
+        "ms": 0.11659995652735233,
+        "embedding_calls": 0
+      },
+      {
+        "query_id": "PLAIN-1039",
+        "repetition": 3,
+        "ms": 0.09429990313947201,
+        "embedding_calls": 0
+      },
+      {
+        "query_id": "PLAIN-1050",
+        "repetition": 3,
+        "ms": 0.04079984501004219,
+        "embedding_calls": 0
+      },
+      {
+        "query_id": "PLAIN-1066",
+        "repetition": 3,
+        "ms": 0.08650007657706738,
+        "embedding_calls": 0
+      },
+      {
+        "query_id": "PLAIN-1088",
+        "repetition": 3,
+        "ms": 0.04429998807609081,
+        "embedding_calls": 0
+      },
+      {
+        "query_id": "PLAIN-1098",
+        "repetition": 3,
+        "ms": 0.09400001727044582,
+        "embedding_calls": 0
+      },
+      {
+        "query_id": "PLAIN-1109",
+        "repetition": 3,
+        "ms": 0.04309997893869877,
+        "embedding_calls": 0
+      },
+      {
+        "query_id": "PLAIN-1119",
+        "repetition": 3,
+        "ms": 0.08030002936720848,
+        "embedding_calls": 0
+      },
+      {
+        "query_id": "PLAIN-112",
+        "repetition": 3,
+        "ms": 0.03979983739554882,
+        "embedding_calls": 0
+      },
+      {
+        "query_id": "PLAIN-1130",
+        "repetition": 3,
+        "ms": 0.0920998863875866,
+        "embedding_calls": 0
+      },
+      {
+        "query_id": "PLAIN-1141",
+        "repetition": 3,
+        "ms": 0.04160008393228054,
+        "embedding_calls": 0
+      },
+      {
+        "query_id": "PLAIN-1151",
+        "repetition": 3,
+        "ms": 0.08470006287097931,
+        "embedding_calls": 0
+      },
+      {
+        "query_id": "PLAIN-1161",
+        "repetition": 3,
+        "ms": 0.03969995304942131,
+        "embedding_calls": 0
+      },
+      {
+        "query_id": "PLAIN-1172",
+        "repetition": 3,
+        "ms": 0.0980000477284193,
+        "embedding_calls": 0
+      },
+      {
+        "query_id": "PLAIN-1183",
+        "repetition": 3,
+        "ms": 0.04850002005696297,
+        "embedding_calls": 0
+      },
+      {
+        "query_id": "PLAIN-1193",
+        "repetition": 3,
+        "ms": 0.09329989552497864,
+        "embedding_calls": 0
+      },
+      {
+        "query_id": "PLAIN-12",
+        "repetition": 3,
+        "ms": 0.041800085455179214,
+        "embedding_calls": 0
+      },
+      {
+        "query_id": "PLAIN-1008",
+        "repetition": 4,
+        "ms": 0.0787999015301466,
+        "embedding_calls": 0
+      },
+      {
+        "query_id": "PLAIN-1018",
+        "repetition": 4,
+        "ms": 0.09220000356435776,
+        "embedding_calls": 0
+      },
+      {
+        "query_id": "PLAIN-102",
+        "repetition": 4,
+        "ms": 0.044899992644786835,
+        "embedding_calls": 0
+      },
+      {
+        "query_id": "PLAIN-1028",
+        "repetition": 4,
+        "ms": 0.0920998863875866,
+        "embedding_calls": 0
+      },
+      {
+        "query_id": "PLAIN-1039",
+        "repetition": 4,
+        "ms": 0.04469999112188816,
+        "embedding_calls": 0
+      },
+      {
+        "query_id": "PLAIN-1050",
+        "repetition": 4,
+        "ms": 0.08219992741942406,
+        "embedding_calls": 0
+      },
+      {
+        "query_id": "PLAIN-1066",
+        "repetition": 4,
+        "ms": 0.038899946957826614,
+        "embedding_calls": 0
+      },
+      {
+        "query_id": "PLAIN-1088",
+        "repetition": 4,
+        "ms": 0.0795999076217413,
+        "embedding_calls": 0
+      },
+      {
+        "query_id": "PLAIN-1098",
+        "repetition": 4,
+        "ms": 0.04300009459257126,
+        "embedding_calls": 0
+      },
+      {
+        "query_id": "PLAIN-1109",
+        "repetition": 4,
+        "ms": 0.08099991828203201,
+        "embedding_calls": 0
+      },
+      {
+        "query_id": "PLAIN-1119",
+        "repetition": 4,
+        "ms": 0.04249997437000275,
+        "embedding_calls": 0
+      },
+      {
+        "query_id": "PLAIN-112",
+        "repetition": 4,
+        "ms": 0.1246999017894268,
+        "embedding_calls": 0
+      },
+      {
+        "query_id": "PLAIN-1130",
+        "repetition": 4,
+        "ms": 0.07440010085701942,
+        "embedding_calls": 0
+      },
+      {
+        "query_id": "PLAIN-1141",
+        "repetition": 4,
+        "ms": 0.090000219643116,
+        "embedding_calls": 0
+      },
+      {
+        "query_id": "PLAIN-1151",
+        "repetition": 4,
+        "ms": 0.06729993037879467,
+        "embedding_calls": 0
+      },
+      {
+        "query_id": "PLAIN-1161",
+        "repetition": 4,
+        "ms": 0.08519995026290417,
+        "embedding_calls": 0
+      },
+      {
+        "query_id": "PLAIN-1172",
+        "repetition": 4,
+        "ms": 0.04009995609521866,
+        "embedding_calls": 0
+      },
+      {
+        "query_id": "PLAIN-1183",
+        "repetition": 4,
+        "ms": 0.08279993198812008,
+        "embedding_calls": 0
+      },
+      {
+        "query_id": "PLAIN-1193",
+        "repetition": 4,
+        "ms": 0.04169996827840805,
+        "embedding_calls": 0
+      },
+      {
+        "query_id": "PLAIN-12",
+        "repetition": 4,
+        "ms": 0.08269981481134892,
+        "embedding_calls": 0
+      }
+    ]
+  },
+  "provenance": {
+    "model": "sentence-transformers/all-MiniLM-L6-v2",
+    "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+    "files": {
+      "model.onnx": {
+        "url": "https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/onnx/model.onnx",
+        "sha256": "6fd5d72fe4589f189f8ebc006442dbb529bb7ce38f8082112682524616046452"
+      },
+      "tokenizer.json": {
+        "url": "https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/tokenizer.json",
+        "sha256": "be50c3628f2bf5bb5e3a7f17b1f74611b2561a3a27eeab05e5aa30f411572037"
+      },
+      "cran.tar.gz": {
+        "url": "https://ir.dcs.gla.ac.uk/resources/test_collections/cran/cran.tar.gz",
+        "sha256": "8c48a8412e4a7e6e0dd5af99c959f8d75fdf88135602adc1a56aa22770652d64"
+      }
+    },
+    "nfcorpus": {
+      "sha256": "efe5be03f8c5b86a5870102d0599d227c8c6e2484328e68c6522560385671b0b",
+      "url": "https://public.ukp.informatik.tu-darmstadt.de/thakur/BEIR/datasets/nfcorpus.zip"
+    }
+  },
+  "limitation": "Designed 80% repeat rate; no inference saving on novel queries; revision contract required"
+}

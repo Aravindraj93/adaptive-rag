@@ -1,0 +1,22 @@
+{
+  "documents": 10000,
+  "queries": 200,
+  "in_memory": {
+    "build_ms": 778.3595002256334,
+    "retained_python_bytes": 22752024,
+    "peak_python_bytes": 23362261,
+    "top1_accuracy": 1.0,
+    "mean_latency_ms": 0.01643499475903809,
+    "p95_latency_ms": 0.03520003519952297
+  },
+  "memory_mapped": {
+    "build_ms": 7835.578200174496,
+    "retained_python_bytes": 8242302,
+    "peak_python_bytes": 23567819,
+    "startup_ms": 64.82230010442436,
+    "index_bytes": 5016871,
+    "top1_accuracy": 1.0,
+    "mean_latency_ms": 0.021706001134589314,
+    "p95_latency_ms": 0.028799986466765404
+  }
+}

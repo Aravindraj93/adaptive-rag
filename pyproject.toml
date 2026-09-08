@@ -1,0 +1,47 @@
+[build-system]
+requires = ["setuptools>=77", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "adaptive-rag"
+version = "0.11.0"
+description = "CPU-first, domain-agnostic retrieval primitives and benchmarks for adaptive RAG systems."
+readme = "README.md"
+requires-python = ">=3.10"
+license = "Apache-2.0"
+license-files = ["LICENSE", "NOTICE", "THIRD_PARTY.md"]
+authors = [{ name = "Adaptive RAG contributors" }]
+keywords = ["rag", "retrieval", "bm25", "search", "information-retrieval"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: 3.14",
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "ruff>=0.6"]
+
+[project.scripts]
+adaptive-rag-benchmark = "adaptive_rag.benchmark:main"
+adaptive-rag-compare = "adaptive_rag.backend_benchmark:main"
+adaptive-rag-scale = "adaptive_rag.scale_benchmark:main"
+adaptive-rag-ann = "adaptive_rag.ann_benchmark:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+addopts = "-q"
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"

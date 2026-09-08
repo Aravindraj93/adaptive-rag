@@ -1,0 +1,15 @@
+{
+  "documents": 5000,
+  "queries": 100,
+  "dimensions": 256,
+  "exact": {
+    "top1_accuracy": 0.98,
+    "mean_latency_ms": 74.59506300743669
+  },
+  "lsh": {
+    "recall_at_1_vs_exact": 0.96,
+    "mean_latency_ms": 23.477625004015863,
+    "mean_candidates": 1370.55,
+    "candidate_fraction": 0.27410999999999996
+  }
+}

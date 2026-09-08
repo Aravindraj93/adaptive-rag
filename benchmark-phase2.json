@@ -1,0 +1,21 @@
+{
+  "dataset": "general-knowledge-v1",
+  "hardware": {
+    "logical_cpus": 16,
+    "physical_memory_bytes": 17179869184,
+    "architecture": "AMD64",
+    "operating_system": "Windows-10-10.0.26200-SP0",
+    "python_version": "3.11.9",
+    "processor": "AMD64 Family 25 Model 116 Stepping 1, AuthenticAMD"
+  },
+  "benchmark": {
+    "corpus_size": 24,
+    "query_count": 2300,
+    "top_k": 3,
+    "recall_at_k": 1.0,
+    "mean_reciprocal_rank": 1.0,
+    "mean_latency_ms": 0.016597304695650288,
+    "p95_latency_ms": 0.025799963623285294,
+    "throughput_queries_per_second": 60250.74663249831
+  }
+}

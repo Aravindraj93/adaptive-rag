@@ -1,0 +1,26 @@
+include LICENSE
+include README.md
+include API.md
+include CHANGELOG.md
+include COMPATIBILITY.md
+include SECURITY.md
+include RELEASE_REPORT.md
+include NOTICE
+include THIRD_PARTY.md
+include benchmark*.json
+include phase9-policy.json
+exclude release/artifacts.json
+recursive-include docs *.md
+recursive-include release *.json
+recursive-include .github *.yml
+include PHASE7.md
+include PHASE8.md
+include PHASE9.md
+include PHASE10.md
+include PHASE11.md
+recursive-include phase11-results *.json
+recursive-include phase10-results *.json
+recursive-include tests *.py
+recursive-include benchmarks *.json
+recursive-include benchmarks *.py
+recursive-include examples *.py
