@@ -104,10 +104,17 @@ class NormalizedTokenizer:
                         raw_parts.append(sub)
 
         if self.light_stemming:
-            return [
-                _light_english_stem(part) if not part.isdigit() else part
-                for part in raw_parts
-            ]
+            result: list[str] = []
+            seen_out: set[str] = set()
+            for part in raw_parts:
+                stemmed = _light_english_stem(part) if not part.isdigit() else part
+                if stemmed not in seen_out:
+                    seen_out.add(stemmed)
+                    result.append(stemmed)
+                if stemmed != part and part not in seen_out:
+                    seen_out.add(part)
+                    result.append(part)
+            return result
         return raw_parts
 
     def to_dict(self) -> dict[str, bool | str]:
@@ -141,7 +148,8 @@ class CharNGramTokenizer:
         tokens: list[str] = []
         seen: set[str] = set()
         words = _TOKEN.findall(normalized)
-        for word in words:
+        sub_words = re.split(r"[_\.\s]+", normalized)
+        for word in words + [w for w in sub_words if len(w) >= 2]:
             if word not in seen:
                 seen.add(word)
                 tokens.append(word)
