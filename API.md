@@ -21,8 +21,21 @@ for cleanup; directly opened segment directories do not register leases.
 same number of finite nonzero vectors of one dimension. No model is selected or
 downloaded automatically. Approximate LSH results can differ from exact dense search.
 
-`ReciprocalRankFusionRetriever([lexical, dense])` fuses backend rankings. An explicit
-`AdaptiveFusionRetriever(fusion, policy=FusionPolicy(...))` may skip other backends;
+`ReciprocalRankFusionRetriever([lexical, dense], anchor_boost=0.0, anchor_gap_threshold=0.25)`
+fuses backend rankings. Setting `anchor_boost > 0` preserves high-confidence exact identifier
+hits from rank dilution by dense backends. `ScoreWeightedFusionRetriever([r1, r2], weights=...)`
+fuses backends using normalized raw similarity scores. `RelationalExpansionRetriever(backend, chunk_store, relation_keys=...)`
+expands search results by traversing entity and trigger references.
+
+`NormalizedTokenizer(split_identifiers=True)` decomposes compound snake_case, camelCase,
+and alphanumeric codes (e.g., `POPUP_PU1436` -> `popup`, `pu1436`, `pu`, `1436`).
+`CharNGramTokenizer(min_n=3, max_n=4)` provides character n-gram indexing for cryptic technical symbols.
+
+`FastPathIDLookupRetriever(fallback, id_index)` provides fast-path lookups for exact code
+queries. `MetadataScoreModifier(retriever, multipliers=...)` applies multiplicative boosts
+or penalties based on chunk metadata fields (such as source types).
+
+An explicit `AdaptiveFusionRetriever(fusion, policy=FusionPolicy(...))` may skip other backends;
 this can reduce relevance. `FusionPolicy()` selects always-fusion. `last_decision`
 and similar diagnostics are not thread-local.
 

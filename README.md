@@ -61,11 +61,12 @@ parallel miss throughput. Novel queries receive no embedding-compute reduction.
 | Capability | Public entry points |
 | --- | --- |
 | Data and chunking | `Document`, `Chunk`, `Query`, `SearchResult`, `TokenChunker` |
-| Sparse retrieval | `BM25Retriever`, `MMapBM25Retriever` |
+| Sparse retrieval | `BM25Retriever`, `MMapBM25Retriever`, `CharNGramTokenizer` |
 | Incremental storage | `SegmentedBM25Index`, `SegmentedBM25Retriever`, `AsyncSegmentCoordinator` |
 | Dense retrieval | `DenseRetriever`, `MMapDenseRetriever`, `LSHDenseRetriever` |
-| Composition | `ReciprocalRankFusionRetriever`, `SelectiveRerankingRetriever` |
+| Composition | `ReciprocalRankFusionRetriever`, `ScoreWeightedFusionRetriever`, `RelationalExpansionRetriever`, `SelectiveRerankingRetriever` |
 | Optional confidence routing | `AdaptiveRetriever`, `EscalatingRetriever`, `AdaptiveFusionRetriever`, `FusionPolicy` |
+| Domain adaptation & plugins | `FastPathIDLookupRetriever`, `MetadataScoreModifier`, `PluginPipeline` |
 | Safe exact reuse | `CachedRetriever`, `CacheInfo` |
 | Profiling and filtering | `profile_hardware`, `TelemetryCollector`, `MetadataFilter` |
 
