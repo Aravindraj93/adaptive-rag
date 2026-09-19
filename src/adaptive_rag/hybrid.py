@@ -1,13 +1,15 @@
-﻿"""Unified high-level hybrid retrieval facade combining lexical, dense, and rank-fused search."""
+"""Unified high-level hybrid retrieval facade combining lexical, dense, and rank-fused search."""
 
 from __future__ import annotations
 
-from typing import Callable, Iterable, Sequence
+from pathlib import Path
+from typing import Any, Callable, Iterable, Mapping, Sequence
 
 from .cache import CachedRetriever
+from .chunking import TokenChunker
 from .composition import ReciprocalRankFusionRetriever
 from .filtering import MetadataFilter
-from .models import Chunk, Query, SearchResult
+from .models import Chunk, Document, Query, SearchResult
 from .retrievers.base import Retriever
 from .retrievers.bm25 import BM25Retriever
 from .retrievers.dense import DenseRetriever, Embedder
@@ -54,10 +56,62 @@ class HybridRetriever:
         return len(self.sparse)
 
     def add(self, chunks: Iterable[Chunk]) -> None:
-        """Add chunks to both sparse and dense indexes."""
+        """Add chunks directly to both sparse and dense indexes."""
         chunk_list = list(chunks)
         self.sparse.add(chunk_list)
         self.dense.add(chunk_list)
+
+    def add_documents(
+        self,
+        documents: Iterable[Document],
+        *,
+        chunker: TokenChunker | None = None,
+    ) -> list[Chunk]:
+        """Chunk and index documents into both sparse and dense backends."""
+        active_chunker = chunker or TokenChunker()
+        chunks = active_chunker.chunk_many(documents)
+        self.add(chunks)
+        return chunks
+
+    def add_text(
+        self,
+        text: str,
+        *,
+        document_id: str | None = None,
+        metadata: Mapping[str, Any] | None = None,
+        chunker: TokenChunker | None = None,
+    ) -> list[Chunk]:
+        """Convenience method to chunk and index raw text directly."""
+        doc_id = document_id or f"doc-{len(self.sparse) + 1:06d}"
+        doc = Document(id=doc_id, text=text, metadata=metadata or {})
+        return self.add_documents([doc], chunker=chunker)
+
+    def add_file(
+        self,
+        file_path: str | Path,
+        *,
+        chunker: TokenChunker | None = None,
+        **loader_kwargs: Any,
+    ) -> list[Chunk]:
+        """Load a file (text, markdown, json, pdf, image), chunk it, and index it."""
+        from .loaders import load_file
+
+        docs = load_file(file_path, **loader_kwargs)
+        return self.add_documents(docs, chunker=chunker)
+
+    def add_directory(
+        self,
+        directory_path: str | Path,
+        *,
+        glob: str = "**/*",
+        chunker: TokenChunker | None = None,
+        **loader_kwargs: Any,
+    ) -> list[Chunk]:
+        """Recursively load all supported files in a directory, chunk, and index."""
+        from .loaders import DirectoryLoader
+
+        docs = DirectoryLoader(directory_path, glob=glob, loader_kwargs=loader_kwargs).load()
+        return self.add_documents(docs, chunker=chunker)
 
     def search(
         self,

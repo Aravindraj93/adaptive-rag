@@ -9,23 +9,31 @@ hosted service, or mandatory LLM integration.
 
 ## Install
 
-Install the wheel:
-
 ```sh
-python -m pip install dist/adaptive_rag-0.12.0-py3-none-any.whl
+# Core library (Zero external dependencies, 64 KB pure Python wheel)
+pip install adaptive-rag
+
+# Optional extras:
+pip install "adaptive-rag[pdf]"      # PDF document text extraction (pypdf)
+pip install "adaptive-rag[images]"   # Image OCR extraction (Pillow + pytesseract)
+pip install "adaptive-rag[numpy]"    # Hardware SIMD vector dot-product acceleration
+pip install "adaptive-rag[all]"      # All optional integrations
 ```
 
 ## Fast hybrid search in 3 lines
 
 ```python
-from adaptive_rag import Chunk, HybridRetriever
+from adaptive_rag import HybridRetriever
 
 # Automatically configures BM25 (with identifier splitting), Dense, and anchor-boosted RRF
-retriever = HybridRetriever(embedder=my_embedder, split_identifiers=True, anchor_boost=1.0)
-retriever.add([
-    Chunk("req-081", "specs", "REQ_ID081: DriveMode controller activation."),
-    Chunk("returns", "policy", "Returns are accepted within thirty days."),
-])
+retriever = HybridRetriever(embedder=my_embedder)
+
+# Ingest raw text, files (markdown, text, json, pdf, images), or entire directories
+retriever.add_text("REQ_ID081: DriveMode controller activation.", document_id="specs")
+retriever.add_file("safety_manual.pdf")             # requires pip install 'adaptive-rag[pdf]'
+retriever.add_file("schematic.png", ocr=True)       # requires pip install 'adaptive-rag[images]'
+retriever.add_directory("./docs")                   # scans all supported formats recursively
+
 results = retriever.search("REQ_ID081", top_k=3)
 ```
 

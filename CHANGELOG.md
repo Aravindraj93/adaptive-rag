@@ -16,6 +16,11 @@
 - Added `CharNGramTokenizer` for character n-gram indexing of technical and automotive signals.
 - Added optional NumPy SIMD dot-product acceleration in `DenseRetriever` with pure-Python
   fallback when NumPy is not installed (strictly preserving zero mandatory dependencies).
+- Added `adaptive_rag.loaders` module (`TextLoader`, `JSONLoader`, `PDFLoader`, `ImageLoader`,
+  `DirectoryLoader`, `load_file`) supporting PDF and image OCR via optional extras
+  (`adaptive-rag[pdf]`, `adaptive-rag[images]`), custom OCR callbacks, and multimodal LLM vision callbacks.
+- Added direct document, file, text, and directory ingestion methods to `HybridRetriever`
+  (`add_text`, `add_file`, `add_directory`, `add_documents`).
 
 ## 0.11.0 — consolidated experimental release
 

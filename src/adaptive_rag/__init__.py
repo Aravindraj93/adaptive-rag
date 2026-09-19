@@ -16,6 +16,15 @@ from .filtering import MetadataFilter, MetadataFilteredRetriever
 from .hardware import HardwareProfile, profile_hardware
 from .hybrid import HybridRetriever
 from .index_lifecycle import IndexUpdateReport, MMapIndexManager
+from .loaders import (
+    BaseLoader,
+    DirectoryLoader,
+    ImageLoader,
+    JSONLoader,
+    PDFLoader,
+    TextLoader,
+    load_file,
+)
 from .models import Chunk, Document, Query, RetrievalStats, SearchResult
 from .persistence import IndexFormatError
 from .planner import AdaptiveRetriever, RetrievalDecision, RetrievalPlan
@@ -37,6 +46,7 @@ from .telemetry import OperationMetric, TelemetryCollector
 from .tokenization import CharNGramTokenizer, NormalizedTokenizer
 
 __all__ = [
+    "BaseLoader",
     "CachedRetriever",
     "CacheInfo",
     "AdaptiveFusionRetriever",
@@ -49,6 +59,7 @@ __all__ = [
     "CharNGramTokenizer",
     "Chunk",
     "DenseRetriever",
+    "DirectoryLoader",
     "Document",
     "DocumentEnricher",
     "Embedder",
@@ -57,8 +68,10 @@ __all__ = [
     "HardwareProfile",
     "HashingEmbedder",
     "HybridRetriever",
+    "ImageLoader",
     "IndexFormatError",
     "IndexUpdateReport",
+    "JSONLoader",
     "LSHDenseRetriever",
     "MMapBM25Retriever",
     "MMapDenseRetriever",
@@ -68,6 +81,7 @@ __all__ = [
     "MetadataScoreModifier",
     "NormalizedTokenizer",
     "OperationMetric",
+    "PDFLoader",
     "PluginPipeline",
     "Query",
     "QueryAnalyzer",
@@ -83,8 +97,10 @@ __all__ = [
     "SegmentedBM25Retriever",
     "SelectiveRerankingRetriever",
     "TelemetryCollector",
+    "TextLoader",
     "TokenChunker",
     "calibrate_confidence",
+    "load_file",
     "profile_hardware",
 ]
 

@@ -25,6 +25,10 @@ dependencies = []
 
 [project.optional-dependencies]
 dev = ["pytest>=8", "ruff>=0.6"]
+pdf = ["pypdf>=4.0"]
+images = ["pillow>=10.0", "pytesseract>=0.3.10"]
+numpy = ["numpy>=1.24"]
+all = ["pypdf>=4.0", "pillow>=10.0", "pytesseract>=0.3.10", "numpy>=1.24"]
 
 [project.scripts]
 adaptive-rag-benchmark = "adaptive_rag.benchmark:main"
