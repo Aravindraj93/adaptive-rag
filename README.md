@@ -23,10 +23,10 @@ from adaptive_rag import Chunk, HybridRetriever
 # Automatically configures BM25 (with identifier splitting), Dense, and anchor-boosted RRF
 retriever = HybridRetriever(embedder=my_embedder, split_identifiers=True, anchor_boost=1.0)
 retriever.add([
-    Chunk("req-081", "specs", "REQ_CFTS081: DriveMode controller activation."),
+    Chunk("req-081", "specs", "REQ_ID081: DriveMode controller activation."),
     Chunk("returns", "policy", "Returns are accepted within thirty days."),
 ])
-results = retriever.search("REQ_CFTS081", top_k=3)
+results = retriever.search("REQ_ID081", top_k=3)
 ```
 
 ## Sparse BM25 baseline
