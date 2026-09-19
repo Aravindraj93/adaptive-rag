@@ -14,6 +14,7 @@ from .composition import (
 from .embedders import HashingEmbedder
 from .filtering import MetadataFilter, MetadataFilteredRetriever
 from .hardware import HardwareProfile, profile_hardware
+from .hybrid import HybridRetriever
 from .index_lifecycle import IndexUpdateReport, MMapIndexManager
 from .models import Chunk, Document, Query, RetrievalStats, SearchResult
 from .persistence import IndexFormatError
@@ -55,6 +56,7 @@ __all__ = [
     "FastPathIDLookupRetriever",
     "HardwareProfile",
     "HashingEmbedder",
+    "HybridRetriever",
     "IndexFormatError",
     "IndexUpdateReport",
     "LSHDenseRetriever",
@@ -86,4 +88,4 @@ __all__ = [
     "profile_hardware",
 ]
 
-__version__ = "0.11.0"
+__version__ = "0.12.0"

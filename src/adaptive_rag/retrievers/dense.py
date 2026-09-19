@@ -14,6 +14,11 @@ from ..telemetry import TelemetryCollector
 
 Embedder = Callable[[Sequence[str]], Sequence[Sequence[float]]]
 
+try:
+    import numpy as np  # type: ignore
+except ImportError:
+    np = None
+
 
 def _unit(vector: Sequence[float]) -> tuple[float, ...]:
     values = tuple(float(value) for value in vector)
@@ -38,6 +43,7 @@ class DenseRetriever:
         self.telemetry = telemetry or TelemetryCollector()
         self._items: list[tuple[Chunk, tuple[float, ...]]] = []
         self._dimensions: int | None = None
+        self._matrix: object | None = None
         self.last_stats: RetrievalStats | None = None
 
     def add(self, chunks: Iterable[Chunk]) -> None:
@@ -56,6 +62,8 @@ class DenseRetriever:
         if len(incoming) != len(set(incoming)) or existing.intersection(incoming):
             raise ValueError("chunk ids must be unique")
         self._items.extend(zip(additions, normalized))
+        if np is not None:
+            self._matrix = np.array([v for _, v in self._items], dtype=np.float32)
 
     def save(self, path: str | Path) -> None:
         """Persist normalized vectors and chunks in a checksummed JSON manifest."""
@@ -127,6 +135,8 @@ class DenseRetriever:
             expected_dimensions = payload.get("dimensions")
             if expected_dimensions is not None and int(expected_dimensions) != retriever._dimensions:
                 raise IndexFormatError("dense dimension metadata mismatch")
+            if np is not None and retriever._items:
+                retriever._matrix = np.array([v for _, v in retriever._items], dtype=np.float32)
             return retriever
         except (KeyError, TypeError, ValueError) as error:
             if isinstance(error, IndexFormatError):
@@ -150,13 +160,22 @@ class DenseRetriever:
         query_vector = _unit(vectors[0])
         if self._dimensions is not None and len(query_vector) != self._dimensions:
             raise ValueError("query embedding dimensions do not match the index")
-        eligible = self._items
-        if where is not None:
-            eligible = [item for item in eligible if where.matches(item[0].metadata)]
-        scored = [
-            (sum(left * right for left, right in zip(query_vector, vector)), chunk)
-            for chunk, vector in eligible
-        ]
+
+        if np is not None and self._matrix is not None and where is None:
+            q_arr = np.array(query_vector, dtype=np.float32)
+            dot_scores = np.dot(self._matrix, q_arr)
+            scored = [
+                (float(score), item[0])
+                for score, item in zip(dot_scores, self._items)
+            ]
+        else:
+            eligible = self._items
+            if where is not None:
+                eligible = [item for item in eligible if where.matches(item[0].metadata)]
+            scored = [
+                (sum(left * right for left, right in zip(query_vector, vector)), chunk)
+                for chunk, vector in eligible
+            ]
         if self.min_score is not None:
             scored = [item for item in scored if item[0] > self.min_score]
         scored.sort(key=lambda item: (-item[0], item[1].id))
