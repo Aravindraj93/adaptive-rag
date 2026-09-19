@@ -18,23 +18,23 @@ from adaptive_rag import (
 class TestDomainImprovements(unittest.TestCase):
     def test_identifier_tokenization(self):
         tokenizer = NormalizedTokenizer(split_identifiers=True)
-        tokens_popup = tokenizer("POPUP_PU1436")
-        self.assertIn("popup", tokens_popup)
-        self.assertIn("pu1436", tokens_popup)
-        self.assertIn("pu", tokens_popup)
-        self.assertIn("1436", tokens_popup)
+        tokens_alert = tokenizer("ALERT_SYS101")
+        self.assertIn("alert", tokens_alert)
+        self.assertIn("sys101", tokens_alert)
+        self.assertIn("sys", tokens_alert)
+        self.assertIn("101", tokens_alert)
 
-        tokens_req = tokenizer("REQ_CFTS081: DriveMode activation")
+        tokens_req = tokenizer("REQ_SYS081: SystemActivation requirement")
         self.assertIn("req", tokens_req)
-        self.assertIn("cfts081", tokens_req)
-        self.assertIn("cfts", tokens_req)
+        self.assertIn("sys081", tokens_req)
+        self.assertIn("sys", tokens_req)
         self.assertIn("081", tokens_req)
-        self.assertIn("drive", tokens_req)
-        self.assertIn("mode", tokens_req)
+        self.assertIn("system", tokens_req)
+        self.assertIn("activation", tokens_req)
 
-        tokens_camel = tokenizer("DriveMode")
-        self.assertIn("drive", tokens_camel)
-        self.assertIn("mode", tokens_camel)
+        tokens_camel = tokenizer("SystemActivation")
+        self.assertIn("system", tokens_camel)
+        self.assertIn("activation", tokens_camel)
 
     def test_identifier_tokenizer_persistence(self):
         tokenizer = NormalizedTokenizer(split_identifiers=True, fold_accents=True)
@@ -62,25 +62,25 @@ class TestDomainImprovements(unittest.TestCase):
     def test_rrf_anchor_boost(self):
         bm25 = BM25Retriever(tokenizer=NormalizedTokenizer(split_identifiers=True))
         bm25.add([
-            Chunk("req-1", "doc-1", "REQ_CFTS081: DriveMode selection requirement."),
-            Chunk("req-2", "doc-1", "General overview and DriveMode explanation."),
+            Chunk("req-1", "doc-1", "REQ_SYS081: SystemActivation selection requirement."),
+            Chunk("req-2", "doc-1", "General overview and system explanation."),
         ])
 
         embedder = HashingEmbedder(dimensions=16)
         dense = DenseRetriever(embedder, min_score=None)
         dense.add([
-            Chunk("req-1", "doc-1", "REQ_CFTS081: DriveMode selection requirement."),
-            Chunk("req-2", "doc-1", "General overview and DriveMode explanation."),
+            Chunk("req-1", "doc-1", "REQ_SYS081: SystemActivation selection requirement."),
+            Chunk("req-2", "doc-1", "General overview and system explanation."),
         ])
 
         fusion_vanilla = ReciprocalRankFusionRetriever([bm25, dense], weights=[1.0, 1.0])
-        results_vanilla = fusion_vanilla.search("REQ_CFTS081", top_k=2)
+        results_vanilla = fusion_vanilla.search("REQ_SYS081", top_k=2)
         self.assertEqual(len(results_vanilla), 2)
 
         fusion_boosted = ReciprocalRankFusionRetriever(
             [bm25, dense], weights=[1.0, 1.0], anchor_boost=1.0, anchor_gap_threshold=0.1
         )
-        results_boosted = fusion_boosted.search("REQ_CFTS081", top_k=2)
+        results_boosted = fusion_boosted.search("REQ_SYS081", top_k=2)
         self.assertEqual(results_boosted[0].chunk.id, "req-1")
         self.assertGreater(results_boosted[0].score, results_boosted[1].score)
 
@@ -101,13 +101,13 @@ class TestDomainImprovements(unittest.TestCase):
 
     def test_relational_expansion(self):
         chunks = {
-            "popup-1436": Chunk(
-                "popup-1436", "doc-p", "PU1436: DriveMode Selection Popup window.",
-                metadata={"type": "popup", "trigger_id": "trigger-1436"}
+            "dialog-101": Chunk(
+                "dialog-101", "doc-p", "SYS101: System Dialog window.",
+                metadata={"type": "dialog", "trigger_id": "trigger-101"}
             ),
-            "trigger-1436": Chunk(
-                "trigger-1436", "doc-p", "DriveMode button pressed for > 2 seconds triggers PU1436.",
-                metadata={"type": "trigger", "parent_id": "popup-1436"}
+            "trigger-101": Chunk(
+                "trigger-101", "doc-p", "Activation button pressed triggers SYS101.",
+                metadata={"type": "trigger", "parent_id": "dialog-101"}
             ),
             "other-chunk": Chunk(
                 "other-chunk", "doc-o", "Unrelated radio setting chunk.",
@@ -123,30 +123,30 @@ class TestDomainImprovements(unittest.TestCase):
             relation_keys=["trigger_id", "parent_id"],
             include_reverse_references=True,
         )
-        results = rel_retriever.search("PU1436", top_k=1)
+        results = rel_retriever.search("SYS101", top_k=1)
         result_ids = [r.chunk.id for r in results]
-        self.assertIn("popup-1436", result_ids)
-        self.assertIn("trigger-1436", result_ids)
+        self.assertIn("dialog-101", result_ids)
+        self.assertIn("trigger-101", result_ids)
         self.assertNotIn("other-chunk", result_ids)
 
     def test_metadata_score_modifier(self):
         bm25 = BM25Retriever()
         bm25.add([
-            Chunk("hist-1", "d1", "DriveMode change log revision notes.", metadata={"source_type": "history"}),
-            Chunk("req-1", "d1", "DriveMode specification active requirement.", metadata={"source_type": "requirement"}),
+            Chunk("hist-1", "d1", "System change log revision notes.", metadata={"source_type": "history"}),
+            Chunk("req-1", "d1", "System specification active requirement.", metadata={"source_type": "requirement"}),
         ])
         modifier = MetadataScoreModifier(
             bm25,
             multipliers={"source_type": {"requirement": 2.0, "history": 0.2}},
         )
-        results = modifier.search("DriveMode", top_k=2)
+        results = modifier.search("System", top_k=2)
         self.assertEqual(results[0].chunk.id, "req-1")
         self.assertEqual(results[1].chunk.id, "hist-1")
 
     def test_fastpath_id_lookup(self):
         chunks = {
-            "CFTS081": Chunk("req-81", "d1", "CFTS081: Full Requirement Description"),
-            "PU1436": Chunk("pu-1436", "d1", "PU1436: Popup Description"),
+            "SYS081": Chunk("req-81", "d1", "SYS081: Full Requirement Description"),
+            "SYS101": Chunk("dialog-101", "d1", "SYS101: Dialog Description"),
         }
         fallback = BM25Retriever()
         fallback.add([
@@ -154,12 +154,12 @@ class TestDomainImprovements(unittest.TestCase):
         ])
         fastpath = FastPathIDLookupRetriever(fallback, chunks)
 
-        results_req = fastpath.search("REQ_CFTS081", top_k=2)
+        results_req = fastpath.search("REQ_SYS081", top_k=2)
         self.assertEqual(results_req[0].chunk.id, "req-81")
         self.assertEqual(results_req[0].source, "fastpath:exact_id")
 
-        results_popup = fastpath.search("POPUP_PU1436", top_k=2)
-        self.assertEqual(results_popup[0].chunk.id, "pu-1436")
+        results_alert = fastpath.search("ALERT_SYS101", top_k=2)
+        self.assertEqual(results_alert[0].chunk.id, "dialog-101")
 
         results_fb = fastpath.search("overview", top_k=1)
         self.assertEqual(results_fb[0].chunk.id, "other-1")

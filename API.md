@@ -34,7 +34,7 @@ fuses backends using normalized raw similarity scores. `RelationalExpansionRetri
 expands search results by traversing entity and trigger references.
 
 `NormalizedTokenizer(split_identifiers=True)` decomposes compound snake_case, camelCase,
-and alphanumeric codes (e.g., `POPUP_PU1436` -> `popup`, `pu1436`, `pu`, `1436`).
+and alphanumeric codes (e.g., `ALERT_SYS101` -> `alert`, `sys101`, `sys`, `101`, or `UserManager` -> `user`, `manager`).
 `CharNGramTokenizer(min_n=3, max_n=4)` provides character n-gram indexing for cryptic technical symbols.
 
 `FastPathIDLookupRetriever(fallback, id_index)` provides fast-path lookups for exact code

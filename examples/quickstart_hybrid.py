@@ -1,4 +1,4 @@
-﻿"""Quickstart example demonstrating adaptive-rag 0.12.0 HybridRetriever."""
+"""Quickstart example demonstrating adaptive-rag 0.12.0 HybridRetriever."""
 
 from adaptive_rag import Chunk, HybridRetriever
 
@@ -34,16 +34,16 @@ def main():
 
     print("--- 2. Indexing Chunks ---")
     chunks = [
-        Chunk("req-081", "doc-1", "REQ_CFTS081: DriveMode controller parameter specification."),
-        Chunk("pu-1436", "doc-2", "POPUP_PU1436: Confirmation dialog for DriveMode switch."),
-        Chunk("sig-001", "doc-3", "CAN_MSG_DRV_MODE.SIG_STAT_REQ transmission frequency 100ms."),
+        Chunk("req-081", "doc-1", "REQ_SYS081: SystemController parameter specification."),
+        Chunk("alt-101", "doc-2", "ALERT_MOD101: Confirmation dialog for SystemController switch."),
+        Chunk("sig-001", "doc-3", "TELEMETRY_MSG_SYS.SIG_STAT_REQ transmission frequency 100ms."),
         Chunk("gen-001", "doc-4", "General battery safety guide and high-voltage precautions."),
     ]
     retriever.add(chunks)
     print(f"Indexed {len(retriever)} chunks.")
 
     print("\n--- 3. Exact Code Search (Anchor Boost locks Rank 1) ---")
-    for r in retriever.search("REQ_CFTS081", top_k=2):
+    for r in retriever.search("REQ_SYS081", top_k=2):
         print(f"Rank {r.rank}: [{r.chunk.id}] (Score: {r.score:.4f}) - {r.chunk.text}")
 
     print("\n--- 4. Semantic / Natural Language Search ---")
@@ -51,7 +51,7 @@ def main():
         print(f"Rank {r.rank}: [{r.chunk.id}] (Score: {r.score:.4f}) - {r.chunk.text}")
 
     print("\n--- 5. Cached Query Verification ---")
-    cached_result = retriever.search("REQ_CFTS081", top_k=2)
+    cached_result = retriever.search("REQ_SYS081", top_k=2)
     print(f"Repeat query result rank 1: [{cached_result[0].chunk.id}] (Instant exact reuse)")
 
 

@@ -94,7 +94,7 @@ class TestLoaders(unittest.TestCase):
         mock_page1 = MagicMock()
         mock_page1.extract_text.return_value = "Page 1: System Overview and Architecture"
         mock_page2 = MagicMock()
-        mock_page2.extract_text.return_value = "Page 2: Electrical Schematics for POPUP_PU1436"
+        mock_page2.extract_text.return_value = "Page 2: Electrical Schematics for ALERT_SYS101"
 
         mock_reader = MagicMock()
         mock_reader.pages = [mock_page1, mock_page2]
@@ -115,7 +115,7 @@ class TestLoaders(unittest.TestCase):
             self.assertIn("System Overview", docs[0].text)
 
             self.assertEqual(docs[1].id, "manual.pdf::page-2")
-            self.assertIn("POPUP_PU1436", docs[1].text)
+            self.assertIn("ALERT_SYS101", docs[1].text)
 
             # 2. Single document mode
             single_loader = PDFLoader(file_path, extract_pages=False)
@@ -129,7 +129,7 @@ class TestLoaders(unittest.TestCase):
         file_path.write_bytes(b"\x89PNG\r\n\x1a\n")
 
         def mock_vision(img_path):
-            return f"Diagram showing relay K1 and sensor S2 connected to DriveMode ECU at {img_path.name}."
+            return f"Diagram showing relay K1 and sensor S2 connected to SystemController at {img_path.name}."
 
         loader = ImageLoader(file_path, vision_fn=mock_vision)
         docs = loader.load()
@@ -186,7 +186,7 @@ class TestLoaders(unittest.TestCase):
 
         # 1. add_text
         chunks1 = retriever.add_text(
-            "REQ_CFTS081: The vehicle speed controller regulates throttle during DriveMode transitions.",
+            "REQ_SYS081: The vehicle speed controller regulates throttle during SystemController transitions.",
             document_id="spec-throttle",
         )
         self.assertTrue(len(chunks1) >= 1)
@@ -194,7 +194,7 @@ class TestLoaders(unittest.TestCase):
         # 2. add_file
         file_path = self.base_path / "safety_note.txt"
         file_path.write_text(
-            "POPUP_PU1436: Overheat warning popup must trigger when inverter temp exceeds 85C.",
+            "ALERT_SYS101: Overheat warning popup must trigger when inverter temp exceeds 85C.",
             encoding="utf-8",
         )
         chunks2 = retriever.add_file(file_path)
@@ -203,11 +203,11 @@ class TestLoaders(unittest.TestCase):
         self.assertEqual(len(retriever), len(chunks1) + len(chunks2))
 
         # 3. Search lexical and semantic queries
-        res_req = retriever.search("REQ_CFTS081", top_k=2)
+        res_req = retriever.search("REQ_SYS081", top_k=2)
         self.assertTrue(len(res_req) >= 1)
-        self.assertIn("DriveMode", res_req[0].chunk.text)
+        self.assertIn("SystemController", res_req[0].chunk.text)
 
-        res_popup = retriever.search("POPUP_PU1436 inverter overheat", top_k=2)
+        res_popup = retriever.search("ALERT_SYS101 inverter overheat", top_k=2)
         self.assertTrue(len(res_popup) >= 1)
         self.assertIn("85C", res_popup[0].chunk.text)
 

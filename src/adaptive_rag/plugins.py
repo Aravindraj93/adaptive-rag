@@ -122,6 +122,7 @@ class FastPathIDLookupRetriever:
         *,
         id_pattern: str | re.Pattern[str] = r"^[A-Za-z0-9]+(?:[_\-][A-Za-z0-9]+)+$",
         case_sensitive: bool = False,
+        strip_prefixes: Sequence[str] | None = None,
     ) -> None:
         self.fallback_retriever = fallback_retriever
         self.case_sensitive = case_sensitive
@@ -131,6 +132,11 @@ class FastPathIDLookupRetriever:
             self.id_index = {k.casefold(): v for k, v in id_index.items()}
         self.id_pattern = (
             re.compile(id_pattern) if isinstance(id_pattern, str) else id_pattern
+        )
+        self.strip_prefixes = (
+            tuple(p if case_sensitive else p.casefold() for p in strip_prefixes)
+            if strip_prefixes is not None
+            else None
         )
 
     def search(self, query: str | Query, *, top_k: int = 5) -> list[SearchResult]:
@@ -143,10 +149,17 @@ class FastPathIDLookupRetriever:
         if self.id_pattern.match(stripped):
             key = stripped if self.case_sensitive else stripped.casefold()
             matched_chunk = self.id_index.get(key)
-            if not matched_chunk and "_" in key:
-                prefix, remainder = key.split("_", 1)
-                if prefix in ("req", "popup", "sig"):
-                    matched_chunk = self.id_index.get(remainder)
+            if not matched_chunk:
+                for sep in ("_", "-"):
+                    if sep in key:
+                        prefix, remainder = key.split(sep, 1)
+                        if self.strip_prefixes is not None:
+                            if prefix in self.strip_prefixes and remainder in self.id_index:
+                                matched_chunk = self.id_index[remainder]
+                                break
+                        elif remainder in self.id_index:
+                            matched_chunk = self.id_index[remainder]
+                            break
 
         if matched_chunk is not None:
             results: list[SearchResult] = [

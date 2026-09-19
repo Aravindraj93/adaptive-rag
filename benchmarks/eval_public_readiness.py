@@ -1,16 +1,22 @@
-﻿import time
+﻿"""Public Readiness & Scale Benchmark for adaptive-rag 0.12.0.
+
+Evaluates performance, tokenization, anchor boosting, relational expansion,
+and caching across 5,000 technical document chunks and 1,000 queries.
+"""
+
 import statistics
+import time
+
 from adaptive_rag import (
     BM25Retriever,
-    NormalizedTokenizer,
-    DenseRetriever,
-    HashingEmbedder,
-    ReciprocalRankFusionRetriever,
     CachedRetriever,
-    RelationalExpansionRetriever,
-    FastPathIDLookupRetriever,
-    MetadataScoreModifier,
     Chunk,
+    DenseRetriever,
+    FastPathIDLookupRetriever,
+    HashingEmbedder,
+    NormalizedTokenizer,
+    ReciprocalRankFusionRetriever,
+    RelationalExpansionRetriever,
 )
 
 print("=" * 70)
@@ -23,15 +29,15 @@ chunks = []
 chunks_dict = {}
 for i in range(5000):
     cid = f"req-{i:04d}"
-    code = f"CFTS{i:04d}"
+    code = f"SPEC{i:04d}"
     text = (
         f"REQ_{code}: Parameter specification for module {i%50}. "
-        f"The controller shall maintain operation mode when DriveMode status is active. "
-        f"Linked signal CAN_MSG_SIG_{i:04d} with debounce window {10 + (i%5)*5} ms."
+        f"The controller shall maintain operation mode when active. "
+        f"Linked signal TELEMETRY_SIG_{i:04d} with debounce window {10 + (i%5)*5} ms."
     )
     meta = {
         "source_type": "requirement" if i % 10 != 0 else "revision_history",
-        "parent_id": f"popup-{i%100:03d}" if i % 5 == 0 else None,
+        "parent_id": f"group-{i%100:03d}" if i % 5 == 0 else None,
         "trigger_id": f"trigger-{i:04d}" if i % 20 == 0 else None,
         "code": code,
     }
@@ -65,11 +71,11 @@ cached_hybrid = CachedRetriever(hybrid_anchored, revision=lambda: "rev-1", scope
 
 # 2. Query Test Suite: Exact ID, Technical Acronyms, & Mixed Semantic Queries
 test_queries = [
-    ("REQ_CFTS0042", "req-0042", "exact_id"),
-    ("CFTS0100", "req-0100", "code_only"),
-    ("DriveMode parameter specification", None, "natural_language"),
-    ("CAN_MSG_SIG_0250 debounce window", "req-0250", "signal_query"),
-    ("REQ_CFTS0999", "req-0999", "exact_id"),
+    ("REQ_SPEC0042", "req-0042", "exact_id"),
+    ("SPEC0100", "req-0100", "code_only"),
+    ("DeviceController parameter specification", None, "natural_language"),
+    ("TELEMETRY_SIG_0250 debounce window", "req-0250", "signal_query"),
+    ("REQ_SPEC0999", "req-0999", "exact_id"),
 ]
 
 print("\n[2] Retrieval Latency Profiling across 1,000 queries...")
@@ -102,24 +108,24 @@ print(f"  * Hybrid (RRF) Latency:     {statistics.fmean(latencies['hybrid']):.3f
 print(f"  * Cached Repeat Latency:    {statistics.fmean(latencies['cached_repeat']):.4f} ms (p95: {sorted(latencies['cached_repeat'])[950]:.4f} ms)")
 print(f"  -> Cache speedup vs Hybrid: {statistics.fmean(latencies['hybrid']) / statistics.fmean(latencies['cached_repeat']):.1f}x faster")
 
-# 3. Domain Quality Gap Verification (The RR Feedback Problem)
-print("\n[3] Domain Enhancement Verification (Closing the RR Quality Gap)...")
+# 3. Technical Identifier & Quality Verification
+print("\n[3] Technical Identifier & Quality Verification...")
 
-# Problem A: Underscore Tokenization in queries like REQ_CFTS0042
-res_vanilla_tok = bm25_vanilla.search("REQ_CFTS0042", top_k=5)
-res_split_tok = bm25_split.search("REQ_CFTS0042", top_k=5)
-print(f"  * REQ_CFTS0042 without identifier splitting found: {len(res_vanilla_tok)} hits")
-print(f"  * REQ_CFTS0042 with split_identifiers=True found:   {len(res_split_tok)} hits (Top-1: {res_split_tok[0].chunk.id})")
+# Test A: Underscore Tokenization in compound queries
+res_vanilla_tok = bm25_vanilla.search("REQ_SPEC0042", top_k=5)
+res_split_tok = bm25_split.search("REQ_SPEC0042", top_k=5)
+print(f"  * REQ_SPEC0042 without identifier splitting found: {len(res_vanilla_tok)} hits")
+print(f"  * REQ_SPEC0042 with split_identifiers=True found:   {len(res_split_tok)} hits (Top-1: {res_split_tok[0].chunk.id})")
 
-# Problem B: MRR Rank Dilution under Hybrid Fusion
-res_unboosted = hybrid_vanilla.search("REQ_CFTS0042", top_k=5)
-res_boosted = hybrid_anchored.search("REQ_CFTS0042", top_k=5)
+# Test B: MRR Rank Dilution under Hybrid Fusion
+res_unboosted = hybrid_vanilla.search("REQ_SPEC0042", top_k=5)
+res_boosted = hybrid_anchored.search("REQ_SPEC0042", top_k=5)
 rank_unboosted = next((r.rank for r in res_unboosted if r.chunk.id == "req-0042"), None)
 rank_boosted = next((r.rank for r in res_boosted if r.chunk.id == "req-0042"), None)
-print(f"  * Vanilla RRF Rank for target REQ_CFTS0042: Rank {rank_unboosted} (Score: {res_unboosted[0].score:.4f})")
-print(f"  * Anchor-Boosted RRF Rank for target:      Rank {rank_boosted} (Score: {res_boosted[0].score:.4f}) -> MRR 1.00 restored!")
+print(f"  * Vanilla RRF Rank for target REQ_SPEC0042: Rank {rank_unboosted} (Score: {res_unboosted[0].score:.4f})")
+print(f"  * Anchor-Boosted RRF Rank for target:      Rank {rank_boosted} (Score: {res_boosted[0].score:.4f}) -> MRR 1.00 locked")
 
-# Problem C: Relational Trigger & Child Expansion
+# Test C: Relational Trigger & Child Expansion
 rel_retriever = RelationalExpansionRetriever(
     bm25_split,
     chunks_dict,
@@ -127,14 +133,14 @@ rel_retriever = RelationalExpansionRetriever(
     include_reverse_references=True,
 )
 t0 = time.perf_counter()
-rel_results = rel_retriever.search("CFTS0005", top_k=1)
+rel_results = rel_retriever.search("SPEC0005", top_k=1)
 rel_latency = (time.perf_counter() - t0) * 1000
 print(f"  * Relational Expansion Results: {[r.chunk.id for r in rel_results]} (Latency: {rel_latency:.3f} ms)")
 
-# Problem D: FastPath ID Lookup
+# Test D: FastPath ID Lookup
 fastpath = FastPathIDLookupRetriever(hybrid_anchored, {c.metadata["code"]: c for c in chunks})
 t0 = time.perf_counter()
-fp_res = fastpath.search("REQ_CFTS0042", top_k=1)
+fp_res = fastpath.search("REQ_SPEC0042", top_k=1)
 fp_latency = (time.perf_counter() - t0) * 1000
 print(f"  * FastPath ID Lookup Latency: {fp_latency:.4f} ms (Result: {fp_res[0].chunk.id}, Source: {fp_res[0].source})")
 

@@ -3,8 +3,8 @@
 A standalone, CPU-first Python retrieval library. **0.12.0** provides domain-adaptive
 primitives and high-level hybrid retrieval with pure standard-library portability.
 
-The core is domain-agnostic and has no required third-party dependencies. It is
-independent of Requirement Reader. There is no Qdrant, LangChain, LlamaIndex, GUI,
+The core is domain-agnostic and has no required third-party dependencies.
+There is no external vector database, heavy framework, GUI,
 hosted service, or mandatory LLM integration.
 
 ## Install
@@ -29,7 +29,7 @@ from adaptive_rag import HybridRetriever
 retriever = HybridRetriever(embedder=my_embedder)
 
 # Ingest raw text, files (markdown, text, json, pdf, images), or entire directories
-retriever.add_text("REQ_ID081: DriveMode controller activation.", document_id="specs")
+retriever.add_text("REQ_ID081: SystemController activation procedure.", document_id="specs")
 retriever.add_file("safety_manual.pdf")             # requires pip install 'adaptive-rag[pdf]'
 retriever.add_file("schematic.png", ocr=True)       # requires pip install 'adaptive-rag[images]'
 retriever.add_directory("./docs")                   # scans all supported formats recursively
@@ -68,7 +68,7 @@ flowchart LR
 ### The 7 Steps Handled Internally
 
 1. **Zero External Daemons:** No Docker containers, external background services, or network RPC roundtrips (replaces Qdrant / Milvus / Chroma).
-2. **Identifier-Aware Tokenization:** Automatically decomposes snake_case, camelCase, and alphanumeric technical codes (`POPUP_PU1436`, `REQ_CFTS081`, `DriveMode`) so queries match partial document IDs.
+2. **Identifier-Aware Tokenization:** Automatically decomposes snake_case, camelCase, and alphanumeric technical codes (such as `ALERT_SYS101`, `REQ_ID081`, `DeviceManager`) so queries match partial document IDs.
 3. **In-Process Sparse BM25 Index:** Pure Python Okapi BM25 with in-memory or instant zero-startup memory-mapped persistence (`MMapBM25Retriever`).
 4. **Fast Dense Retrieval:** Cosine vector search with automatic SIMD/NumPy acceleration when available and pure Python fallback.
 5. **Anchor-Boosted Rank Fusion (RRF):** Fuses lexical and dense rankings with anchor boosts to lock exact code matches at Rank 1 (preventing MRR dilution from semantic fuzziness).
