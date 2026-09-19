@@ -29,6 +29,44 @@ retriever.add([
 results = retriever.search("REQ_ID081", top_k=3)
 ```
 
+## What adaptive-rag handles internally
+
+Instead of manually writing and wiring together 7 separate infrastructure components and custom libraries, `adaptive-rag` executes the entire retrieval stack internally in pure Python:
+
+![Manual RAG Retrieval vs adaptive-rag Engine](docs/assets/rag_steps_reduced.jpg)
+
+```mermaid
+flowchart LR
+    subgraph Manual["Manual RAG Pipeline (7 Steps to Build & Maintain)"]
+        direction TB
+        M1["1. Setup Vector DB Docker<br/>(Qdrant / Milvus / Pinecone)"]
+        M2["2. Manual Identifier Tokenizer<br/>(Regex / Code splitting)"]
+        M3["3. Custom BM25 Index<br/>(Sparse text search)"]
+        M4["4. Dense Distance Search<br/>(Vector dot products)"]
+        M5["5. Custom RRF Re-ranking<br/>(Lexical + Dense fusion)"]
+        M6["6. External Redis Cache<br/>(Query repeat caching)"]
+        M7["7. Relational Linking<br/>(Parent-child entity joins)"]
+        M1 --> M2 --> M3 --> M4 --> M5 --> M6 --> M7
+    end
+
+    subgraph Internal["adaptive-rag Engine (All 7 Handled Internally)"]
+        direction TB
+        A["HybridRetriever<br/>(3 lines of code - 64 KB - 0 Dependencies)"]
+    end
+
+    Manual -->|"Replaced by"| Internal
+```
+
+### The 7 Steps Handled Internally
+
+1. **Zero External Daemons:** No Docker containers, external background services, or network RPC roundtrips (replaces Qdrant / Milvus / Chroma).
+2. **Identifier-Aware Tokenization:** Automatically decomposes snake_case, camelCase, and alphanumeric technical codes (`POPUP_PU1436`, `REQ_CFTS081`, `DriveMode`) so queries match partial document IDs.
+3. **In-Process Sparse BM25 Index:** Pure Python Okapi BM25 with in-memory or instant zero-startup memory-mapped persistence (`MMapBM25Retriever`).
+4. **Fast Dense Retrieval:** Cosine vector search with automatic SIMD/NumPy acceleration when available and pure Python fallback.
+5. **Anchor-Boosted Rank Fusion (RRF):** Fuses lexical and dense rankings with anchor boosts to lock exact code matches at Rank 1 (preventing MRR dilution from semantic fuzziness).
+6. **Sub-Millisecond Revision Caching:** Built-in LRU cache with strict scope/revision tokens dropping repeat-query latency to **0.36 ms (142x speedup)**.
+7. **Relational Entity Expansion:** Traverses parent-child, trigger, and parameter references across linked chunks (`RelationalExpansionRetriever`).
+
 ## Sparse BM25 baseline
 
 ```python
