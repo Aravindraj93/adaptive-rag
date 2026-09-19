@@ -1,5 +1,22 @@
 # Changelog
 
+## 0.12.0 — domain adaptation & developer experience release
+
+- Added high-level `HybridRetriever` facade combining lexical, dense, rank fusion,
+  and revision-aware caching into a 3-line unified interface.
+- Added `NormalizedTokenizer(split_identifiers=True)` for sub-token decomposition
+  of snake_case, camelCase, and alphanumeric technical codes (`POPUP_PU1436`, `REQ_CFTS081`).
+- Added `anchor_boost` and `anchor_gap_threshold` to `ReciprocalRankFusionRetriever`,
+  locking exact identifier hits at Rank 1 to prevent MRR rank dilution from dense scores.
+- Added `ScoreWeightedFusionRetriever` for normalized similarity-score fusion.
+- Added `RelationalExpansionRetriever` for parent-child, trigger condition, and reference
+  expansion across linked chunks.
+- Added `FastPathIDLookupRetriever` for sub-millisecond direct exact code resolution.
+- Added `MetadataScoreModifier` for source-type score boosting and history penalties.
+- Added `CharNGramTokenizer` for character n-gram indexing of technical and automotive signals.
+- Added optional NumPy SIMD dot-product acceleration in `DenseRetriever` with pure-Python
+  fallback when NumPy is not installed (strictly preserving zero mandatory dependencies).
+
 ## 0.11.0 — consolidated experimental release
 
 - Added bounded exact-result LRU caching with explicit scope/revision contracts,

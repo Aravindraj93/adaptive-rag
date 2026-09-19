@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "adaptive-rag"
-version = "0.11.0"
+version = "0.12.0"
 description = "CPU-first, domain-agnostic retrieval primitives and benchmarks for adaptive RAG systems."
 readme = "README.md"
 requires-python = ">=3.10"
@@ -13,7 +13,7 @@ license-files = ["LICENSE", "NOTICE", "THIRD_PARTY.md"]
 authors = [{ name = "Adaptive RAG contributors" }]
 keywords = ["rag", "retrieval", "bm25", "search", "information-retrieval"]
 classifiers = [
-  "Development Status :: 3 - Alpha",
+  "Development Status :: 4 - Beta",
   "Programming Language :: Python :: 3",
   "Programming Language :: Python :: 3.10",
   "Programming Language :: Python :: 3.11",

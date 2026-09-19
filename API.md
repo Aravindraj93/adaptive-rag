@@ -1,9 +1,14 @@
-# API contract for 0.11.x
+# API contract for 0.12.x
 
 The supported import surface is `adaptive_rag.__all__`. Private names, benchmark
 helpers and source-layout paths are not a compatibility promise. Version 0.x remains
 experimental; breaking behavior changes require a minor release and a changelog.
 Patch releases should preserve public signatures and supported index schema.
+
+`HybridRetriever(embedder, split_identifiers=True, anchor_boost=1.0, revision=None)`
+provides a high-level facade orchestrating lexical BM25, dense semantic search,
+anchor-boosted rank fusion, and optional revision caching through a simple `.add()`
+and `.search()` interface.
 
 All retrievers implement `search(query: str | Query, *, top_k: int = 5)` returning
 ranked `SearchResult` objects. Concrete backends may additionally accept `where=`;
@@ -20,6 +25,7 @@ for cleanup; directly opened segment directories do not register leases.
 `DenseRetriever(embedder)` accepts a callable mapping a sequence of texts to the
 same number of finite nonzero vectors of one dimension. No model is selected or
 downloaded automatically. Approximate LSH results can differ from exact dense search.
+NumPy SIMD acceleration is automatically used when NumPy is installed in the runtime.
 
 `ReciprocalRankFusionRetriever([lexical, dense], anchor_boost=0.0, anchor_gap_threshold=0.25)`
 fuses backend rankings. Setting `anchor_boost > 0` preserves high-confidence exact identifier
