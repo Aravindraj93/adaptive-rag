@@ -5,7 +5,12 @@ from .cache import CachedRetriever, CacheInfo
 from .adaptive_fusion import AdaptiveFusionRetriever, FusionPolicy, FusionDecision
 from .calibration import CalibrationReport, calibrate_confidence
 from .chunking import TokenChunker
-from .composition import ReciprocalRankFusionRetriever, SelectiveRerankingRetriever
+from .composition import (
+    ReciprocalRankFusionRetriever,
+    RelationalExpansionRetriever,
+    ScoreWeightedFusionRetriever,
+    SelectiveRerankingRetriever,
+)
 from .embedders import HashingEmbedder
 from .filtering import MetadataFilter, MetadataFilteredRetriever
 from .hardware import HardwareProfile, profile_hardware
@@ -13,7 +18,13 @@ from .index_lifecycle import IndexUpdateReport, MMapIndexManager
 from .models import Chunk, Document, Query, RetrievalStats, SearchResult
 from .persistence import IndexFormatError
 from .planner import AdaptiveRetriever, RetrievalDecision, RetrievalPlan
-from .plugins import DocumentEnricher, PluginPipeline, QueryAnalyzer
+from .plugins import (
+    DocumentEnricher,
+    FastPathIDLookupRetriever,
+    MetadataScoreModifier,
+    PluginPipeline,
+    QueryAnalyzer,
+)
 from .retrievers.bm25 import BM25Retriever
 from .retrievers.dense import DenseRetriever, Embedder
 from .retrievers.mmap_bm25 import MMapBM25Retriever
@@ -22,7 +33,7 @@ from .retrievers.mmap_dense import MMapDenseRetriever
 from .retrievers.segmented_bm25 import SegmentedBM25Index, SegmentedBM25Retriever
 from .routing import EscalatingRetriever, RouteDecision
 from .telemetry import OperationMetric, TelemetryCollector
-from .tokenization import NormalizedTokenizer
+from .tokenization import CharNGramTokenizer, NormalizedTokenizer
 
 __all__ = [
     "CachedRetriever",
@@ -34,12 +45,14 @@ __all__ = [
     "AsyncSegmentCoordinator",
     "BM25Retriever",
     "CalibrationReport",
+    "CharNGramTokenizer",
     "Chunk",
     "DenseRetriever",
     "Document",
     "DocumentEnricher",
     "Embedder",
     "EscalatingRetriever",
+    "FastPathIDLookupRetriever",
     "HardwareProfile",
     "HashingEmbedder",
     "IndexFormatError",
@@ -50,16 +63,19 @@ __all__ = [
     "MMapIndexManager",
     "MetadataFilter",
     "MetadataFilteredRetriever",
+    "MetadataScoreModifier",
     "NormalizedTokenizer",
     "OperationMetric",
     "PluginPipeline",
     "Query",
     "QueryAnalyzer",
     "ReciprocalRankFusionRetriever",
+    "RelationalExpansionRetriever",
     "RetrievalDecision",
     "RetrievalPlan",
     "RetrievalStats",
     "RouteDecision",
+    "ScoreWeightedFusionRetriever",
     "SearchResult",
     "SegmentedBM25Index",
     "SegmentedBM25Retriever",
