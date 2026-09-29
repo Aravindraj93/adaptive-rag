@@ -140,3 +140,50 @@ class CacheTests(unittest.TestCase):
         cache = SemanticCachedRetriever(backend, revision=lambda: 0, scope='real')
         self.assertEqual(cache.search('hello'), cache.search('hello'))
         self.assertEqual(cache.info().exact_hits, 1)
+
+    def test_exact_mode_keeps_hard_negatives_separate(self):
+        cache = self.cache()
+        queries = ['enable feature', 'disable feature', 'limit 3', 'limit 30',
+                   'before 2025', 'before 2026', 'REQ_001', 'REQ_002']
+        for text in queries:
+            self.assertEqual(cache.search(text)[0].chunk.text, text)
+        self.assertEqual(self.backend.calls, len(queries))
+
+    def test_shadow_exposes_hard_negative_disagreement(self):
+        # Deliberately indistinguishable embeddings: this is a safety/control
+        # test, not evidence about a real model's semantic quality.
+        cache = self.cache(mode='shadow', embedder=lambda _: [1, 0])
+        cache.search('enable feature')
+        self.assertEqual(cache.search('disable feature')[0].chunk.text, 'disable feature')
+        self.assertEqual(cache.info().shadow_disagreements, 1)
+
+    def test_expiry_during_semantic_embedding_does_not_serve_old_rows(self):
+        clock = [0]
+        def embed(text):
+            if text == 'b': clock[0] = 2
+            return [1, 0]
+        with patch('adaptive_rag.semantic_cache.monotonic', side_effect=lambda: clock[0]):
+            cache = self.cache(mode='semantic', embedder=embed, ttl_seconds=1,
+                               reuse_validator=lambda a,b: True)
+            cache.search('a')
+            self.assertEqual(cache.search('b')[0].chunk.text, 'b')
+            self.assertEqual(cache.info().semantic_hits, 0)
+
+    def test_dimension_change_does_not_match(self):
+        cache = self.cache(mode='shadow', embedder=lambda text: [1,0] if text == 'a' else [1,0,0])
+        cache.search('a'); cache.search('b')
+        self.assertEqual(cache.info().shadow_matches, 0)
+
+    def test_concurrent_tenants_remain_isolated(self):
+        cache = self.cache()
+        def search(i):
+            tenant = str(i % 8)
+            row = cache.search('same', tenant=tenant)[0]
+            return row.chunk.metadata['tenant'] == tenant
+        with ThreadPoolExecutor(max_workers=8) as executor:
+            self.assertTrue(all(executor.map(search, range(400))))
+        self.assertEqual(self.backend.calls, 8)
+
+    def test_public_exports(self):
+        import adaptive_rag
+        self.assertTrue(all(hasattr(adaptive_rag, name) for name in adaptive_rag.__all__))
