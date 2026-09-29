@@ -1,4 +1,9 @@
-# API contract for 0.12.x
+# API contract for 0.17.0rc1 (retains the 0.12.x surface)
+
+New candidate APIs: `SemanticCachedRetriever`, `SemanticCacheInfo`,
+`ComparisonCase`, and `compare_retrievers`. See
+[focused release guide](docs/FOCUSED_RELEASE.md) for their contracts and limits.
+The incomplete 0.13–0.17 ZIP APIs are not supported by this candidate.
 
 The supported import surface is `adaptive_rag.__all__`. Private names, benchmark
 helpers and source-layout paths are not a compatibility promise. Version 0.x remains

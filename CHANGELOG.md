@@ -1,5 +1,20 @@
 # Changelog
 
+## 0.17.0rc1 — focused retrieval optimization candidate
+
+- Reconciles with upstream 0.12.0; does not claim that unreleased 0.13–0.16 ZIP
+  modules are supported releases. Those incomplete modules remain deferred.
+- Adds SemanticCachedRetriever with exact reuse by default, explicit revision
+  and scope contracts, context isolation, copied results, bounded storage and TTL.
+- Adds opt-in semantic shadow evaluation; serving approximate hits requires an
+  application validator. No universal semantic-equivalence guarantee is made.
+- Adds compare_retrievers and adaptive-rag-evaluate with binary recall/nDCG,
+  paired latency, first/repeated passes and per-query regressions. Unlabelled
+  agreement is not reported as retrieval quality.
+- Updates CI to run pytest. See docs/FOCUSED_RELEASE.md for scope and limitations.
+
+This is a release candidate, not a production-readiness certification.
+
 ## 0.12.0 — domain adaptation & developer experience release
 
 - Added high-level `HybridRetriever` facade combining lexical, dense, rank fusion,
