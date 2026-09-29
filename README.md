@@ -1,184 +1,97 @@
 # adaptive-rag
 
-A standalone, CPU-first Python retrieval library. **0.12.0** provides domain-adaptive
-primitives and high-level hybrid retrieval with pure standard-library portability.
+CPU-first retrieval primitives and evaluation for existing RAG pipelines.
+The core is domain-agnostic, with no mandatory third-party dependencies.
 
-The core is domain-agnostic and has no required third-party dependencies.
-There is no external vector database, heavy framework, GUI,
-hosted service, or mandatory LLM integration.
+**Current development candidate: 0.17.0rc1.** This is not a production-readiness
+certification or a claim of universal speedups. It builds on upstream 0.12.0;
+unreleased experimental ZIP features are not included wholesale.
 
-## Install
-
-```sh
-# Core library (Zero external dependencies, 64 KB pure Python wheel)
-pip install adaptive-rag
-
-# Optional extras:
-pip install "adaptive-rag[pdf]"      # PDF document text extraction (pypdf)
-pip install "adaptive-rag[images]"   # Image OCR extraction (Pillow + pytesseract)
-pip install "adaptive-rag[numpy]"    # Hardware SIMD vector dot-product acceleration
-pip install "adaptive-rag[all]"      # All optional integrations
-```
-
-## Fast hybrid search in 3 lines
-
-```python
-from adaptive_rag import HybridRetriever
-
-# Automatically configures BM25 (with identifier splitting), Dense, and anchor-boosted RRF
-retriever = HybridRetriever(embedder=my_embedder)
-
-# Ingest raw text, files (markdown, text, json, pdf, images), or entire directories
-retriever.add_text("REQ_ID081: SystemController activation procedure.", document_id="specs")
-retriever.add_file("safety_manual.pdf")             # requires pip install 'adaptive-rag[pdf]'
-retriever.add_file("schematic.png", ocr=True)       # requires pip install 'adaptive-rag[images]'
-retriever.add_directory("./docs")                   # scans all supported formats recursively
-
-results = retriever.search("REQ_ID081", top_k=3)
-```
-
-## What adaptive-rag handles internally
-
-Instead of manually writing and wiring together 7 separate infrastructure components and custom libraries, `adaptive-rag` executes the entire retrieval stack internally in pure Python:
-
-![Manual RAG Retrieval vs adaptive-rag Engine](docs/assets/rag_steps_reduced.jpg)
-
-```mermaid
-flowchart LR
-    subgraph Manual["Manual RAG Pipeline (7 Steps to Build & Maintain)"]
-        direction TB
-        M1["1. Setup Vector DB Docker<br/>(Qdrant / Milvus / Pinecone)"]
-        M2["2. Manual Identifier Tokenizer<br/>(Regex / Code splitting)"]
-        M3["3. Custom BM25 Index<br/>(Sparse text search)"]
-        M4["4. Dense Distance Search<br/>(Vector dot products)"]
-        M5["5. Custom RRF Re-ranking<br/>(Lexical + Dense fusion)"]
-        M6["6. External Redis Cache<br/>(Query repeat caching)"]
-        M7["7. Relational Linking<br/>(Parent-child entity joins)"]
-        M1 --> M2 --> M3 --> M4 --> M5 --> M6 --> M7
-    end
-
-    subgraph Internal["adaptive-rag Engine (All 7 Handled Internally)"]
-        direction TB
-        A["HybridRetriever<br/>(3 lines of code - 64 KB - 0 Dependencies)"]
-    end
-
-    Manual -->|"Replaced by"| Internal
-```
-
-### The 7 Steps Handled Internally
-
-1. **Zero External Daemons:** No Docker containers, external background services, or network RPC roundtrips (replaces Qdrant / Milvus / Chroma).
-2. **Identifier-Aware Tokenization:** Automatically decomposes snake_case, camelCase, and alphanumeric technical codes (such as `ALERT_SYS101`, `REQ_ID081`, `DeviceManager`) so queries match partial document IDs.
-3. **In-Process Sparse BM25 Index:** Pure Python Okapi BM25 with in-memory or instant zero-startup memory-mapped persistence (`MMapBM25Retriever`).
-4. **Fast Dense Retrieval:** Cosine vector search with automatic SIMD/NumPy acceleration when available and pure Python fallback.
-5. **Anchor-Boosted Rank Fusion (RRF):** Fuses lexical and dense rankings with anchor boosts to lock exact code matches at Rank 1 (preventing MRR dilution from semantic fuzziness).
-6. **Sub-Millisecond Revision Caching:** Built-in LRU cache with strict scope/revision tokens dropping repeat-query latency to **0.36 ms (142x speedup)**.
-7. **Relational Entity Expansion:** Traverses parent-child, trigger, and parameter references across linked chunks (`RelationalExpansionRetriever`).
-
-## Sparse BM25 baseline
-
-```python
-from adaptive_rag import BM25Retriever, Chunk
-
-retriever = BM25Retriever()
-retriever.add([
-    Chunk('returns', 'policy', 'Returns are accepted within thirty days.'),
-    Chunk('hours', 'guide', 'The office opens at nine in the morning.'),
-])
-for result in retriever.search('returns policy', top_k=3):
-    print(result.chunk.id, result.score, result.chunk.text)
-```
-
-Backends accept `Chunk` objects; use `TokenChunker` for documents. File-format
-parsers, embeddings, domain plugins and application authorization are supplied by
-the caller. There is no implicit directory ingestion or automatic model download.
-
-## Reliable repeated-query optimization
-
-```python
-from adaptive_rag import CachedRetriever
-
-# Fixed token is appropriate only while this backend/configuration is immutable.
-cached = CachedRetriever(
-    retriever, revision=lambda: 'index-v1/config-v1', scope='my-application',
-    max_entries=1024, max_bytes=16 * 1024 * 1024,
-)
-first = cached.search('returns policy', top_k=3)
-again = cached.search('returns policy', top_k=3)  # exact result reuse
-print(cached.info())
-```
-
-Cache keys include query type/text/metadata, result depth, scope and revision.
-Advance a never-reused revision token whenever index contents, models, tokenizers,
-configuration or access policies change. Coordinate writes with the backend; the
-cache does not create a transactional index snapshot. Put tenant/permission context
-in query metadata and enforce authorization outside the cache. Scope is not an ACL.
-Unsupported key types bypass caching. The byte limit measures serialized payloads,
-not total process RAM. A lock serializes searches; this favors correctness over
-parallel miss throughput. Novel queries receive no embedding-compute reduction.
-
-## Retrieval capabilities
-
-| Capability | Public entry points |
-| --- | --- |
-| High-level hybrid search | `HybridRetriever` |
-| Data and chunking | `Document`, `Chunk`, `Query`, `SearchResult`, `TokenChunker` |
-| Sparse retrieval | `BM25Retriever`, `MMapBM25Retriever`, `CharNGramTokenizer` |
-| Incremental storage | `SegmentedBM25Index`, `SegmentedBM25Retriever`, `AsyncSegmentCoordinator` |
-| Dense retrieval | `DenseRetriever`, `MMapDenseRetriever`, `LSHDenseRetriever` |
-| Composition | `ReciprocalRankFusionRetriever`, `ScoreWeightedFusionRetriever`, `RelationalExpansionRetriever`, `SelectiveRerankingRetriever` |
-| Optional confidence routing | `AdaptiveRetriever`, `EscalatingRetriever`, `AdaptiveFusionRetriever`, `FusionPolicy` |
-| Domain adaptation & plugins | `FastPathIDLookupRetriever`, `MetadataScoreModifier`, `PluginPipeline` |
-| Safe exact reuse | `CachedRetriever`, `CacheInfo` |
-| Profiling and filtering | `profile_hardware`, `TelemetryCollector`, `MetadataFilter` |
-
-## Why adaptive-rag?
-
-| Dimension | `adaptive-rag` | Vector DBs (Qdrant, Milvus) | Heavy Frameworks (LangChain) |
-| :--- | :---: | :---: | :---: |
-| **Dependencies** | **0 (Pure Python stdlib)** | Docker / External Service | 50–120 packages |
-| **Package Size** | **~62 KB** | Multi-GB Docker images | 300–800 MB |
-| **Startup Overhead** | **< 2 ms** | Requires background daemon | 1,500–3,500 ms |
-| **Exact ID Matching** | **Built-in (`split_identifiers` + `anchor_boost`)** | Weak (semantic dilution) | Manual complex filters |
-| **Relational Chunk Joins** | **Built-in (`RelationalExpansionRetriever`)** | Manual graph joins | Complex chains |
-| **Cached Query Latency** | **0.36 ms (142x speedup)** | Dependent on cache layer | External Redis needed |
-
-Dense retrieval requires an application-supplied embedder. `HashingEmbedder` is a
-deterministic systems-test fixture, not a substitute for a semantic model. Optional
-NumPy SIMD acceleration is automatically enabled when NumPy is installed in the environment.
-Selective confidence routing is **opt-in**. Public evaluations did not establish
-consistent quality-preserving savings for that heuristic; always-fusion remains
-the conservative `FusionPolicy()` choice. Exact caching addresses repeated queries,
-not the unresolved novel-query routing problem.
-
-## Validation and supported use
-
-See [RELEASE_REPORT.md](RELEASE_REPORT.md) for actual test counts, version coverage,
-benchmarks, acceptance checks and remaining limits. See [API.md](API.md),
-[COMPATIBILITY.md](COMPATIBILITY.md), and [SECURITY.md](SECURITY.md) before deployment.
-
-The release includes a wheel and source archive. Nothing has been uploaded to a
-package registry. Linux/macOS CI is supplied, but only environments explicitly
-listed in the release report are verified. Index files are trusted local artifacts,
-not a safe interchange format for arbitrary hostile input. Checksums detect
-corruption; they do not authenticate publishers.
-
-## Develop and reproduce
+## Install from this checkout
 
 ```sh
-python -m pip install -e .
-python -m unittest discover -s tests -q
-python -m adaptive_rag.benchmark
-python -m build
+python -m pip install .
 ```
 
-Install build tools separately when needed. Public-model evaluators require optional
-numpy, onnxruntime and tokenizers packages. Their exact versions and asset hashes
-are recorded in reports. [Phase 9](PHASE9.md), [Phase 10](PHASE10.md), and
-[Phase 11](PHASE11.md) preserve the full calibration/evaluation history, including
-negative findings. [Earlier documentation](docs/DEVELOPMENT_HISTORY.md) is historical
-and may describe prior defaults. New changes are listed in [CHANGELOG.md](CHANGELOG.md).
+No PyPI publication of this candidate is implied. Optional extras are `pdf`,
+`images`, and `numpy`. OCR also needs a separately installed Tesseract executable.
+Bring your own embedding model for dense/hybrid retrieval; model dependencies,
+download sizes and licenses are separate from this library.
 
-## License
+## Working CPU-only example
 
-Apache-2.0; see [LICENSE](LICENSE), [NOTICE](NOTICE), and [THIRD_PARTY.md](THIRD_PARTY.md).
+```python
+from adaptive_rag import BM25Retriever, Chunk, SemanticCachedRetriever
+
+backend = BM25Retriever()
+backend.add([Chunk("refund-policy", "handbook", "Refunds are available within thirty days.")])
+revision = 1
+retriever = SemanticCachedRetriever(
+    backend, scope="public-handbook", revision=lambda: revision,
+)  # exact caching by default; no embedding required
+print(retriever.search("refund period", top_k=3))
+print(retriever.search("refund period", top_k=3))
+print(retriever.info())
+```
+
+Advance the revision whenever corpus, permissions, model, or retrieval settings
+change. Coordinate updates with readers. Include caller-specific permissions and
+filters in Query.metadata or supported backend arguments. A cache is not an
+authorization system.
+
+## Compare before and after
+
+```sh
+adaptive-rag-evaluate --repetitions 5 --output comparison.json
+adaptive-rag-evaluate --dataset benchmarks/general_knowledge.json --repetitions 5
+```
+
+The CLI compares BM25 with and without exact caching on identical inputs.
+The built-in six-query fixture is a smoke test, not a representative benchmark.
+Reports include recall/nDCG for labelled queries, median/p95 latency, first versus
+repeated passes, cache counts and individual ranking regressions. They do not
+measure RAM, indexing cost, embedding calls or dollar savings. The Python
+`compare_retrievers` function accepts your existing baseline and candidate.
+
+Without labels, quality metrics are null: agreement does not prove relevance.
+Repeated-query benefits depend on your actual workload; caching can be slower
+than a cheap underlying search. Reports omit query text but include chunk IDs;
+review them for sensitive information before sharing.
+
+## Semantic cache: evaluate before enabling
+
+Exact mode is the default. `mode="shadow"` requires a deterministic query
+embedding callable and measures proposed semantic hits without serving them.
+`mode="semantic"` additionally requires an application `reuse_validator`.
+Thresholds and validators do not guarantee semantic equivalence. Negation,
+numbers, dates and permissions need explicit tests. For sensitive applications,
+keep exact mode. See [focused release guide](docs/FOCUSED_RELEASE.md).
+
+## Available building blocks
+
+- In-memory and memory-mapped BM25, dense retrieval and hybrid rank fusion.
+- Identifier-aware tokenization and optional document/PDF/image loaders.
+- Revision-aware exact caching and opt-in semantic cache evaluation.
+- Segmented index lifecycle tooling and telemetry.
+- Reproducible benchmark utilities.
+
+Optional integrations are not required for core retrieval. This is not a full
+replacement for a distributed vector database, an LLM framework or an access
+control system. Confidence-based early exit remains opt-in with documented
+quality trade-offs. Historical phase results are not new-release guarantees.
+
+## Development
+
+```sh
+python -m pip install ".[dev]"
+python -I -m pytest tests -q
+```
+
+The CI matrix covers Python 3.10–3.14 on Windows, Linux and macOS. A separate
+Python 3.11 job runs historical evaluation-protocol tests with their optional
+dependencies. A configured matrix is not evidence that every job passed.
+
+[API reference](API.md) · [Changelog](CHANGELOG.md) ·
+[Security](SECURITY.md) · [Historical development](docs/DEVELOPMENT_HISTORY.md)
+
+Apache-2.0. See LICENSE, NOTICE and THIRD_PARTY.md.

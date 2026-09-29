@@ -1,5 +1,9 @@
 # Compatibility and deployment limits
 
+For 0.17.0rc1, the existing `release/*.json` evidence predates this candidate
+unless explicitly versioned otherwise. Do not treat 0.11.0 compatibility
+results as a completed test matrix for this release candidate.
+
 Python syntax/API target: CPython 3.10–3.14. Verified versions and operating systems
 are recorded in `release/compatibility.json`, not inferred from classifiers.
 The supplied CI matrix covers Windows, Linux and macOS, but an unexecuted job is

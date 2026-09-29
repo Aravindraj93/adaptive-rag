@@ -104,4 +104,9 @@ __all__ = [
     "profile_hardware",
 ]
 
-__version__ = "0.12.0"
+from .semantic_cache import SemanticCachedRetriever, SemanticCacheInfo
+from .comparison import ComparisonCase, compare_retrievers
+
+__all__ += ["SemanticCachedRetriever", "SemanticCacheInfo", "ComparisonCase", "compare_retrievers"]
+
+__version__ = "0.17.0rc1"
