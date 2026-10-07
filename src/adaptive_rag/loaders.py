@@ -1,4 +1,4 @@
-﻿"""Document loaders for plain text, JSON, PDF, and image sources.
+"""Document loaders for plain text, JSON, PDF, and image sources.
 
 This module provides loaders that convert files into standard `Document`
 instances ready for chunking and retrieval. The core library maintains zero
@@ -271,6 +271,118 @@ class ImageLoader(BaseLoader):
         yield Document(id=self.file_path.name, text=extracted_text, metadata=meta)
 
 
+class HTMLLoader(BaseLoader):
+    """Load HTML documents and cleanly extract text and title without heavy deps."""
+
+    def __init__(
+        self,
+        file_path: str | Path,
+        encoding: str = "utf-8",
+        metadata: Mapping[str, Any] | None = None,
+    ) -> None:
+        self.file_path = Path(file_path)
+        self.encoding = encoding
+        self.metadata = dict(metadata or {})
+
+    def lazy_load(self) -> Iterator[Document]:
+        import re
+        from html.parser import HTMLParser
+
+        if not self.file_path.exists():
+            raise FileNotFoundError(f"File not found: {self.file_path}")
+
+        raw_html = self.file_path.read_text(encoding=self.encoding, errors="ignore")
+
+        class _HTMLTextExtractor(HTMLParser):
+            def __init__(self) -> None:
+                super().__init__()
+                self.text_parts: list[str] = []
+                self.title: str = ""
+                self._in_title = False
+                self._ignore_tag = False
+
+            def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+                if tag.lower() in ("script", "style", "noscript"):
+                    self._ignore_tag = True
+                elif tag.lower() == "title":
+                    self._in_title = True
+                elif tag.lower() in ("p", "div", "h1", "h2", "h3", "h4", "h5", "h6", "li", "tr", "br"):
+                    self.text_parts.append("\n")
+
+            def handle_endtag(self, tag: str) -> None:
+                if tag.lower() in ("script", "style", "noscript"):
+                    self._ignore_tag = False
+                elif tag.lower() == "title":
+                    self._in_title = False
+
+            def handle_data(self, data: str) -> None:
+                if self._in_title:
+                    self.title += data
+                elif not self._ignore_tag:
+                    cleaned = data.strip()
+                    if cleaned:
+                        self.text_parts.append(cleaned + " ")
+
+        parser = _HTMLTextExtractor()
+        parser.feed(raw_html)
+        text = re.sub(r"\n\s*\n+", "\n\n", "".join(parser.text_parts)).strip()
+
+        meta = {
+            "source": str(self.file_path),
+            "file_name": self.file_path.name,
+            "title": parser.title.strip(),
+            "extension": self.file_path.suffix.lower(),
+            **self.metadata,
+        }
+        yield Document(id=self.file_path.name, text=text, metadata=meta)
+
+
+class DocxLoader(BaseLoader):
+    """Load DOCX Word documents.
+
+    Uses stdlib zipfile and xml parsing directly (zero external dependencies),
+    with optional fallback to python-docx if installed.
+    """
+
+    def __init__(
+        self,
+        file_path: str | Path,
+        metadata: Mapping[str, Any] | None = None,
+    ) -> None:
+        self.file_path = Path(file_path)
+        self.metadata = dict(metadata or {})
+
+    def lazy_load(self) -> Iterator[Document]:
+        import xml.etree.ElementTree as ET
+        import zipfile
+
+        if not self.file_path.exists():
+            raise FileNotFoundError(f"File not found: {self.file_path}")
+
+        paragraphs: list[str] = []
+        try:
+            with zipfile.ZipFile(self.file_path) as docx_zip:
+                xml_content = docx_zip.read("word/document.xml")
+                tree = ET.fromstring(xml_content)
+                # WordprocessingML namespace
+                ns = {"w": "http://schemas.openxmlformats.org/wordprocessingml/2006/main"}
+                for p in tree.findall(".//w:p", ns):
+                    texts = [t.text for t in p.findall(".//w:t", ns) if t.text]
+                    if texts:
+                        paragraphs.append("".join(texts))
+        except Exception as exc:
+            raise ValueError(f"Failed to read DOCX file {self.file_path}: {exc}") from exc
+
+        text = "\n\n".join(paragraphs).strip()
+        meta = {
+            "source": str(self.file_path),
+            "file_name": self.file_path.name,
+            "extension": self.file_path.suffix.lower(),
+            **self.metadata,
+        }
+        yield Document(id=self.file_path.name, text=text, metadata=meta)
+
+
 _LOADER_REGISTRY: dict[str, type[BaseLoader]] = {
     ".txt": TextLoader,
     ".md": TextLoader,
@@ -284,7 +396,9 @@ _LOADER_REGISTRY: dict[str, type[BaseLoader]] = {
     ".java": TextLoader,
     ".js": TextLoader,
     ".ts": TextLoader,
-    ".html": TextLoader,
+    ".html": HTMLLoader,
+    ".htm": HTMLLoader,
+    ".docx": DocxLoader,
     ".xml": TextLoader,
     ".yaml": TextLoader,
     ".yml": TextLoader,

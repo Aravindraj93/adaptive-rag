@@ -49,11 +49,23 @@ class NormalizedTokenizer:
     fold_accents: bool = False
     light_stemming: bool = True
     split_identifiers: bool = False
+    language: str | None = None
 
     def __call__(self, text: str) -> list[str]:
         if self.split_identifiers:
             return self._tokenize_with_identifiers(text)
         return self._tokenize_standard(text)
+
+    def _stem_word(self, token: str) -> str:
+        """Apply language-specific stemmer if requested, else light English stem."""
+        if self.language:
+            try:
+                import snowballstemmer
+                stemmer = snowballstemmer.stemmer(self.language)
+                return stemmer.stemWord(token)
+            except Exception:
+                pass
+        return _light_english_stem(token)
 
     def _tokenize_standard(self, text: str) -> list[str]:
         normalized = unicodedata.normalize("NFKC", text).casefold()
@@ -65,7 +77,7 @@ class NormalizedTokenizer:
             )
         tokens = _TOKEN.findall(normalized)
         if self.light_stemming:
-            return [_light_english_stem(token) for token in tokens]
+            return [self._stem_word(token) for token in tokens]
         return tokens
 
     def _tokenize_with_identifiers(self, text: str) -> list[str]:
@@ -107,7 +119,7 @@ class NormalizedTokenizer:
             result: list[str] = []
             seen_out: set[str] = set()
             for part in raw_parts:
-                stemmed = _light_english_stem(part) if not part.isdigit() else part
+                stemmed = self._stem_word(part) if not part.isdigit() else part
                 if stemmed not in seen_out:
                     seen_out.add(stemmed)
                     result.append(stemmed)

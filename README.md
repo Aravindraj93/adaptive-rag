@@ -124,6 +124,17 @@ engine = AdaptiveQueryEngine.from_index(index, scope="my-app")
 response = engine.query("What is the refund policy?")
 ```
 
+### Haystack 2.x Component
+
+```python
+from adaptive_rag.integrations.haystack import AdaptiveHaystackRetriever
+
+retriever = AdaptiveHaystackRetriever.from_texts(texts, scope="my-app")
+# Add directly to Haystack Pipeline or run standalone:
+result = retriever.run(query="What is the refund policy?", top_k=3)
+docs = result["documents"]
+```
+
 ### Direct use (no framework needed)
 
 ```python
@@ -264,15 +275,17 @@ pip install adaptive-rag[pdf,images,numpy]
 - [x] Semantic caching layer
 - [x] Hybrid BM25 + dense retrieval
 - [x] MMap disk-backed persistent index
-- [x] Built-in evaluation CLI
+- [x] Built-in evaluation CLI & RAG Doctor (`adaptive-rag doctor`)
 - [x] Metadata filtering
 - [x] Async indexing
-- [ ] LangChain adapter (in progress)
-- [ ] LlamaIndex adapter (in progress)
-- [ ] Healthcare & Legal domain packs (in progress)
-- [ ] Public leaderboard website
-- [ ] Cost calculator widget
-- [ ] TypeScript/JavaScript port
+- [x] LangChain adapter (`adaptive_rag.integrations.langchain`)
+- [x] LlamaIndex adapter (`adaptive_rag.integrations.llamaindex`)
+- [x] Haystack 2.x adapter (`adaptive_rag.integrations.haystack`)
+- [x] Domain packs: Healthcare, Legal, Education, Code Docs, Finance
+- [x] Document Loaders: PDF, OCR images, HTML, Word DOCX
+- [x] Public leaderboard & Interactive Cost Calculator (`website/` and GitHub Pages)
+- [ ] Multilingual benchmark suite
+- [ ] TypeScript/JavaScript client bindings
 
 ---
 

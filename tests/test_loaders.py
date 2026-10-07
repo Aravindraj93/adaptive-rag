@@ -211,6 +211,46 @@ class TestLoaders(unittest.TestCase):
         self.assertTrue(len(res_popup) >= 1)
         self.assertIn("85C", res_popup[0].chunk.text)
 
+    def test_html_loader(self) -> None:
+        from adaptive_rag import HTMLLoader
+        file_path = self.base_path / "page.html"
+        file_path.write_text(
+            "<html><head><title>System Manual</title></head>"
+            "<body><h1>Safety Notice</h1><p>High voltage present inside.</p>"
+            "<script>console.log('secret');</script></body></html>",
+            encoding="utf-8",
+        )
+        loader = HTMLLoader(file_path)
+        docs = loader.load()
+        self.assertEqual(len(docs), 1)
+        self.assertEqual(docs[0].metadata["title"], "System Manual")
+        self.assertIn("Safety Notice", docs[0].text)
+        self.assertIn("High voltage present", docs[0].text)
+        self.assertNotIn("console.log", docs[0].text)
+
+    def test_docx_loader(self) -> None:
+        import zipfile
+        from adaptive_rag import DocxLoader
+
+        file_path = self.base_path / "document.docx"
+        # Create a minimal valid docx structure with word/document.xml
+        xml_content = (
+            '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>'
+            '<w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main">'
+            '<w:body>'
+            '<w:p><w:r><w:t>Confidential Report: Project Apollo</w:t></w:r></w:p>'
+            '<w:p><w:r><w:t>All testing completed successfully on CPU.</w:t></w:r></w:p>'
+            '</w:body></w:document>'
+        )
+        with zipfile.ZipFile(file_path, "w") as z:
+            z.writestr("word/document.xml", xml_content)
+
+        loader = DocxLoader(file_path)
+        docs = loader.load()
+        self.assertEqual(len(docs), 1)
+        self.assertIn("Project Apollo", docs[0].text)
+        self.assertIn("testing completed successfully", docs[0].text)
+
 
 if __name__ == "__main__":
     unittest.main()

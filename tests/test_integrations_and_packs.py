@@ -41,6 +41,19 @@ class TestIntegrationsAndPacks(unittest.TestCase):
         self.assertIn("Leave policy", res.response)
         self.assertGreaterEqual(len(res.source_nodes), 1)
 
+    def test_haystack_adapter_from_texts(self):
+        from adaptive_rag.integrations.haystack import AdaptiveHaystackRetriever
+
+        retriever = AdaptiveHaystackRetriever.from_texts(
+            ["Refunds are processed within 14 days.", "Contact billing@test.com."],
+            scope="haystack-test",
+            top_k=2,
+        )
+        res = retriever.run(query="refunds")
+        self.assertIn("documents", res)
+        self.assertGreaterEqual(len(res["documents"]), 1)
+        self.assertIn("Refunds", res["documents"][0].content)
+
     def test_domain_packs_healthcare(self):
         rag = HealthcareRAG()
         rag.add_texts(["Patient has HTN and stage 2 hypertension."])
