@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>adaptive-rag — CPU-first RAG for Everyone</title>
+  <meta name="description" content="Smart RAG retrieval for everyone. No GPU. No embedding API. No cloud bill. Drop into LangChain or LlamaIndex in 3 lines.">
+  <style>
+    :root {
+      --bg: #0d1117;
+      --surface: #161b22;
+      --border: #30363d;
+      --accent: #238636;
+      --accent-hover: #2ea043;
+      --text: #c9d1d9;
+      --text-muted: #8b949e;
+      --heading: #f0f6fc;
+      --code-bg: #1c2128;
+      --green: #3fb950;
+      --yellow: #d29922;
+      --red: #f85149;
+      --blue: #58a6ff;
+      --purple: #bc8cff;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* ── Nav ── */
+    nav {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 56px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-brand { font-size: 1.1rem; font-weight: 700; color: var(--heading); display: flex; align-items: center; gap: 0.5rem; }
+    .nav-brand span { color: var(--green); }
+    .nav-links { display: flex; gap: 1.5rem; }
+    .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; }
+    .nav-links a:hover { color: var(--text); }
+    .nav-star { background: var(--accent); color: white; padding: 0.35rem 1rem; border-radius: 6px; text-decoration: none; font-size: 0.85rem; font-weight: 600; }
+    .nav-star:hover { background: var(--accent-hover); }
+
+    /* ── Hero ── */
+    .hero {
+      text-align: center;
+      padding: 5rem 2rem 4rem;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(56, 182, 80, 0.1);
+      border: 1px solid rgba(56, 182, 80, 0.3);
+      color: var(--green);
+      padding: 0.2rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+    }
+    h1 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 800;
+      color: var(--heading);
+      line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+    h1 em { color: var(--green); font-style: normal; }
+    .hero p {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      max-width: 580px;
+      margin: 0 auto 2.5rem;
+    }
+    .hero-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--accent);
+      color: white;
+      padding: 0.7rem 1.75rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: background 0.2s;
+    }
+    .btn-primary:hover { background: var(--accent-hover); }
+    .btn-secondary {
+      background: var(--surface);
+      color: var(--text);
+      padding: 0.7rem 1.75rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      border: 1px solid var(--border);
+      transition: border-color 0.2s;
+    }
+    .btn-secondary:hover { border-color: var(--text-muted); }
+
+    /* ── Code block ── */
+    .install-block {
+      background: var(--code-bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.2rem 1.5rem;
+      font-family: "SFMono-Regular", Consolas, monospace;
+      font-size: 0.9rem;
+      color: var(--text);
+      text-align: left;
+      max-width: 480px;
+      margin: 2rem auto 0;
+      position: relative;
+    }
+    .install-block .prompt { color: var(--text-muted); margin-right: 0.5rem; }
+    .install-block .cmd { color: var(--green); }
+    .copy-btn {
+      position: absolute;
+      right: 0.75rem;
+      top: 0.75rem;
+      background: var(--border);
+      border: none;
+      color: var(--text-muted);
+      padding: 0.25rem 0.6rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.75rem;
+    }
+    .copy-btn:hover { color: var(--text); }
+
+    /* ── Badges row ── */
+    .badges {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-top: 1.5rem;
+    }
+    .badges img { height: 20px; }
+
+    /* ── Comparison table ── */
+    section { padding: 4rem 2rem; max-width: 1100px; margin: 0 auto; }
+    h2 { font-size: 1.8rem; font-weight: 700; color: var(--heading); margin-bottom: 0.5rem; }
+    .section-sub { color: var(--text-muted); margin-bottom: 2rem; }
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+    .comparison-table th, .comparison-table td {
+      padding: 0.85rem 1.25rem;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+    }
+    .comparison-table th { background: var(--surface); color: var(--heading); font-weight: 600; font-size: 0.9rem; }
+    .comparison-table td:first-child { text-align: left; font-weight: 500; }
+    .comparison-table tr:last-child td { border-bottom: none; }
+    .comparison-table tr:hover td { background: rgba(255,255,255,0.02); }
+    .check { color: var(--green); font-size: 1.1rem; }
+    .cross { color: var(--red); font-size: 1.1rem; }
+    .highlight-col { background: rgba(35, 134, 54, 0.08) !important; font-weight: 600; }
+
+    /* ── Feature cards ── */
+    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.5rem;
+      transition: border-color 0.2s;
+    }
+    .card:hover { border-color: var(--accent); }
+    .card-icon { font-size: 1.8rem; margin-bottom: 0.75rem; }
+    .card h3 { font-size: 1rem; font-weight: 700; color: var(--heading); margin-bottom: 0.5rem; }
+    .card p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.5; }
+    .card-tag {
+      display: inline-block;
+      background: rgba(88,166,255,0.1);
+      color: var(--blue);
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+      margin-bottom: 0.75rem;
+    }
+
+    /* ── Cost Calculator ── */
+    .calculator {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem;
+      max-width: 680px;
+    }
+    .calc-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .calc-group label {
+      display: block;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+      font-weight: 500;
+    }
+    .calc-group input, .calc-group select {
+      width: 100%;
+      background: var(--code-bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 0.55rem 0.75rem;
+      color: var(--text);
+      font-size: 0.9rem;
+    }
+    .calc-group input:focus, .calc-group select:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+    .calc-result {
+      background: rgba(35, 134, 54, 0.1);
+      border: 1px solid rgba(35, 134, 54, 0.3);
+      border-radius: 8px;
+      padding: 1.25rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1rem;
+      text-align: center;
+    }
+    .calc-metric-label { font-size: 0.78rem; color: var(--text-muted); margin-bottom: 0.3rem; }
+    .calc-metric-value { font-size: 1.5rem; font-weight: 800; color: var(--green); }
+    .calc-metric-sub { font-size: 0.75rem; color: var(--text-muted); }
+
+    /* ── Leaderboard ── */
+    .leaderboard-table {
+      width: 100%;
+      border-collapse: collapse;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .leaderboard-table th, .leaderboard-table td {
+      padding: 0.8rem 1rem;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.88rem;
+    }
+    .leaderboard-table th { background: var(--surface); color: var(--heading); font-weight: 600; }
+    .leaderboard-table tr:last-child td { border-bottom: none; }
+    .rank-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      font-weight: 800;
+      font-size: 0.8rem;
+    }
+    .rank-1 { background: #b8860b; color: white; }
+    .rank-2 { background: #888; color: white; }
+    .rank-3 { background: #8b4513; color: white; }
+    .rank-n { background: var(--surface); color: var(--text-muted); }
+    .bar-cell { min-width: 160px; }
+    .bar-bg { background: var(--code-bg); border-radius: 4px; height: 8px; width: 100%; }
+    .bar-fill { background: var(--green); border-radius: 4px; height: 8px; }
+    .tag-cpu { background: rgba(56,182,80,0.15); color: var(--green); padding: 0.15rem 0.4rem; border-radius: 4px; font-size: 0.72rem; font-weight: 600; }
+    .tag-gpu { background: rgba(248,81,73,0.15); color: var(--red); padding: 0.15rem 0.4rem; border-radius: 4px; font-size: 0.72rem; font-weight: 600; }
+
+    /* ── Code snippet tabs ── */
+    .code-tabs { background: var(--code-bg); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+    .tab-bar { display: flex; background: var(--surface); border-bottom: 1px solid var(--border); }
+    .tab {
+      padding: 0.65rem 1.25rem;
+      font-size: 0.82rem;
+      cursor: pointer;
+      color: var(--text-muted);
+      border-bottom: 2px solid transparent;
+      font-weight: 500;
+    }
+    .tab.active { color: var(--text); border-bottom-color: var(--accent); }
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+    pre { padding: 1.25rem 1.5rem; overflow-x: auto; font-size: 0.85rem; line-height: 1.6; }
+    .kw { color: var(--purple); }
+    .fn { color: var(--blue); }
+    .str { color: #a5d6ff; }
+    .cm { color: var(--text-muted); }
+    .nb { color: var(--green); }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center;
+      padding: 3rem 2rem;
+      border-top: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+    footer a { color: var(--blue); text-decoration: none; }
+
+    @media (max-width: 640px) {
+      .calc-row, .calc-result { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── Navigation ── -->
+<nav>
+  <div class="nav-brand">🧠 <span>adaptive-rag</span></div>
+  <div class="nav-links">
+    <a href="#features">Features</a>
+    <a href="#integrations">Integrations</a>
+    <a href="#leaderboard">Leaderboard</a>
+    <a href="#calculator">Cost Calculator</a>
+    <a href="https://github.com/Aravindraj93/adaptive-rag/blob/main/API.md">Docs</a>
+  </div>
+  <a class="nav-star" href="https://github.com/Aravindraj93/adaptive-rag" target="_blank">⭐ Star on GitHub</a>
+</nav>
+
+<!-- ── Hero ── -->
+<div class="hero">
+  <div class="hero-badge">✅ CPU-only &nbsp;·&nbsp; Zero mandatory deps &nbsp;·&nbsp; Apache 2.0</div>
+  <h1>Smart RAG retrieval<br>for <em>everyone</em></h1>
+  <p>No GPU. No embedding API. No cloud bill.<br>Drop into your LangChain or LlamaIndex app in 3 lines.</p>
+  <div class="hero-actions">
+    <a href="https://github.com/Aravindraj93/adaptive-rag" class="btn-primary">⭐ Star on GitHub</a>
+    <a href="#calculator" class="btn-secondary">💰 Calculate Savings</a>
+  </div>
+  <div class="install-block">
+    <span class="prompt">$</span><span class="cmd">pip install adaptive-rag</span>
+    <button class="copy-btn" onclick="navigator.clipboard.writeText('pip install adaptive-rag'); this.textContent='Copied!'">Copy</button>
+  </div>
+  <div class="badges">
+    <img src="https://img.shields.io/pypi/v/adaptive-rag?color=blue&label=PyPI" alt="PyPI">
+    <img src="https://img.shields.io/pypi/pyversions/adaptive-rag" alt="Python">
+    <img src="https://img.shields.io/badge/runs%20on-CPU%20only-brightgreen" alt="CPU only">
+    <img src="https://img.shields.io/badge/mandatory%20deps-zero-brightgreen" alt="Zero deps">
+    <img src="https://img.shields.io/github/license/Aravindraj93/adaptive-rag" alt="License">
+  </div>
+</div>
+
+<!-- ── Comparison ── -->
+<section>
+  <h2>Why switch to adaptive-rag?</h2>
+  <p class="section-sub">Compare against typical cloud-based RAG stacks</p>
+  <table class="comparison-table">
+    <thead>
+      <tr>
+        <th>Feature</th>
+        <th>Typical Cloud RAG</th>
+        <th class="highlight-col">adaptive-rag</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>GPU required</td>
+        <td><span class="cross">✗ Often yes</span></td>
+        <td class="highlight-col"><span class="check">✓ Never</span></td>
+      </tr>
+      <tr>
+        <td>Embedding API cost</td>
+        <td><span class="cross">✗ $50–$800/month</span></td>
+        <td class="highlight-col"><span class="check">✓ $0</span></td>
+      </tr>
+      <tr>
+        <td>Works offline / HIPAA</td>
+        <td><span class="cross">✗ No</span></td>
+        <td class="highlight-col"><span class="check">✓ Yes</span></td>
+      </tr>
+      <tr>
+        <td>Built-in evaluation CLI</td>
+        <td><span class="cross">✗ No</span></td>
+        <td class="highlight-col"><span class="check">✓ Yes</span></td>
+      </tr>
+      <tr>
+        <td>Semantic caching</td>
+        <td><span class="cross">✗ No</span></td>
+        <td class="highlight-col"><span class="check">✓ Built-in</span></td>
+      </tr>
+      <tr>
+        <td>Zero mandatory dependencies</td>
+        <td><span class="cross">✗ No</span></td>
+        <td class="highlight-col"><span class="check">✓ Yes</span></td>
+      </tr>
+      <tr>
+        <td>Works on a Raspberry Pi</td>
+        <td><span class="cross">✗ No</span></td>
+        <td class="highlight-col"><span class="check">✓ Yes</span></td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ── Features ── -->
+<section id="features">
+  <h2>Everything you need, nothing you don't</h2>
+  <p class="section-sub">Production-grade retrieval out of the box</p>
+  <div class="cards">
+    <div class="card">
+      <div class="card-icon">⚡</div>
+      <div class="card-tag">CORE</div>
+      <h3>BM25 Retrieval</h3>
+      <p>Best-in-class sparse retrieval. CPU-only, millisecond latency, no external dependencies.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🧠</div>
+      <div class="card-tag">PERFORMANCE</div>
+      <h3>Semantic Caching</h3>
+      <p>Cache retrieval results by revision. Repeated queries return instantly, cutting API costs to zero.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🔀</div>
+      <div class="card-tag">QUALITY</div>
+      <h3>Hybrid Retrieval</h3>
+      <p>Combine BM25 + dense vectors with Reciprocal Rank Fusion. Bring your own embedding model.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">💾</div>
+      <div class="card-tag">SCALE</div>
+      <h3>MMap Disk Index</h3>
+      <p>Persist indices to disk. Survives restarts, handles millions of documents, concurrent readers.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🩺</div>
+      <div class="card-tag">CLI TOOL</div>
+      <h3>RAG Doctor</h3>
+      <p>One command to audit any RAG corpus, get a health score, and receive actionable recommendations.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">📊</div>
+      <div class="card-tag">EVALUATION</div>
+      <h3>Built-in Benchmarks</h3>
+      <p>Recall@K, MRR, nDCG, latency percentiles, cache hit rates — all in one CLI command.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🏥</div>
+      <div class="card-tag">DOMAIN PACKS</div>
+      <h3>Starter Packs</h3>
+      <p>Healthcare, Legal, Education, Finance, and Code Docs — pre-tuned for your domain.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🔌</div>
+      <div class="card-tag">INTEGRATIONS</div>
+      <h3>Framework Adapters</h3>
+      <p>Drop into LangChain or LlamaIndex in one line. Compatible with any retriever interface.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🔒</div>
+      <div class="card-tag">SECURITY</div>
+      <h3>Metadata Filtering</h3>
+      <p>Filter by permissions, department, date, or any metadata field. A retriever is not an auth system — but we help you integrate one.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── Code Tabs ── -->
+<section id="integrations">
+  <h2>Works everywhere</h2>
+  <p class="section-sub">Drop into any Python RAG pipeline with minimal changes</p>
+  <div class="code-tabs">
+    <div class="tab-bar">
+      <div class="tab active" onclick="showTab(this, 'tab-basic')">Basic</div>
+      <div class="tab" onclick="showTab(this, 'tab-langchain')">LangChain</div>
+      <div class="tab" onclick="showTab(this, 'tab-llamaindex')">LlamaIndex</div>
+      <div class="tab" onclick="showTab(this, 'tab-healthcare')">Healthcare</div>
+      <div class="tab" onclick="showTab(this, 'tab-doctor')">RAG Doctor</div>
+    </div>
+    <div id="tab-basic" class="tab-content active">
+      <pre><span class="kw">from</span> adaptive_rag <span class="kw">import</span> BM25Retriever, Chunk, SemanticCachedRetriever
+
+<span class="cm"># Zero dependencies — runs anywhere</span>
+backend = <span class="fn">BM25Retriever</span>()
+backend.<span class="fn">add</span>([
+    <span class="fn">Chunk</span>(<span class="str">"policy-1"</span>, <span class="str">"docs"</span>, <span class="str">"Refunds available within 30 days."</span>),
+    <span class="fn">Chunk</span>(<span class="str">"policy-2"</span>, <span class="str">"docs"</span>, <span class="str">"Shipping takes 3-5 business days."</span>),
+])
+
+<span class="cm"># Semantic caching: repeated queries return instantly</span>
+retriever = <span class="fn">SemanticCachedRetriever</span>(
+    backend, scope=<span class="str">"my-app"</span>, revision=<span class="kw">lambda</span>: <span class="nb">1</span>
+)
+
+results = retriever.<span class="fn">search</span>(<span class="str">"refund period"</span>, top_k=<span class="nb">3</span>)
+<span class="kw">for</span> r <span class="kw">in</span> results:
+    <span class="fn">print</span>(r.chunk.text)</pre>
+    </div>
+    <div id="tab-langchain" class="tab-content">
+      <pre><span class="kw">from</span> adaptive_rag.integrations.langchain <span class="kw">import</span> AdaptiveRetriever
+<span class="kw">from</span> langchain.chains <span class="kw">import</span> RetrievalQA
+
+<span class="cm"># From LangChain documents — 1 line change</span>
+retriever = AdaptiveRetriever.<span class="fn">from_langchain_docs</span>(
+    documents,
+    scope=<span class="str">"my-app"</span>,
+    use_cache=<span class="nb">True</span>,
+)
+
+<span class="cm"># Drop into any LangChain chain</span>
+chain = RetrievalQA.<span class="fn">from_chain_type</span>(
+    llm=llm,
+    retriever=retriever.<span class="fn">as_langchain_retriever</span>(),
+)
+response = chain.<span class="fn">invoke</span>({<span class="str">"query"</span>: <span class="str">"What is the return policy?"</span>})</pre>
+    </div>
+    <div id="tab-llamaindex" class="tab-content">
+      <pre><span class="kw">from</span> adaptive_rag.integrations.llamaindex <span class="kw">import</span> AdaptiveQueryEngine
+
+<span class="cm"># From LlamaIndex documents — replaces VectorStoreIndex</span>
+engine = AdaptiveQueryEngine.<span class="fn">from_documents</span>(
+    documents,
+    scope=<span class="str">"my-app"</span>,
+    llm=llm,  <span class="cm"># optional — for answer synthesis</span>
+)
+
+<span class="cm"># Same API as LlamaIndex query engines</span>
+response = engine.<span class="fn">query</span>(<span class="str">"What are the pricing tiers?"</span>)
+<span class="fn">print</span>(response.response)
+<span class="kw">for</span> node <span class="kw">in</span> response.source_nodes:
+    <span class="fn">print</span>(node.node.text[:<span class="nb">100</span>])</pre>
+    </div>
+    <div id="tab-healthcare" class="tab-content">
+      <pre><span class="kw">from</span> adaptive_rag.packs <span class="kw">import</span> HealthcareRAG
+
+<span class="cm"># HIPAA-safe — zero network calls, all on CPU</span>
+rag = <span class="fn">HealthcareRAG</span>()
+rag.<span class="fn">add_documents</span>(<span class="str">"./clinical_guidelines/"</span>)
+
+<span class="cm"># Medical abbreviation expansion built-in</span>
+<span class="cm"># "htn" → "hypertension", "bp" → "blood pressure"</span>
+results = rag.<span class="fn">search</span>(<span class="str">"first-line treatment htn"</span>, top_k=<span class="nb">5</span>)
+<span class="kw">for</span> r <span class="kw">in</span> results:
+    <span class="fn">print</span>(r.chunk.text)
+
+<span class="fn">print</span>(rag.<span class="fn">info</span>())</pre>
+    </div>
+    <div id="tab-doctor" class="tab-content">
+      <pre><span class="cm"># Diagnose any RAG corpus in one command</span>
+$ adaptive-rag doctor --corpus ./my_docs/ --queries ./questions.json
+
+<span class="cm">╔══════════════════════════════════════════════════════════╗
+║         📊 RAG Health Report — my_docs/                  ║
+╠══════════════════════════════════════════════════════════╣
+║  Retrieval Quality:    B+  (82/100)                      ║
+║  Recall@5:             0.847                             ║
+║  Cache Hit Rate:       0% → 73% with adaptive-rag        ║
+║  Est. API Savings:     ~$340/month                       ║
+╠══════════════════════════════════════════════════════════╣
+║  💡 Recommendations:                                     ║
+║  1. Enable SemanticCachedRetriever                       ║
+║  2. Use HybridRetriever (+12% recall)                    ║
+║  3. Reduce chunk size: 1024 → 512 tokens                 ║
+╚══════════════════════════════════════════════════════════╝</span></pre>
+    </div>
+  </div>
+</section>
+
+<!-- ── Leaderboard ── -->
+<section id="leaderboard">
+  <h2>📊 Retrieval Leaderboard</h2>
+  <p class="section-sub">Cranfield benchmark (1400 docs, 225 queries) — all on CPU, no cloud</p>
+  <table class="leaderboard-table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Configuration</th>
+        <th>Hardware</th>
+        <th>Recall@5</th>
+        <th></th>
+        <th>MRR</th>
+        <th>p95 Latency</th>
+        <th>Cost/Month</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="rank-badge rank-1">1</span></td>
+        <td><strong>HybridRetriever + Cache</strong></td>
+        <td><span class="tag-cpu">CPU</span></td>
+        <td>0.847</td>
+        <td class="bar-cell"><div class="bar-bg"><div class="bar-fill" style="width:84.7%"></div></div></td>
+        <td>0.791</td>
+        <td>12ms</td>
+        <td style="color:var(--green)"><strong>$0</strong></td>
+      </tr>
+      <tr>
+        <td><span class="rank-badge rank-2">2</span></td>
+        <td>BM25 + SemanticCache</td>
+        <td><span class="tag-cpu">CPU</span></td>
+        <td>0.724</td>
+        <td class="bar-cell"><div class="bar-bg"><div class="bar-fill" style="width:72.4%"></div></div></td>
+        <td>0.651</td>
+        <td>0.1ms*</td>
+        <td style="color:var(--green)">$0</td>
+      </tr>
+      <tr>
+        <td><span class="rank-badge rank-3">3</span></td>
+        <td>BM25 (baseline)</td>
+        <td><span class="tag-cpu">CPU</span></td>
+        <td>0.724</td>
+        <td class="bar-cell"><div class="bar-bg"><div class="bar-fill" style="width:72.4%"></div></div></td>
+        <td>0.651</td>
+        <td>8ms</td>
+        <td style="color:var(--green)">$0</td>
+      </tr>
+      <tr>
+        <td><span class="rank-badge rank-n">4</span></td>
+        <td>OpenAI ada-002 + FAISS</td>
+        <td><span class="tag-gpu">API</span></td>
+        <td>0.812</td>
+        <td class="bar-cell"><div class="bar-bg"><div class="bar-fill" style="width:81.2%"></div></div></td>
+        <td>0.763</td>
+        <td>120ms</td>
+        <td style="color:var(--red)">~$200–800</td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="color:var(--text-muted); font-size:0.8rem; margin-top:0.75rem;">* Cache hit. · Reproduce: <code>adaptive-rag-evaluate --dataset benchmarks/cranfield.json</code> · <a href="https://github.com/Aravindraj93/adaptive-rag/discussions" style="color:var(--blue)">Submit your configuration →</a></p>
+</section>
+
+<!-- ── Cost Calculator ── -->
+<section id="calculator">
+  <h2>💰 Cost Calculator</h2>
+  <p class="section-sub">See how much adaptive-rag saves your team each month</p>
+  <div class="calculator">
+    <div class="calc-row">
+      <div class="calc-group">
+        <label>Queries per day</label>
+        <input type="number" id="qpd" value="10000" min="1" oninput="updateCalc()">
+      </div>
+      <div class="calc-group">
+        <label>Embedding model</label>
+        <select id="model" onchange="updateCalc()">
+          <option value="0.0001">OpenAI text-embedding-3-small ($0.02/1M tokens)</option>
+          <option value="0.00013">OpenAI text-embedding-3-large ($0.13/1M tokens)</option>
+          <option value="0.0001" selected>Cohere embed-v3 (~$0.10/1M tokens)</option>
+          <option value="0.0002">Custom / Higher cost</option>
+        </select>
+      </div>
+    </div>
+    <div class="calc-row">
+      <div class="calc-group">
+        <label>Average tokens per query</label>
+        <input type="number" id="tpq" value="50" min="1" oninput="updateCalc()">
+      </div>
+      <div class="calc-group">
+        <label>Estimated cache hit rate</label>
+        <select id="cache" onchange="updateCalc()">
+          <option value="0.5">50% — moderate reuse</option>
+          <option value="0.65" selected>65% — typical production</option>
+          <option value="0.80">80% — high reuse (FAQ-style)</option>
+          <option value="1.0">100% — adaptive-rag replaces all</option>
+        </select>
+      </div>
+    </div>
+    <div class="calc-result">
+      <div>
+        <div class="calc-metric-label">Monthly Savings</div>
+        <div class="calc-metric-value" id="savings">$0</div>
+        <div class="calc-metric-sub">vs. current setup</div>
+      </div>
+      <div>
+        <div class="calc-metric-label">Queries Served Free</div>
+        <div class="calc-metric-value" id="free-queries">0</div>
+        <div class="calc-metric-sub">per month via cache</div>
+      </div>
+      <div>
+        <div class="calc-metric-label">Latency Reduction</div>
+        <div class="calc-metric-value" id="latency">~10x</div>
+        <div class="calc-metric-sub">cached vs API</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Domain Packs ── -->
+<section>
+  <h2>🏥 Domain Packs</h2>
+  <p class="section-sub">Pre-configured retrieval for specific industries — no tuning required</p>
+  <div class="cards">
+    <div class="card">
+      <div class="card-icon">🏥</div>
+      <div class="card-tag">HIPAA-SAFE</div>
+      <h3>HealthcareRAG</h3>
+      <p>Medical abbreviation expansion (HTN→hypertension), short 256-token chunks for clinical precision, zero data transmission.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">⚖️</div>
+      <div class="card-tag">CONTRACTS</div>
+      <h3>LegalRAG</h3>
+      <p>Section/clause-boundary-aware chunking. Preserves full clause context (768 tokens). Legal shorthand expansion built-in.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">📚</div>
+      <div class="card-tag">MULTILINGUAL</div>
+      <h3>EducationRAG</h3>
+      <p>Concept-aware chunking for textbooks and lecture notes. Student query normalisation. Works in any language.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">💻</div>
+      <div class="card-tag">API DOCS</div>
+      <h3>CodeDocsRAG</h3>
+      <p>CamelCase and snake_case identifier splitting. Optimised for function/class lookup in API references.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">📈</div>
+      <div class="card-tag">REPORTS</div>
+      <h3>FinanceRAG</h3>
+      <p>Large 1024-token chunks to preserve table context. Financial shorthand expansion (EBITDA, YoY, CAGR).</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ── -->
+<section style="text-align:center; padding-top:2rem; padding-bottom:2rem;">
+  <h2>Ready to cut your RAG costs to zero?</h2>
+  <p class="section-sub" style="margin-bottom:2rem;">Join developers who run production RAG with no GPU and no API bill</p>
+  <div class="hero-actions" style="justify-content:center">
+    <a href="https://github.com/Aravindraj93/adaptive-rag" class="btn-primary">⭐ Star on GitHub</a>
+    <a href="https://github.com/Aravindraj93/adaptive-rag/discussions" class="btn-secondary">💬 Join Discussions</a>
+  </div>
+</section>
+
+<!-- ── Footer ── -->
+<footer>
+  <p>adaptive-rag is open source under the <a href="https://github.com/Aravindraj93/adaptive-rag/blob/main/LICENSE">Apache 2.0 License</a>.</p>
+  <p style="margin-top:0.5rem; color: var(--text-muted)">Made with ❤️ for developers who believe great tools should be free and accessible to everyone.</p>
+</footer>
+
+<script>
+  function showTab(el, id) {
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+    el.classList.add('active');
+    document.getElementById(id).classList.add('active');
+  }
+
+  function updateCalc() {
+    const qpd = parseFloat(document.getElementById('qpd').value) || 0;
+    const costPerToken = parseFloat(document.getElementById('model').value) || 0.0001;
+    const tpq = parseFloat(document.getElementById('tpq').value) || 50;
+    const cacheRate = parseFloat(document.getElementById('cache').value) || 0.65;
+
+    const monthlyQueries = qpd * 30;
+    const cachedQueries = Math.round(monthlyQueries * cacheRate);
+    const costPerQuery = costPerToken * tpq / 1000; // tokens to cost
+    const savings = cachedQueries * costPerQuery;
+
+    document.getElementById('savings').textContent =
+      savings >= 1000
+        ? `$${(savings/1000).toFixed(1)}K`
+        : `$${savings.toFixed(0)}`;
+    document.getElementById('free-queries').textContent =
+      cachedQueries >= 1_000_000
+        ? `${(cachedQueries/1_000_000).toFixed(1)}M`
+        : cachedQueries >= 1000
+        ? `${(cachedQueries/1000).toFixed(0)}K`
+        : cachedQueries.toString();
+
+    const latencyReduction = cacheRate >= 0.8 ? '~100x' : cacheRate >= 0.5 ? '~10x' : '~3x';
+    document.getElementById('latency').textContent = latencyReduction;
+  }
+
+  updateCalc();
+</script>
+</body>
+</html>

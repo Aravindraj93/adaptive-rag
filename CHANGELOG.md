@@ -1,5 +1,23 @@
 # Changelog
 
+## [0.17.0] — Ecosystem Expansion Release
+
+- Added `adaptive-rag doctor` CLI (`src/adaptive_rag/doctor.py`) for automated RAG corpus health analysis, retrieval scoring, latency profiling, and actionable diagnostic recommendations.
+- Added drop-in framework integration shims in `adaptive_rag.integrations`:
+  - `AdaptiveRetriever` / `LangChainAdaptiveRetriever` for LangChain pipelines with `.as_langchain_retriever()` support.
+  - `AdaptiveQueryEngine` and `AdaptiveBaseRetriever` for LlamaIndex index wrapping and query synthesis.
+- Added pre-configured domain starter packs in `adaptive_rag.packs`:
+  - `HealthcareRAG`: HIPAA-safe, clinical abbreviation expansion (`HTN`, `BP`, `DM`, etc.), and 256-token precision chunking.
+  - `LegalRAG`: Clause/section boundary-aware parsing and citation handling.
+  - `EducationRAG`: Concept query normalization and textbook chunking.
+  - `CodeDocsRAG`: CamelCase and snake_case identifier splitting for technical reference search.
+  - `FinanceRAG`: Financial shorthand expansion (`EBITDA`, `YoY`, `CAGR`, etc.) and table context preservation.
+- Added interactive documentation website and ROI cost calculator in `website/` and `docs/index.html`.
+- Added end-to-end tutorial in `docs/tutorials/getting_started.md`.
+- Added automated PyPI trusted publishing workflow (`.github/workflows/publish.yml`).
+- Added comprehensive unit test coverage in `tests/test_integrations_and_packs.py`.
+- Cleaned and expanded `pyproject.toml` keywords, classifiers, and entry points.
+
 ## 0.17.0rc1 — focused retrieval optimization candidate
 
 - Reconciles with upstream 0.12.0; does not claim that unreleased 0.13–0.16 ZIP

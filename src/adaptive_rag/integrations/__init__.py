@@ -17,17 +17,12 @@ Example:
     engine = AdaptiveQueryEngine.from_documents(docs, scope="my-app")
 """
 
+from .langchain import AdaptiveRetriever, AdaptiveRetriever as LangChainAdaptiveRetriever
+from .llamaindex import AdaptiveQueryEngine, AdaptiveBaseRetriever
+
 __all__ = [
-    "AdaptiveRetriever",   # LangChain
-    "AdaptiveQueryEngine", # LlamaIndex
+    "AdaptiveRetriever",
+    "LangChainAdaptiveRetriever",
+    "AdaptiveQueryEngine",
+    "AdaptiveBaseRetriever",
 ]
-
-
-def _lazy_import(name: str) -> object:
-    """Provide a helpful error when an integration module is imported."""
-    raise ImportError(
-        f"Could not import {name}. "
-        "Make sure you have the required framework installed:\n"
-        "  LangChain:  pip install langchain-core\n"
-        "  LlamaIndex: pip install llama-index-core"
-    )

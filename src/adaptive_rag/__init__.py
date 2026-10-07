@@ -106,7 +106,27 @@ __all__ = [
 
 from .semantic_cache import SemanticCachedRetriever, SemanticCacheInfo
 from .comparison import ComparisonCase, compare_retrievers
+from .doctor import DiagnosticResult, doctor_command
+from .packs import (
+    HealthcareRAG,
+    LegalRAG,
+    EducationRAG,
+    CodeDocsRAG,
+    FinanceRAG,
+)
 
-__all__ += ["SemanticCachedRetriever", "SemanticCacheInfo", "ComparisonCase", "compare_retrievers"]
+__all__ += [
+    "SemanticCachedRetriever",
+    "SemanticCacheInfo",
+    "ComparisonCase",
+    "compare_retrievers",
+    "DiagnosticResult",
+    "doctor_command",
+    "HealthcareRAG",
+    "LegalRAG",
+    "EducationRAG",
+    "CodeDocsRAG",
+    "FinanceRAG",
+]
 
-__version__ = "0.17.0rc1"
+__version__ = "0.17.0"

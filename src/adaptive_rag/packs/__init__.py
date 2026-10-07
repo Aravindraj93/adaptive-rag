@@ -520,7 +520,33 @@ class FinanceRAG(_BaseRAGPack):
             "cac": "customer acquisition cost",
         }
         tokens = query.lower().split()
-        return " ".join(expansions.get(t, t) for t in tokens)
+        res = []
+        for t in tokens:
+            if t in expansions:
+                res.extend([t, expansions[t]])
+            else:
+                res.append(t)
+        return " ".join(res)
+
+    def _preprocess_document_text(self, text: str) -> str:
+        """Enrich document text with expanded financial terms for broader recall."""
+        expansions = {
+            "ebitda": "earnings before interest taxes depreciation amortisation",
+            "yoy": "year over year",
+            "cagr": "compound annual growth rate",
+            "fcf": "free cash flow",
+            "arr": "annual recurring revenue",
+            "mrr": "monthly recurring revenue",
+        }
+        tokens = text.split()
+        added = []
+        for t in tokens:
+            clean = re.sub(r"[^\w]", "", t).lower()
+            if clean in expansions and expansions[clean] not in text.lower():
+                added.append(expansions[clean])
+        if added:
+            return f"{text}\n[Financial context: {' '.join(set(added))}]"
+        return text
 
 
 # ── Convenience exports ───────────────────────────────────────────────────────
