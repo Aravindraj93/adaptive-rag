@@ -4,49 +4,117 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "adaptive-rag"
-version = "0.17.0rc1"
-description = "CPU-first, domain-agnostic retrieval primitives and benchmarks for adaptive RAG systems."
+version = "0.17.0"
+description = "CPU-first RAG retrieval for everyone. No GPU. No embedding API. No cloud bill."
 readme = "README.md"
 requires-python = ">=3.10"
 license = "Apache-2.0"
 license-files = ["LICENSE", "NOTICE", "THIRD_PARTY.md"]
 authors = [{ name = "Adaptive RAG contributors" }]
-keywords = ["rag", "retrieval", "bm25", "search", "information-retrieval"]
+keywords = [
+  "rag",
+  "retrieval",
+  "bm25",
+  "search",
+  "information-retrieval",
+  "nlp",
+  "llm",
+  "langchain",
+  "llamaindex",
+  "cpu",
+  "no-gpu",
+  "semantic-search",
+  "semantic-cache",
+  "hybrid-search",
+  "hipaa",
+]
 classifiers = [
   "Development Status :: 4 - Beta",
+  "Intended Audience :: Developers",
+  "Intended Audience :: Science/Research",
+  "Intended Audience :: Healthcare Industry",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+  "Topic :: Text Processing :: Indexing",
+  "Topic :: Software Development :: Libraries :: Python Modules",
   "Programming Language :: Python :: 3",
   "Programming Language :: Python :: 3.10",
   "Programming Language :: Python :: 3.11",
   "Programming Language :: Python :: 3.12",
-  "Programming Language :: Python :: 3.13",
-  "Programming Language :: Python :: 3.14",
+  "License :: OSI Approved :: Apache Software License",
+  "Operating System :: OS Independent",
+  "Environment :: CPU",
+  "Typing :: Typed",
 ]
+
+# Zero mandatory dependencies — pure stdlib Python
 dependencies = []
 
 [project.optional-dependencies]
-dev = ["pytest>=8", "ruff>=0.6"]
-pdf = ["pypdf>=4.0"]
-images = ["pillow>=10.0", "pytesseract>=0.3.10"]
+# NumPy SIMD acceleration for dense retrieval (~3-5x speedup)
 numpy = ["numpy>=1.24"]
-all = ["pypdf>=4.0", "pillow>=10.0", "pytesseract>=0.3.10", "numpy>=1.24"]
+
+# PDF document loading
+pdf = ["pypdf>=3.0"]
+
+# Image/OCR loading (also requires Tesseract binary)
+images = ["pillow>=10.0", "pytesseract>=0.3"]
+
+# LangChain integration
+langchain = ["langchain-core>=0.1"]
+
+# LlamaIndex integration
+llamaindex = ["llama-index-core>=0.10"]
+
+# Development dependencies
+dev = [
+  "pytest>=7.0",
+  "pytest-cov>=4.0",
+  "pytest-asyncio>=0.21",
+  "numpy>=1.24",
+  "pypdf>=3.0",
+]
+
+# Install everything
+all = [
+  "numpy>=1.24",
+  "pypdf>=3.0",
+  "pillow>=10.0",
+  "pytesseract>=0.3",
+  "langchain-core>=0.1",
+  "llama-index-core>=0.10",
+]
+
+[project.urls]
+Homepage = "https://github.com/Aravindraj93/adaptive-rag"
+Repository = "https://github.com/Aravindraj93/adaptive-rag"
+Documentation = "https://github.com/Aravindraj93/adaptive-rag/blob/main/API.md"
+"Bug Tracker" = "https://github.com/Aravindraj93/adaptive-rag/issues"
+Discussions = "https://github.com/Aravindraj93/adaptive-rag/discussions"
+Changelog = "https://github.com/Aravindraj93/adaptive-rag/blob/main/CHANGELOG.md"
 
 [project.scripts]
-adaptive-rag-evaluate = "adaptive_rag.comparison:main"
-adaptive-rag-benchmark = "adaptive_rag.benchmark:main"
-adaptive-rag-compare = "adaptive_rag.backend_benchmark:main"
-adaptive-rag-scale = "adaptive_rag.scale_benchmark:main"
-adaptive-rag-ann = "adaptive_rag.ann_benchmark:main"
+# Main evaluation CLI (existing)
+adaptive-rag-evaluate = "adaptive_rag.benchmark:main"
 
-[tool.setuptools]
-package-dir = {"" = "src"}
+# NEW: RAG Doctor CLI — diagnose any corpus in one command
+adaptive-rag-doctor = "adaptive_rag.doctor:main"
+adaptive-rag = "adaptive_rag._cli:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
 
-[tool.pytest.ini_options]
-addopts = "-q"
-testpaths = ["tests"]
+[tool.setuptools.package-data]
+adaptive_rag = ["py.typed", "benchmarks/*.json"]
 
-[tool.ruff]
-line-length = 100
-target-version = "py310"
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+addopts = "-v --tb=short"
+
+[tool.coverage.run]
+source = ["adaptive_rag"]
+omit = ["*/tests/*", "*/__main__.py"]
+
+[tool.coverage.report]
+show_missing = true
+skip_covered = false
