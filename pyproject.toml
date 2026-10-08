@@ -102,6 +102,7 @@ adaptive-rag-evaluate = "adaptive_rag.benchmark:main"
 
 # NEW: RAG Doctor CLI — diagnose any corpus in one command
 adaptive-rag-doctor = "adaptive_rag.doctor:main"
+adaptive-rag-serve = "adaptive_rag.server:main"
 adaptive-rag = "adaptive_rag._cli:main"
 
 [tool.setuptools.packages.find]

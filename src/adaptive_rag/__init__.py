@@ -111,6 +111,7 @@ __all__ = [
 from .semantic_cache import SemanticCachedRetriever, SemanticCacheInfo
 from .comparison import ComparisonCase, compare_retrievers
 from .doctor import DiagnosticResult, doctor_command
+from .server import serve_command
 from .packs import (
     HealthcareRAG,
     LegalRAG,
@@ -126,6 +127,7 @@ __all__ += [
     "compare_retrievers",
     "DiagnosticResult",
     "doctor_command",
+    "serve_command",
     "HealthcareRAG",
     "LegalRAG",
     "EducationRAG",

@@ -97,6 +97,36 @@ adaptive-rag-evaluate --repetitions 5 --output report.json
 
 ---
 
+## 🌐 HTTP REST Server (TypeScript / Frontend / Microservices)
+
+Serve your local document index over HTTP on CPU with zero dependencies:
+
+```bash
+# Start server
+adaptive-rag serve --corpus ./my_docs/ --port 8000
+```
+
+Query it using standard `curl` or any language:
+
+```bash
+curl -X POST http://127.0.0.1:8000/search \
+  -H "Content-Type: application/json" \
+  -d '{"query": "refund policy", "top_k": 3}'
+```
+
+```typescript
+// Query from TypeScript / Next.js / Node
+const res = await fetch("http://127.0.0.1:8000/search", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({ query: "refund policy", top_k: 3 }),
+});
+const { results } = await res.json();
+console.log(results);
+```
+
+---
+
 ## 🔌 Framework Integrations
 
 ### LangChain (1-line drop-in)

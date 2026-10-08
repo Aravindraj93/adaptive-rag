@@ -96,6 +96,54 @@ class TestIntegrationsAndPacks(unittest.TestCase):
             exit_code = doctor_command(["--corpus", tmpdir, "--json"])
             self.assertEqual(exit_code, 0)
 
+    def test_server_api(self):
+        import json
+        import threading
+        import urllib.request
+        from http.server import ThreadingHTTPServer
+        from adaptive_rag import BM25Retriever, Chunk, SemanticCachedRetriever
+        from adaptive_rag.server import create_server_handler
+
+        backend = BM25Retriever()
+        backend.add([
+            Chunk("doc-1", "docs", "Server API supports instant retrieval."),
+            Chunk("doc-2", "docs", "CORS and JSON responses enabled by default."),
+        ])
+        cached = SemanticCachedRetriever(backend, scope="test-server", revision=lambda: 1)
+        handler_cls = create_server_handler(cached, "test_corpus")
+
+        server = ThreadingHTTPServer(("127.0.0.1", 0), handler_cls)
+        port = server.server_address[1]
+
+        t = threading.Thread(target=server.serve_forever, daemon=True)
+        t.start()
+
+        try:
+            # 1. Health check
+            with urllib.request.urlopen(f"http://127.0.0.1:{port}/health") as resp:
+                self.assertEqual(resp.status, 200)
+                data = json.loads(resp.read().decode("utf-8"))
+                self.assertEqual(data["status"], "ok")
+
+            # 2. Search query POST
+            req_data = json.dumps({"query": "Server API", "top_k": 2}).encode("utf-8")
+            req = urllib.request.Request(
+                f"http://127.0.0.1:{port}/search",
+                data=req_data,
+                headers={"Content-Type": "application/json"},
+                method="POST",
+            )
+            with urllib.request.urlopen(req) as resp:
+                self.assertEqual(resp.status, 200)
+                search_data = json.loads(resp.read().decode("utf-8"))
+                self.assertEqual(search_data["query"], "Server API")
+                self.assertGreaterEqual(len(search_data["results"]), 1)
+                self.assertIn("Server API", search_data["results"][0]["text"])
+
+        finally:
+            server.shutdown()
+            server.server_close()
+
 
 if __name__ == "__main__":
     unittest.main()

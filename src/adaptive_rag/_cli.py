@@ -20,11 +20,13 @@ Usage:
 
 Commands:
     doctor      Diagnose a RAG corpus and get a health score
+    serve       Run a zero-dependency HTTP search server
     evaluate    Run retrieval benchmarks
     version     Show version information
 
 Examples:
     adaptive-rag doctor --corpus ./my_docs/
+    adaptive-rag serve --corpus ./my_docs/ --port 8000
     adaptive-rag doctor --corpus ./docs/ --queries ./questions.json --json
     adaptive-rag evaluate --repetitions 5 --output report.json
     adaptive-rag version
@@ -46,6 +48,10 @@ def main(argv: list[str] | None = None) -> None:
     if command == "doctor":
         from adaptive_rag.doctor import doctor_command
         sys.exit(doctor_command(rest))
+
+    elif command in ("serve", "server"):
+        from adaptive_rag.server import serve_command
+        sys.exit(serve_command(rest))
 
     elif command in ("evaluate", "eval"):
         from adaptive_rag.benchmark import main as eval_main
