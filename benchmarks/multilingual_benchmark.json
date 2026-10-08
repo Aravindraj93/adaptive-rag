@@ -1,0 +1,38 @@
+{
+  "name": "multilingual-benchmark-v1",
+  "license": "Apache-2.0",
+  "description": "Cross-lingual evaluation fixture covering queries and documents across English, Spanish, French, German, and Portuguese on CPU.",
+  "chunks": [
+    {"id": "es-devolucion", "document_id": "politica-es", "text": "Los clientes pueden solicitar el reembolso completo dentro de los treinta días posteriores a la compra."},
+    {"id": "es-envio", "document_id": "politica-es", "text": "El envío estándar demora entre tres y cinco días hábiles para destinos nacionales."},
+    {"id": "es-soporte", "document_id": "politica-es", "text": "Para asistencia técnica y reclamos, comuníquese con soporte@empresa.com."},
+    {"id": "fr-remboursement", "document_id": "politique-fr", "text": "Les demandes de remboursement sont acceptées dans un délai de trente jours ouvrables."},
+    {"id": "fr-livraison", "document_id": "politique-fr", "text": "La livraison standard prend entre trois et cinq jours ouvrés pour la France métropolitaine."},
+    {"id": "fr-support", "document_id": "politique-fr", "text": "Le service client est disponible par courriel à assistance@entreprise.fr."},
+    {"id": "de-rueckgabe", "document_id": "richtlinie-de", "text": "Rückerstattungen und Warenrücksendungen sind innerhalb von dreißig Tagen nach dem Kauf möglich."},
+    {"id": "de-versand", "document_id": "richtlinie-de", "text": "Der Standardversand dauert in der Regel drei bis fünf Werktage innerhalb Deutschlands."},
+    {"id": "de-support", "document_id": "richtlinie-de", "text": "Unser Kundenservice hilft Ihnen gerne unter support@unternehmen.de weiter."},
+    {"id": "pt-reembolso", "document_id": "politica-pt", "text": "Os pedidos de reembolso são aceitos no prazo de trinta dias corridos após a compra."},
+    {"id": "pt-envio", "document_id": "politica-pt", "text": "A entrega padrão leva de três a cinco dias úteis para todo o país."},
+    {"id": "pt-suporte", "document_id": "politica-pt", "text": "Entre em contato com nossa equipe pelo e-mail atendimento@empresa.pt."},
+    {"id": "en-passwords", "document_id": "security-en", "text": "Users can change their account password directly from the privacy and security dashboard."},
+    {"id": "es-seguridad", "document_id": "seguridad-es", "text": "La autenticación de dos factores proporciona una capa adicional de protección al iniciar sesión."},
+    {"id": "de-sicherheit", "document_id": "sicherheit-de", "text": "Zwei-Faktor-Authentifizierung schützt Benutzerkonten vor unbefugtem Zugriff beim Login."}
+  ],
+  "cases": [
+    {"query": "¿Cuál es el plazo para solicitar un reembolso?", "relevant_chunk_ids": ["es-devolucion"]},
+    {"query": "¿Cuántos días hábiles tarda el envío estándar?", "relevant_chunk_ids": ["es-envio"]},
+    {"query": "¿Cómo contactar a soporte técnico?", "relevant_chunk_ids": ["es-soporte"]},
+    {"query": "Quel est le délai de remboursement accepté?", "relevant_chunk_ids": ["fr-remboursement"]},
+    {"query": "Combien de jours prend la livraison standard?", "relevant_chunk_ids": ["fr-livraison"]},
+    {"query": "Comment contacter le service client par courriel?", "relevant_chunk_ids": ["fr-support"]},
+    {"query": "Wie lange kann man eine Rückerstattung beantragen?", "relevant_chunk_ids": ["de-rueckgabe"]},
+    {"query": "Wie viele Werktage dauert der Standardversand?", "relevant_chunk_ids": ["de-versand"]},
+    {"query": "Wie lautet die E-Mail des Kundenservice?", "relevant_chunk_ids": ["de-support"]},
+    {"query": "Qual é o prazo para pedir reembolso da compra?", "relevant_chunk_ids": ["pt-reembolso"]},
+    {"query": "Quantos dias úteis demora a entrega padrão?", "relevant_chunk_ids": ["pt-envio"]},
+    {"query": "Como contatar o atendimento por e-mail?", "relevant_chunk_ids": ["pt-suporte"]},
+    {"query": "¿Qué método añade una capa adicional de protección?", "relevant_chunk_ids": ["es-seguridad"]},
+    {"query": "Was schützt Benutzerkonten mit einem zweiten Faktor?", "relevant_chunk_ids": ["de-sicherheit"]}
+  ]
+}

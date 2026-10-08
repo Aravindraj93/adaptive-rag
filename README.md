@@ -314,7 +314,8 @@ pip install adaptive-rag[pdf,images,numpy]
 - [x] Document Loaders: PDF, OCR images, HTML, Word DOCX
 - [x] Public leaderboard & Interactive Cost Calculator (`website/` and GitHub Pages)
 - [x] TypeScript/JavaScript client bindings (`client-js/` package)
-- [ ] Multilingual benchmark suite
+- [x] Multilingual benchmark suite (`benchmarks/multilingual_benchmark.json`)
+- [ ] DSPy framework adapter
 
 ---
 

@@ -31,11 +31,16 @@ class BenchmarkTests(unittest.TestCase):
         )
         self.assertEqual(report.recall_at_k, 0.5)
 
-    def test_extended_fixture_has_valid_relevance_labels(self) -> None:
-        name, chunks, cases = load_dataset("benchmarks/general_knowledge.json")
-        self.assertEqual(name, "general-knowledge-v1")
-        self.assertGreaterEqual(len(chunks), 20)
-        self.assertGreaterEqual(len(cases), 20)
+    def test_multilingual_benchmark_dataset(self) -> None:
+        name, chunks, cases = load_dataset("benchmarks/multilingual_benchmark.json")
+        self.assertEqual(name, "multilingual-benchmark-v1")
+        self.assertGreaterEqual(len(chunks), 15)
+        self.assertGreaterEqual(len(cases), 14)
+
+        retriever = BM25Retriever()
+        retriever.add(chunks)
+        report = run_benchmark(retriever, cases, corpus_size=len(chunks), top_k=3)
+        self.assertGreaterEqual(report.recall_at_k, 0.85)
 
 
 if __name__ == "__main__":
