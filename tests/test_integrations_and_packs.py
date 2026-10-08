@@ -54,6 +54,23 @@ class TestIntegrationsAndPacks(unittest.TestCase):
         self.assertGreaterEqual(len(res["documents"]), 1)
         self.assertIn("Refunds", res["documents"][0].content)
 
+    def test_dspy_adapter_from_texts(self):
+        from adaptive_rag.integrations.dspy import AdaptiveDSPyRetriever
+
+        retriever = AdaptiveDSPyRetriever.from_texts(
+            ["Security keys provide hardware-based MFA.", "Passwords should be 16 characters."],
+            k=2,
+            scope="dspy-test",
+        )
+        passages = retriever("hardware-based MFA")
+        self.assertGreaterEqual(len(passages), 1)
+        self.assertIn("Security keys", passages[0].long_text)
+
+        # Multi-query test
+        multi_passages = retriever(["Security keys", "Passwords"])
+        self.assertEqual(len(multi_passages), 2)
+        self.assertGreaterEqual(len(multi_passages[0]), 1)
+
     def test_domain_packs_healthcare(self):
         rag = HealthcareRAG()
         rag.add_texts(["Patient has HTN and stage 2 hypertension."])

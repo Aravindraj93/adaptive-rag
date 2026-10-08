@@ -17,6 +17,7 @@ Example:
     engine = AdaptiveQueryEngine.from_documents(docs, scope="my-app")
 """
 
+from .dspy import AdaptiveDSPyRetriever
 from .haystack import AdaptiveHaystackRetriever
 from .langchain import AdaptiveRetriever, AdaptiveRetriever as LangChainAdaptiveRetriever
 from .llamaindex import AdaptiveBaseRetriever, AdaptiveQueryEngine
@@ -27,4 +28,5 @@ __all__ = [
     "AdaptiveQueryEngine",
     "AdaptiveBaseRetriever",
     "AdaptiveHaystackRetriever",
+    "AdaptiveDSPyRetriever",
 ]

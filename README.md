@@ -164,6 +164,17 @@ result = retriever.run(query="What is the refund policy?", top_k=3)
 docs = result["documents"]
 ```
 
+### DSPy Retriever Model
+
+```python
+from adaptive_rag.integrations.dspy import AdaptiveDSPyRetriever
+
+retriever = AdaptiveDSPyRetriever.from_texts(texts, k=3, scope="my-app")
+# Use in DSPy pipelines:
+# dspy.settings.configure(rm=retriever)
+passages = retriever("What is the refund policy?", k=3)
+```
+
 ### Direct use (no framework needed)
 
 ```python
@@ -315,7 +326,7 @@ pip install adaptive-rag[pdf,images,numpy]
 - [x] Public leaderboard & Interactive Cost Calculator (`website/` and GitHub Pages)
 - [x] TypeScript/JavaScript client bindings (`client-js/` package)
 - [x] Multilingual benchmark suite (`benchmarks/multilingual_benchmark.json`)
-- [ ] DSPy framework adapter
+- [x] DSPy framework adapter (`adaptive_rag.integrations.dspy`)
 
 ---
 
