@@ -25,7 +25,7 @@ adaptive-rag is a CPU-first retrieval library with zero mandatory external depen
 5. Domain Starter Packs: Pre-tuned packs for Healthcare (HIPAA-safe abbreviation expansion), Legal (clause-aware chunking), Education, and Finance.
 
 Zero mandatory dependencies — installs in seconds with standard pip:
-pip install adaptive-rag
+pip install adaptive-rag-py
 
 Live Cost Calculator & Benchmarks:
 https://aravindraj93.github.io/adaptive-rag/
@@ -64,7 +64,7 @@ Benchmarks on Cranfield IR:
 - Hybrid: 0.847 Recall@5.
 
 Install:
-pip install adaptive-rag
+pip install adaptive-rag-py
 
 GitHub: https://github.com/Aravindraj93/adaptive-rag
 Interactive Demo & Cost Calculator: https://aravindraj93.github.io/adaptive-rag/

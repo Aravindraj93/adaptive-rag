@@ -40,7 +40,7 @@ Most RAG systems have a dirty secret: **they're expensive and fragile in product
 ## ⚡ 30-Second Quickstart
 
 ```bash
-pip install adaptive-rag
+pip install adaptive-rag-py
 ```
 
 ```python
@@ -292,19 +292,19 @@ async with AsyncSegmentCoordinator("./index/") as coord:
 
 ```bash
 # Core (no dependencies)
-pip install adaptive-rag
+pip install adaptive-rag-py
 
 # With PDF support
-pip install adaptive-rag[pdf]
+pip install adaptive-rag-py[pdf]
 
 # With image/OCR support (requires Tesseract)
-pip install adaptive-rag[images]
+pip install adaptive-rag-py[images]
 
 # With NumPy SIMD acceleration
-pip install adaptive-rag[numpy]
+pip install adaptive-rag-py[numpy]
 
 # Everything
-pip install adaptive-rag[pdf,images,numpy]
+pip install adaptive-rag-py[all]
 ```
 
 ---
