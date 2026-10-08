@@ -114,14 +114,13 @@ curl -X POST http://127.0.0.1:8000/search \
   -d '{"query": "refund policy", "top_k": 3}'
 ```
 
+Or use the zero-dependency JavaScript/TypeScript client ([`client-js/`](client-js/)):
+
 ```typescript
-// Query from TypeScript / Next.js / Node
-const res = await fetch("http://127.0.0.1:8000/search", {
-  method: "POST",
-  headers: { "Content-Type": "application/json" },
-  body: JSON.stringify({ query: "refund policy", top_k: 3 }),
-});
-const { results } = await res.json();
+import { AdaptiveRAGClient } from "./client-js"; // or from npm package
+
+const client = new AdaptiveRAGClient({ baseUrl: "http://127.0.0.1:8000" });
+const results = await client.search("refund policy", 3);
 console.log(results);
 ```
 
@@ -314,8 +313,8 @@ pip install adaptive-rag[pdf,images,numpy]
 - [x] Domain packs: Healthcare, Legal, Education, Code Docs, Finance
 - [x] Document Loaders: PDF, OCR images, HTML, Word DOCX
 - [x] Public leaderboard & Interactive Cost Calculator (`website/` and GitHub Pages)
+- [x] TypeScript/JavaScript client bindings (`client-js/` package)
 - [ ] Multilingual benchmark suite
-- [ ] TypeScript/JavaScript client bindings
 
 ---
 

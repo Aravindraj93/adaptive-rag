@@ -1,0 +1,26 @@
+{
+  "name": "adaptive-rag-client",
+  "version": "0.17.0",
+  "description": "Lightweight TypeScript & JavaScript client for adaptive-rag HTTP server",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "keywords": [
+    "rag",
+    "retrieval",
+    "search",
+    "bm25",
+    "ai",
+    "llm",
+    "cpu",
+    "adaptive-rag"
+  ],
+  "author": "Aravindraj93",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Aravindraj93/adaptive-rag"
+  }
+}
