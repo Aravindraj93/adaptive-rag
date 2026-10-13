@@ -7,10 +7,11 @@
 Run production-quality retrieval on any laptop or server.  
 Drop into your existing LangChain / LlamaIndex app in 3 lines.
 
-[![PyPI](https://img.shields.io/pypi/v/adaptive-rag?color=blue&label=PyPI)](https://pypi.org/project/adaptive-rag)
-[![Python](https://img.shields.io/pypi/pyversions/adaptive-rag)](https://pypi.org/project/adaptive-rag)
+[![PyPI](https://img.shields.io/pypi/v/adaptive-rag-py?color=blue&label=PyPI)](https://pypi.org/project/adaptive-rag-py)
+[![Python](https://img.shields.io/pypi/pyversions/adaptive-rag-py)](https://pypi.org/project/adaptive-rag-py)
 [![License](https://img.shields.io/github/license/Aravindraj93/adaptive-rag)](LICENSE)
 [![CI](https://github.com/Aravindraj93/adaptive-rag/actions/workflows/ci.yml/badge.svg)](https://github.com/Aravindraj93/adaptive-rag/actions)
+[![Docker](https://img.shields.io/badge/docker-ghcr.io-blue?logo=docker)](https://github.com/Aravindraj93/adaptive-rag/pkgs/container/adaptive-rag)
 [![CPU Only](https://img.shields.io/badge/runs%20on-CPU%20only-brightgreen)]()
 [![Zero Deps](https://img.shields.io/badge/mandatory%20deps-zero-brightgreen)]()
 [![Stars](https://img.shields.io/github/stars/Aravindraj93/adaptive-rag?style=social)](https://github.com/Aravindraj93/adaptive-rag/stargazers)
@@ -122,6 +123,18 @@ import { AdaptiveRAGClient } from "./client-js"; // or from npm package
 const client = new AdaptiveRAGClient({ baseUrl: "http://127.0.0.1:8000" });
 const results = await client.search("refund policy", 3);
 console.log(results);
+```
+
+### 🐳 Run with Docker or Docker Compose
+
+You can spin up an `adaptive-rag` server with zero local dependencies using Docker:
+
+```bash
+# Run with Docker (mounts your local documents into /data):
+docker run -p 8000:8000 -v $(pwd)/my_docs:/data ghcr.io/aravindraj93/adaptive-rag:latest
+
+# Or using docker compose:
+docker compose up -d
 ```
 
 ---

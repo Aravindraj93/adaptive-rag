@@ -1,0 +1,21 @@
+services:
+  adaptive-rag:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: ghcr.io/aravindraj93/adaptive-rag:latest
+    container_name: adaptive-rag-server
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./examples/sample_corpus:/data:ro
+    environment:
+      - HOST=0.0.0.0
+      - PORT=8000
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+      start_period: 5s
